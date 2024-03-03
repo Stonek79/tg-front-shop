@@ -11,14 +11,19 @@ export const Header = (props: HeaderProps) => {
     const {children} = props
     const {tg, loaded} = useTgApp()
 
-    if (loaded) {
-        console.log( tg.initDataUnsafe, loaded, 'HEADER')
+    const onToggle = () => {
+        if (tg.MainButton.isVisible) {
+            tg.MainButton.hide()
+        } else {
+            tg.MainButton.show()
+        }
     }
 
     return (
         <div className={styles.header}>
             {children}
             {loaded && <span className={styles.username}>{tg.initDataUnsafe?.user?.username}</span>}
+            <button className={styles.button} onClick={onToggle}>Toggle</button>
         </div>
     );
 };

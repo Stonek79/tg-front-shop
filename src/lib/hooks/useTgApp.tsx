@@ -12,13 +12,11 @@ export const useTgApp = () => {
         // @ts-ignore
         const tgApp = window?.Telegram?.WebApp
 
-        console.log(tgApp, 'EFFECT')
         if (tgApp) {
             setTg(tgApp)
             setLoaded(true)
 
             tgApp.ready()
-            console.log(tgApp?.initDataUnsafe?.user?.username);
         }
     }, [])
 

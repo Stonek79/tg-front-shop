@@ -3,12 +3,11 @@
 import {ReactNode} from "react";
 import styles from "./Header.module.css";
 import {useTgApp} from "@/lib/hooks/useTgApp";
+import {CloseButton} from "@/components/Button/CloseButton";
+import {Button} from "@/components/Button/Button";
+import Link from "next/link";
 
-interface HeaderProps {
-    children?: ReactNode
-}
-export const Header = (props: HeaderProps) => {
-    const {children} = props
+export const Header = () => {
     const {tg, loaded} = useTgApp()
 
     const onToggle = () => {
@@ -20,10 +19,16 @@ export const Header = (props: HeaderProps) => {
     }
 
     return (
-        <div className={styles.header}>
-            {children}
+        <nav className={styles.header}>
+            <Button>
+                <Link style={{ textDecoration: 'none' }} href={'/'}>Main</Link>
+            </Button>
             {loaded && <span className={styles.username}>{tg.initDataUnsafe?.user?.username}</span>}
             <button className={styles.button} onClick={onToggle}>Toggle</button>
-        </div>
+            <CloseButton name={'Close'}/>
+            <Button>
+                <Link style={{ textDecoration: 'none' }} href={'/products'}>Products</Link>
+            </Button>
+        </nav>
     );
 };

@@ -3,6 +3,7 @@ import {PageWrapper} from "@/components/PageWrapper";
 import {CloseButton} from "@/components/Button/CloseButton";
 import {Header} from "@/components/Header/Header";
 import Script from "next/script";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
           <PageWrapper>
               <Header>
                   <CloseButton name={'Close'}/>
+                  <Link href={'/products'}>Products</Link>
               </Header>
           </PageWrapper>
       </div>

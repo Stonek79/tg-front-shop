@@ -20,5 +20,5 @@ export const useTgApp = () => {
         }
     }, [])
 
-    return { tg, loaded }
+    return { tg, loaded, queryId: tg?.initDataUnsafe?.query_id, }
 }

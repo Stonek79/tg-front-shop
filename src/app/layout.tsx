@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import {ReactNode} from "react";
 import {Header} from "@/components/Header/Header";
-import styles from "@/app/page.module.css";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -34,7 +33,7 @@ export default function RootLayout({
           width: '100%'
       }}>
           <Header/>
-          <div style={{ flex: 1 }}>{children}</div>
+          <div style={{ flex: 1, padding: '24px', display: 'flex', justifyContent: 'center' }}>{children}</div>
       </div>
       </main>
       </body>

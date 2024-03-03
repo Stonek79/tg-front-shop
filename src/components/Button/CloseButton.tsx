@@ -1,6 +1,7 @@
 'use client'
 
 import {useTgApp} from "@/lib/hooks/useTgApp";
+import styles from './Button.module.css'
 
 interface CloseButtonProps {
     name: string
@@ -13,5 +14,5 @@ export const CloseButton = (props: CloseButtonProps) => {
         tg.close()
     }
 
-    return <button className="close-button" onClick={onClose}>{name}</button>
+    return <button className={styles.button} onClick={onClose}>{name}</button>
 }

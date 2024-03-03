@@ -1,5 +1,5 @@
 import {ReactNode} from 'react';
-import './Button.module.css';
+import styles from './Button.module.css';
 
 interface ButtonProps {
     className?: string
@@ -8,6 +8,6 @@ interface ButtonProps {
 }
 export const Button = (props: ButtonProps) => {
     return (
-        <button {...props} className={'button ' + props.className}/>
+        <button {...props} className={styles.button + ' ' + props.className}/>
     );
 };

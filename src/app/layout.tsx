@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import styles from "./container.module.css";
 import {ReactNode} from "react";
 import {Header} from "@/components/Header/Header";
 import Script from "next/script";
@@ -26,14 +27,9 @@ export default function RootLayout({
               src="https://telegram.org/js/telegram-web-app.js"
               strategy="beforeInteractive"
           />
-      <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'absolute',
-          width: '100%'
-      }}>
+      <div className={styles.mainLayout}>
           <Header/>
-          <div style={{ flex: 1, padding: '24px', display: 'flex', justifyContent: 'center' }}>{children}</div>
+          <div className={styles.container}>{children}</div>
       </div>
       </main>
       </body>

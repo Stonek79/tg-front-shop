@@ -1,0 +1,12 @@
+.mainLayout {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+}
+
+.container {
+    flex: 1;
+    padding: 24px; display: flex;
+    justify-content: center;
+}

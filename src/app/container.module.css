@@ -9,6 +9,7 @@
 
 .container {
     flex: 1;
-    padding: 24px; display: flex;
+    padding: 8px;
+    display: flex;
     justify-content: center;
 }

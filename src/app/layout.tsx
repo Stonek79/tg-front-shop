@@ -21,17 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-      <main>
-          <Script
-              async
-              src="https://telegram.org/js/telegram-web-app.js"
-              strategy="beforeInteractive"
-          />
-      <div className={styles.mainLayout}>
-          <Header/>
-          <div className={styles.container}>{children}</div>
-      </div>
-      </main>
+          <main className={styles.mainLayout}>
+              <Script
+                  async
+                  src="https://telegram.org/js/telegram-web-app.js"
+                  strategy="beforeInteractive"
+              />
+              <Header/>
+              <div className={styles.container}>{children}</div>
+          </main>
       </body>
     </html>
   );

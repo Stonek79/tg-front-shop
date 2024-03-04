@@ -9,7 +9,7 @@
     gap: 8px;
     padding: 0 8px;
     box-shadow: 0 0 10px var(--tg-theme-secondary-bg-color);
-    background: var(--tg-theme-bg-color);
+    background: var(--tg-theme-hint-color);
 }
 
 .username {

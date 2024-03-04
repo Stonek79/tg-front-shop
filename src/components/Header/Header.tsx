@@ -3,7 +3,6 @@
 import styles from "./Header.module.css";
 import {useTgApp} from "@/lib/hooks/useTgApp";
 import {Button} from "@/components/Button/Button";
-import Link from "next/link";
 import {useRouter} from "next/navigation";
 
 export const Header = () => {
@@ -22,6 +21,7 @@ export const Header = () => {
         }
     }
 
+    // TODO fix sticky header
     return (
         <nav className={styles.header}>
             <Button onClick={() => router.push('/')}>Main</Button>

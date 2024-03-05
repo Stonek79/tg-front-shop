@@ -1,5 +1,6 @@
 import {Product} from "@/types/product";
 
+export const productsUrl = 'https://dummyjson.com/products';
 export const products: Product[] = [
     {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
     {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},

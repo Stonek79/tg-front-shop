@@ -38,13 +38,15 @@
 
 .productBtn {
     cursor: pointer;
-    justify-content: center;
+    justify-content: space-between;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .productWrapper {
     display: flex;
+    flex-direction: column;
     gap: 8px;
     padding: 0 8px;
     justify-content: space-evenly;
@@ -54,4 +56,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 8px;
+}
+
+.productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5px;
+    padding: 5px;
 }

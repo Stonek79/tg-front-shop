@@ -16,7 +16,6 @@ interface ProductItemProps {
 }
 export const ProductPreview = ({product, className}: ProductItemProps) => {
     const {onAdd} = useAddProduct();
-    const router = useRouter()
 
     const onAddHandler = () => {
         onAdd(product);

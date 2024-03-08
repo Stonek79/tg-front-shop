@@ -3,16 +3,28 @@ import styles from './ProductItem.module.css';
 import {Product} from "@/types/product";
 import {Button} from "@/components/Button/Button";
 import {useAddProduct} from "@/lib/hooks/useAddProduct";
-import { Carousel } from "@/components/Carousel/Carousel";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Thumbs, FreeMode, Zoom } from 'swiper/modules';
+import SwiperCore from 'swiper/core';
+import { useState } from 'react';
+
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import 'swiper/css/zoom';
+
+SwiperCore.use([Navigation, Thumbs, FreeMode, Zoom]);
 
 interface ProductItemProps {
     product: Product
     className?: string
-    // onAdd: (product: Product) => void
 }
 export const ProductItem = ({product, className}: ProductItemProps) => {
     const router = useRouter()
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const {onAdd} = useAddProduct();
 
     const onAddHandler = () => {
@@ -23,8 +35,46 @@ export const ProductItem = ({product, className}: ProductItemProps) => {
         <div className={styles.productItem + ' ' + className}>
             <Button onClick={() => router.back()}>Назад</Button>
             <div className={styles.productWrapper}>
-                {/*<Image alt='Product image' src={product.thumbnail || ''} width={100} height={100} className={styles.itemImg} priority/>*/}
-                <Carousel slides={product.images || []} height={200} width={200} options={{ loop: true }} />
+                {product.images && <>
+                    <Swiper
+                        spaceBetween={ 10 }
+                        loop={ true }
+                        zoom={ true }
+                        navigation={ true }
+                        thumbs={ { swiper: thumbsSwiper } }
+                        modules={ [FreeMode, Navigation, Thumbs, Zoom] }
+                        pagination={ {
+                            clickable: true,
+                        } }
+                        className={ styles.itemImg + ' mySwiper2' }
+                    >
+                        { product.images?.map((image, index) => (
+                            <SwiperSlide key={ index }>
+                                <div className="swiper-zoom-container">
+                                    <img alt='Product image' src={ image }/>
+                                </div>
+                            </SwiperSlide>
+                        )) }
+                    </Swiper>
+                    {product.images.length > 1 && <Swiper
+                        // @ts-ignore
+                        onSwiper={ setThumbsSwiper }
+                        loop={ true }
+                        spaceBetween={ 10 }
+                        slidesPerView={ product?.images?.length > 4 ? 4 : product?.images?.length }
+                        freeMode={ true }
+                        watchSlidesProgress={ true }
+                        modules={ [FreeMode, Navigation, Thumbs] }
+                        className={ styles.itemImgThumbs + " mySwiper" }
+                    >
+                        { product.images?.map((image, index) => (
+                            <SwiperSlide key={ image }>
+                                <img alt='Product image' src={ image }/>
+                            </SwiperSlide>
+                        )) }
+                    </Swiper> }
+                </>
+            }
                 <div className={styles.productDescription}>
                     <div className={styles.title}><span>Название:</span> {product.title}</div>
                     <div className={styles.description}><span>Описание:</span> {product.description}</div>

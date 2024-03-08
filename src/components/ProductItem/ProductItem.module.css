@@ -5,6 +5,7 @@
     border: 1px solid var(--tg-theme-button-color);
     padding: 15px;
     max-width: 170px;
+    width: 100%;
 }
 
 .productItem {
@@ -19,6 +20,12 @@
 .itemImg {
     background: lightgray;
     background: var(--tg-theme-button-color);
+    max-width: 20rem;
+    max-height: 20rem;
+}
+
+.itemImgThumbs {
+    max-height: 5rem;
 }
 
 .img {

@@ -9,10 +9,6 @@ export const Header = () => {
     const router = useRouter()
     const {tg} = useTgApp()
 
-    const onClose = () => {
-        tg.close()
-    }
-
     const onToggle = () => {
         if (tg.MainButton.isVisible) {
             tg.MainButton.hide()
@@ -23,10 +19,10 @@ export const Header = () => {
 
     return (
         <nav className={styles.header}>
-            <Button onClick={() => router.push('/')}>Main</Button>
-            <Button className={styles.button} onClick={onToggle}>Toggle</Button>
-            <Button onClick={onClose}>Close</Button>
-            <Button onClick={() => router.push('/products')}>Products</Button>
+            <Button onClick={() => router.push('/')}>Главная</Button>
+            <Button className={styles.button} onClick={onToggle}>Меню</Button>
+            <Button onClick={() => router.push('/form')}>Зарегистрироваться</Button>
+            <Button onClick={() => router.push('/products')}>Список товаров</Button>
         </nav>
     );
 };

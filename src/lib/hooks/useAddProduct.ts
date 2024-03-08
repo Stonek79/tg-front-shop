@@ -14,7 +14,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        return await fetch('http://45.137.152.20:8000/web-data', {
+        return await fetch('https://45.137.152.20:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        await fetch('http://45.137.152.20:8000/web-data', {
+        return await fetch('http://45.137.152.20:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,16 +47,23 @@ export const useAddProduct = () => {
             }
 
             setAddedItems(newProducts)
+            console.log(newProducts)
         } else {
             localStorage.setItem('cart', JSON.stringify([product]));
             setAddedItems([product])
         }
+    }
 
+    const clearCart = () => {
+        localStorage.removeItem('cart');
+        setAddedItems([]);
+        console.log('Корзина очищена')
     }
 
     return {
         addedItems,
         onAdd,
-        byProducts
+        byProducts,
+        clearCart
     }
 }

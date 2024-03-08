@@ -44,6 +44,8 @@ export const ProductsList = (props: ProductsListProps) => {
 
     useEffect(() => {
         if (loaded) {
+            addedItems &&tg.MainButton.show();
+
             tg.onEvent('mainButtonClicked', byProducts)
             return () => {
                 tg.offEvent('mainButtonClicked', byProducts)

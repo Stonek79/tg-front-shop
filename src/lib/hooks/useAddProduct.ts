@@ -14,7 +14,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        return await fetch('https://45.137.152.20:8000/web-data', {
+         await fetch('http://45.137.152.20:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,12 +39,6 @@ export const useAddProduct = () => {
             const newProducts: Product[] = [...addedProducts, product];
             localStorage.setItem('cart', JSON.stringify(newProducts));
 
-
-                tg.MainButton.show();
-                tg.MainButton.setParams({
-                    text: `Купить ${ getTotalPrice(newProducts) }`
-                })
-
             setAddedItems(newProducts)
             console.log(newProducts)
         } else {
@@ -52,9 +46,15 @@ export const useAddProduct = () => {
             setAddedItems([product])
             tg.MainButton.show();
             tg.MainButton.setParams({
-                text: `Купить ${ getTotalPrice([product]) }`
+                text: `Купить 1 товар на сумму ${ getTotalPrice([product]) }`
             })
         }
+
+        const goods = addedItems.length === 1 ? 'товар' : (addedItems.length > 4 ? 'товаров' : 'товара');
+
+        tg.MainButton.setParams({
+            text: `Купить ${addedItems.length} ${goods} на сумму ${ getTotalPrice(addedItems) }`
+        })
     }
 
     const clearCart = () => {

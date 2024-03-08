@@ -44,14 +44,14 @@ export const ProductsList = (props: ProductsListProps) => {
 
     useEffect(() => {
         if (loaded) {
-            addedItems && tg.MainButton.show();
-
+            // addedItems.length > 0 && tg.MainButton.show();
+            // console.log(addedItems, 'addedItems')
             tg.onEvent('mainButtonClicked', byProducts)
             return () => {
                 tg.offEvent('mainButtonClicked', byProducts)
             }
         }
-    }, [byProducts,loaded,addedItems])
+    }, [byProducts,loaded])
 
     useEffect(() => {
         if (!isLoading && data) {

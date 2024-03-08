@@ -1,5 +1,5 @@
 'use client'
-import {useCallback, useState} from "react";
+import { useCallback, useEffect, useState } from "react";
 import {Product} from "@/types/product";
 import {useTgApp} from "@/lib/hooks/useTgApp";
 import {getTotalPrice} from "@/lib/helpers/getTotalPrice";
@@ -14,7 +14,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-         await fetch('http://45.137.152.20:8000/web-data', {
+         return await fetch('http://45.137.152.20:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,12 +50,23 @@ export const useAddProduct = () => {
             })
         }
 
+    }
+
+    useEffect(() => {
+        if (!loaded) {
+            return
+        }
         const goods = addedItems.length === 1 ? 'товар' : (addedItems.length > 4 ? 'товаров' : 'товара');
 
-        tg.MainButton.setParams({
-            text: `Купить ${addedItems.length} ${goods} на сумму ${ getTotalPrice(addedItems) }`
-        })
-    }
+        if(addedItems.length === 0) {
+            tg.MainButton.hide();
+        } else {
+            tg.MainButton.show();
+            tg.MainButton.setParams({
+                text: `Купить ${addedItems.length} ${goods} на сумму ${ getTotalPrice(addedItems) }`
+            })
+        }
+    }, [addedItems, loaded])
 
     const clearCart = () => {
         localStorage.removeItem('cart');

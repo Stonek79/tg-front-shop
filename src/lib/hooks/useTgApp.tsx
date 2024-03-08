@@ -2,7 +2,6 @@
 
 import {useEffect, useState} from "react";
 
-
 export const useTgApp = () => {
     const [tg, setTg] = useState<any>({})
     const [loaded, setLoaded] = useState(false)

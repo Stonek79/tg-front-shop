@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './ProductsList.module.css';
-import React, { Suspense, useCallback, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import {useTgApp} from "@/lib/hooks/useTgApp";
 import {useAddProduct} from "@/lib/hooks/useAddProduct";
 import {ProductPreview} from "@/components/ProductItem/ProductPreview";
@@ -11,7 +11,6 @@ import {useInView} from "react-intersection-observer";
 import { fetcher } from "@/lib/api/fetcher";
 import useSWRInfinite from "swr/infinite";
 import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
-import { getTotalPrice } from "@/lib/helpers/getTotalPrice";
 
 interface ProductsListProps {
     products: Product[]
@@ -46,8 +45,6 @@ export const ProductsList = (props: ProductsListProps) => {
     useEffect(() => {
         if (loaded) {
             tg.onEvent('mainButtonClicked', byProducts)
-            tg.MainButton.show()
-
             return () => {
                 tg.offEvent('mainButtonClicked', byProducts)
             }

@@ -18,6 +18,8 @@ export const useAddProduct = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST'
             },
             body: JSON.stringify(data)
         })
@@ -37,20 +39,21 @@ export const useAddProduct = () => {
             const newProducts: Product[] = [...addedProducts, product];
             localStorage.setItem('cart', JSON.stringify(newProducts));
 
-            if (newProducts.length === 0) {
-                tg.MainButton.hide();
-            } else {
+
                 tg.MainButton.show();
                 tg.MainButton.setParams({
                     text: `Купить ${ getTotalPrice(newProducts) }`
                 })
-            }
 
             setAddedItems(newProducts)
             console.log(newProducts)
         } else {
             localStorage.setItem('cart', JSON.stringify([product]));
             setAddedItems([product])
+            tg.MainButton.show();
+            tg.MainButton.setParams({
+                text: `Купить ${ getTotalPrice([product]) }`
+            })
         }
     }
 

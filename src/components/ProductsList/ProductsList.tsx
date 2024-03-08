@@ -22,12 +22,11 @@ interface ProductsListProps {
 export const ProductsList = (props: ProductsListProps) => {
     const { products: initialProducts, search = '', limit = 10 } = props
     const {tg, loaded} = useTgApp();
-    const { byProducts } = useAddProduct();
+    const { byProducts, addedItems } = useAddProduct();
 
     const [products, setProducts] = useState(initialProducts)
     const [canTrigger, setCanTrigger] = useState(true)
     const [ref, inView] = useInView()
-
 
     const {
         data,
@@ -45,6 +44,12 @@ export const ProductsList = (props: ProductsListProps) => {
 
 
     useEffect(() => {
+        if (addedItems.length === 0) {
+            loaded &&tg.MainButton.hide()
+        } else {
+            loaded && tg.MainButton.show()
+        }
+
         if (loaded) {
             tg.onEvent('mainButtonClicked', byProducts)
 

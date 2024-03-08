@@ -10,6 +10,7 @@
 
 .productItem {
     display: flex;
+    width: 100vw;
     max-width: 500px;
     flex-direction: column;
     border: 1px solid var(--tg-theme-button-color);

@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import {Product} from "@/types/product";
 import {useTgApp} from "@/lib/hooks/useTgApp";
 import {getTotalPrice} from "@/lib/helpers/getTotalPrice";
+import { fetcher } from "@/lib/api/fetcher";
 
 export const useAddProduct = () => {
     const [addedItems, setAddedItems] = useState<Product[]>([]);
@@ -14,7 +15,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-         return await fetch('https://45.137.152.20:8000/web-data', {
+        await fetcher('https://45.137.152.20:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,6 +24,15 @@ export const useAddProduct = () => {
             },
             body: JSON.stringify(data)
         })
+        //   await fetch('https://45.137.152.20:8000/web-data', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Access-Control-Allow-Origin': '*',
+        //         'Access-Control-Allow-Methods': 'GET, POST'
+        //     },
+        //     body: JSON.stringify(data)
+        // })
     }, [addedItems])
 
 

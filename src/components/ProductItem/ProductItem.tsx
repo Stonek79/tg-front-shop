@@ -22,6 +22,7 @@ interface ProductItemProps {
     product: Product
     className?: string
 }
+
 export const ProductItem = ({product, className}: ProductItemProps) => {
     const router = useRouter()
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -50,9 +51,7 @@ export const ProductItem = ({product, className}: ProductItemProps) => {
                     >
                         { product.images?.map((image, index) => (
                             <SwiperSlide key={ index }>
-                                <div className="swiper-zoom-container">
                                     <img alt='Product image' src={ image }/>
-                                </div>
                             </SwiperSlide>
                         )) }
                     </Swiper>
@@ -68,7 +67,7 @@ export const ProductItem = ({product, className}: ProductItemProps) => {
                         className={ styles.itemImgThumbs + " mySwiper" }
                     >
                         { product.images?.map((image, index) => (
-                            <SwiperSlide key={ image }>
+                            <SwiperSlide key={ index }>
                                 <img alt='Product image' src={ image }/>
                             </SwiperSlide>
                         )) }

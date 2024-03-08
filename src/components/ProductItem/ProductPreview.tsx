@@ -4,15 +4,12 @@ import {Product} from "@/types/product";
 import {Button} from "@/components/Button/Button";
 import Image from "next/image";
 import {useAddProduct} from "@/lib/hooks/useAddProduct";
-import {useRouter} from "next/navigation";
 import Link from "next/link";
 import { Suspense } from "react";
 
 interface ProductItemProps {
     product: Product
     className?: string
-    // href: string
-    // onAdd: (product: Product) => void
 }
 export const ProductPreview = ({product, className}: ProductItemProps) => {
     const {onAdd} = useAddProduct();

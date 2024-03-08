@@ -22,7 +22,7 @@ interface ProductsListProps {
 export const ProductsList = (props: ProductsListProps) => {
     const { products: initialProducts, search = '', limit = 10 } = props
     const {tg, loaded} = useTgApp();
-    const { onSendData } = useAddProduct();
+    const { byProducts } = useAddProduct();
 
     const [products, setProducts] = useState(initialProducts)
     const [canTrigger, setCanTrigger] = useState(true)
@@ -45,6 +45,16 @@ export const ProductsList = (props: ProductsListProps) => {
 
 
     useEffect(() => {
+        if (loaded) {
+            tg.onEvent('mainButtonClicked', byProducts)
+
+            return () => {
+                tg.offEvent('mainButtonClicked', byProducts)
+            }
+        }
+    }, [byProducts, loaded])
+
+    useEffect(() => {
         if (!isLoading && data) {
             const newProducts = data.flatMap(({ products }: { products: Product[] }) => products)
             if (data[0].total === newProducts.length) {
@@ -53,13 +63,6 @@ export const ProductsList = (props: ProductsListProps) => {
             setProducts(newProducts)
         }
     }, [data, isLoading])
-
-    useEffect(() => {
-        loaded && tg.onEvent('mainButtonClicked', onSendData)
-        return () => {
-            loaded && tg.offEvent('mainButtonClicked', onSendData)
-        }
-    }, [onSendData, loaded])
 
     useEffect( () => {
         if (inView) {

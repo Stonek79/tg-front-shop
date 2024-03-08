@@ -8,13 +8,13 @@ export const useAddProduct = () => {
     const [addedItems, setAddedItems] = useState<Product[]>([]);
     const {tg, loaded, queryId} = useTgApp();
 
-    const onSendData = useCallback(async () => {
+    const byProducts = useCallback(async () => {
         const data = {
             products: addedItems,
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        await fetch('http://85.119.146.179:8000/web-data', {
+        await fetch('http://45.137.152.20:8000/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,6 +57,6 @@ export const useAddProduct = () => {
     return {
         addedItems,
         onAdd,
-        onSendData
+        byProducts
     }
 }

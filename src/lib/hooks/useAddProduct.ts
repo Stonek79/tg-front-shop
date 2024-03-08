@@ -15,16 +15,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        await fetcher('https://45.137.152.20:8000/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST'
-            },
-            body: JSON.stringify(data)
-        })
-        //   await fetch('https://45.137.152.20:8000/web-data', {
+        // await fetcher('https://45.137.152.20:8000/web-data', {
         //     method: 'POST',
         //     headers: {
         //         'Content-Type': 'application/json',
@@ -33,6 +24,15 @@ export const useAddProduct = () => {
         //     },
         //     body: JSON.stringify(data)
         // })
+          await fetch('http://45.137.152.20:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Methods': 'GET, POST'
+            },
+            body: JSON.stringify(data)
+        })
     }, [addedItems])
 
 

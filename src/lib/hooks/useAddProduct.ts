@@ -3,11 +3,12 @@ import { useCallback, useEffect, useState } from "react";
 import {Product} from "@/types/product";
 import {useTgApp} from "@/lib/hooks/useTgApp";
 import {getTotalPrice} from "@/lib/helpers/getTotalPrice";
-import { fetcher } from "@/lib/api/fetcher";
+import { useRouter } from "next/navigation";
 
 export const useAddProduct = () => {
     const [addedItems, setAddedItems] = useState<Product[]>([]);
     const {tg, loaded, queryId} = useTgApp();
+    const router = useRouter()
 
     const byProducts = useCallback(async () => {
         const data = {
@@ -15,16 +16,7 @@ export const useAddProduct = () => {
             totalPrice: getTotalPrice(addedItems),
             queryId,
         }
-        // await fetcher('https://45.137.152.20:8000/web-data', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Access-Control-Allow-Origin': '*',
-        //         'Access-Control-Allow-Methods': 'GET, POST'
-        //     },
-        //     body: JSON.stringify(data)
-        // })
-          await fetch('https://stonek79.site/web-data', {
+          const prods = await fetch('https://stonek79.site/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,7 +24,12 @@ export const useAddProduct = () => {
                 'Access-Control-Allow-Methods': 'GET, POST'
             },
             body: JSON.stringify(data)
-        })
+          })
+        console.log(prods, 'PRODS')
+
+        if (prods.status === 200) {
+            router.push('/cart')
+        }
     }, [addedItems])
 
 

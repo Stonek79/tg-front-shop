@@ -11,23 +11,23 @@ export const useAddProduct = () => {
     const router = useRouter()
 
     const byProducts = useCallback(async () => {
-        const data = {
-            products: addedItems,
-            totalPrice: getTotalPrice(addedItems),
-            queryId,
-        }
-          const prods = await fetch('https://stonek79.site/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-          })
-        console.log(prods, 'PRODS')
+        // const data = {
+        //     products: addedItems,
+        //     totalPrice: getTotalPrice(addedItems),
+        //     queryId,
+        // }
+        //   const prods = await fetch('https://stonek79.site/web-data', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(data)
+        //   })
+        // console.log(prods, 'PRODS')
 
-        if (prods.status === 200) {
+        // if (prods.status === 200) {
             router.push('/cart')
-        }
+        // }
     }, [addedItems])
 
 

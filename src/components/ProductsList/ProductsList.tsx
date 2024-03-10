@@ -11,6 +11,7 @@ import {useInView} from "react-intersection-observer";
 import { fetcher } from "@/lib/api/fetcher";
 import useSWRInfinite from "swr/infinite";
 import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
+import { useRouter } from "next/navigation";
 
 interface ProductsListProps {
     products: Product[]
@@ -22,7 +23,7 @@ export const ProductsList = (props: ProductsListProps) => {
     const { products: initialProducts, search = '', limit = 10 } = props
     const {tg, loaded} = useTgApp();
     const { byProducts, addedItems } = useAddProduct();
-
+const router = useRouter()
     const [products, setProducts] = useState(initialProducts)
     const [canTrigger, setCanTrigger] = useState(true)
     const [ref, inView] = useInView()
@@ -69,6 +70,7 @@ export const ProductsList = (props: ProductsListProps) => {
 
     return (
         <div className={styles.wrapper}>
+            <button onClick={() => router.push('/cart')} >Корзина</button>
             <div className={styles.list}>
                 <ErrorBoundary>
                     <Suspense fallback={<h1>Загрузка...</h1>}>

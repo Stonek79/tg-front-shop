@@ -28,12 +28,11 @@ export const useAddProduct = () => {
         // if (prods.status === 200) {
             router.push('/cart')
         // }
-    }, [addedItems])
-
+    }, [])
 
     const onAdd = (product: Product) => {
         const cart = localStorage.getItem('cart');
-        if (cart) {
+        if (cart && loaded) {
             const addedProducts: Product[] = JSON.parse(cart);
             const alreadyAdded = addedProducts.find(item => item.id === product.id);
 

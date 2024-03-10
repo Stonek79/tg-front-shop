@@ -12,6 +12,7 @@ import { fetcher } from "@/lib/api/fetcher";
 import useSWRInfinite from "swr/infinite";
 import ErrorBoundary from "@/components/ErrorBoundary/ErrorBoundary";
 import { useRouter } from "next/navigation";
+import { Button } from "@/components/Button/Button";
 
 interface ProductsListProps {
     products: Product[]
@@ -70,7 +71,7 @@ const router = useRouter()
 
     return (
         <div className={styles.wrapper}>
-            <button onClick={() => router.push('/cart')} >Корзина</button>
+            <Button onClick={() => router.push('/cart')} >Корзина</Button>
             <div className={styles.list}>
                 <ErrorBoundary>
                     <Suspense fallback={<h1>Загрузка...</h1>}>

@@ -2,8 +2,11 @@
 import { Product } from "@/types/product";
 import { getTotalPrice } from "@/lib/helpers/getTotalPrice";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/Button/Button";
 
 export const CartPage = () => {
+    const router = useRouter()
     const [products, setProducts] = useState<Product[]>([])
     const total = getTotalPrice(products)
 
@@ -14,12 +17,13 @@ export const CartPage = () => {
 
     return products.length ?
     <div>
+        <Button onClick={() => router.back()}>Назад</Button>
         {
             products.map((prod) => {
-                return <div key={prod.id}>
+                return <div style={{ maxWidth: '97vw'}} key={prod.id}>
                         <h2>{ prod.title }</h2>
-                        <h4>{ prod.description }</h4>
-                        <img alt={ prod.title } src={ prod.thumbnail }/>
+                        <p style={{padding: '8px'}}>{ prod.description }</p>
+                        <img style={{ maxWidth: '100%'}} alt={ prod.title } src={ prod.thumbnail }/>
                         <h3>Цена: { prod.price } рублей</h3>
                     <br/>
                 </div>

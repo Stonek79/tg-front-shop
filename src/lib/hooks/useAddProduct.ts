@@ -24,7 +24,7 @@ export const useAddProduct = () => {
         //     },
         //     body: JSON.stringify(data)
         // })
-          await fetch('https://45.137.152.20:8843/web-data', {
+          await fetch('https://stonek79.site/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

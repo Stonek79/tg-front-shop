@@ -16,6 +16,7 @@ export const useTgApp = () => {
             setLoaded(true)
 
             tgApp.ready()
+            tgApp.expand()
         }
     }, [])
 

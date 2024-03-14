@@ -1,0 +1,15 @@
+.footer_layout {
+    color: var(--tg-theme-text-color);
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 8px;
+    display: flex;
+    background: var(--tg-theme-hint-color);
+    z-index: 100;
+}

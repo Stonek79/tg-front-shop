@@ -1,12 +1,10 @@
-import {ProductsList} from "@/components/ProductsList/ProductsList";
-import {Product} from "@/types/product";
-import {getProducts} from "@/lib/actions/products";
-import {productsUrl} from "@/lib/consts/products";
+import { ProductsList } from '@/features/ProductsList/ProductsList'
+import { Product } from '@/types/product'
+import { getProducts } from '@/shared/lib/actions/products'
+import { productsUrl } from '@/shared/lib/consts/products'
 
 export default async function Products() {
-    const products: Product[] = await getProducts(productsUrl);
+    const products: Product[] = await getProducts(productsUrl)
 
-    return (
-        <ProductsList products={products}/>
-    )
+    return <ProductsList products={products} />
 }

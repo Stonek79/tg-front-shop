@@ -1,7 +1,5 @@
-import { Form } from "@/components/Form/Form";
+import { Form } from '@/features/Form/Form'
 
 export default async function FormData() {
-    return (
-        <Form />
-    )
+    return <Form />
 }

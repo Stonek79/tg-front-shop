@@ -1,0 +1,13 @@
+.search_menu_btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: none;
+    color: var(--tg-theme-text-color);
+    cursor: pointer;
+}

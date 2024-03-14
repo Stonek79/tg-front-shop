@@ -1,4 +1,4 @@
-import { CartPage } from "@/components/Cart/CartPage";
+import { CartPage } from '@/widgets/Cart/CartPage'
 
 export default function Cart() {
     return <CartPage />

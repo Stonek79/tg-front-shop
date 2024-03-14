@@ -1,0 +1,39 @@
+.main_layout {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.main_layout_container {
+  flex: 1;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  max-width: 97vw;
+}
+
+.main_page_description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  /*max-width: var(--max-width);*/
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+  padding: 16px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

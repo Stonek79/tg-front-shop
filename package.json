@@ -6,7 +6,7 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "npx oxlint"
+    "lint": "next lint"
   },
   "dependencies": {
     "@preact/signals": "^1.2.2",

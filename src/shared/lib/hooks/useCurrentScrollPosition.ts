@@ -1,27 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 export const useCurrentScrollPosition = () => {
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState(0)
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentPosition = window.scrollY;
-            setScrollPosition(currentPosition);
-            localStorage.setItem('scrollPosition', currentPosition.toString());
-        };
+            const currentPosition = window.scrollY
+            setScrollPosition(currentPosition)
+            localStorage.setItem('scrollPosition', currentPosition.toString())
+        }
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll)
 
         // Получение позиции скролла из localStorage при монтировании
-        const savedScrollPosition = localStorage.getItem('scrollPosition');
+        const savedScrollPosition = localStorage.getItem('scrollPosition')
         if (savedScrollPosition !== null) {
-            setScrollPosition(parseInt(savedScrollPosition));
+            setScrollPosition(parseInt(savedScrollPosition))
         }
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
 
-    return scrollPosition;
-};
+    return scrollPosition
+}

@@ -9,7 +9,6 @@ import { useInView } from 'react-intersection-observer'
 import { fetcher } from '@/shared/lib/api/fetcher'
 import useSWRInfinite from 'swr/infinite'
 import { useRouter } from 'next/navigation'
-import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 
 interface ProductsListProps {
@@ -20,7 +19,6 @@ interface ProductsListProps {
 
 // eslint-disable-next-line react/display-name
 export const ProductsList = memo((props: ProductsListProps) => {
-    const { t } = getTranslation('products.productsList')
     const { products: initialProducts, search = '', limit = 10 } = props
     const tg = useWebApp()
     const router = useRouter()

@@ -1,7 +1,4 @@
-import {Product} from "@/types/product";
+import { Product } from '@/types/product'
 
-export const getTotalPrice = (items: Product[] = []) => {
-    return items.reduce((acc, item) => {
-        return acc += item.price
-    }, 0)
-}
+export const getTotalPrice = (items: Product[] = []) =>
+    items.reduce((acc, item) => (acc += item.price), 0)

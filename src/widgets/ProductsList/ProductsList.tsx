@@ -1,17 +1,16 @@
 'use client'
 
-import styles from './ProductsList.module.css'
-import React, { Suspense, useEffect, useState } from 'react'
-import { useTgApp } from '@/shared/lib/hooks/useTgApp'
-import { ProductPreview } from '@/features/ProductItem/ProductPreview'
+import './ProductsList.css'
+import React, { memo, useEffect, useState } from 'react'
+import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
 import { productsUrl } from '@/shared/lib/consts/products'
 import { useInView } from 'react-intersection-observer'
 import { fetcher } from '@/shared/lib/api/fetcher'
 import useSWRInfinite from 'swr/infinite'
-import ErrorBoundary from '@/widgets/ErrorBoundary/ErrorBoundary'
 import { useRouter } from 'next/navigation'
-import { Button } from '@/shared/ui/Button/Button'
+import { getTranslation } from '@/shared/lib/hooks/getTranslation'
+import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 
 interface ProductsListProps {
     products: Product[]
@@ -19,9 +18,11 @@ interface ProductsListProps {
     limit?: number
 }
 
-export const ProductsList = (props: ProductsListProps) => {
+// eslint-disable-next-line react/display-name
+export const ProductsList = memo((props: ProductsListProps) => {
+    const { t } = getTranslation('products.productsList')
     const { products: initialProducts, search = '', limit = 10 } = props
-    const { tg, loaded, isTgPlatform } = useTgApp()
+    const tg = useWebApp()
     const router = useRouter()
 
     const [products, setProducts] = useState(initialProducts)
@@ -43,13 +44,13 @@ export const ProductsList = (props: ProductsListProps) => {
     )
 
     useEffect(() => {
-        if (loaded && isTgPlatform) {
+        if (tg?.platform !== 'unknown') {
             tg.onEvent('mainButtonClicked', () => router.push('/cart'))
             return () => {
                 tg.offEvent('mainButtonClicked', () => router.push('/cart'))
             }
         }
-    }, [loaded, isTgPlatform])
+    }, [tg])
 
     useEffect(() => {
         if (!isLoading && data) {
@@ -70,22 +71,17 @@ export const ProductsList = (props: ProductsListProps) => {
     }, [inView])
 
     return (
-        <div className={styles.wrapper}>
-            <Button onClick={() => router.push('/cart')}>Корзина</Button>
-            <div className={styles.list}>
-                <ErrorBoundary>
-                    <Suspense fallback={<h1>Загрузка...</h1>}>
-                        {products.map((item) => (
-                            <ProductPreview
-                                key={item.id}
-                                product={item}
-                                className={styles.item}
-                            />
-                        ))}
-                    </Suspense>
-                </ErrorBoundary>
-            </div>
-            {canTrigger && <div className={styles.trigger} ref={ref} />}
+        <div className={'wrapper'}>
+            <ul className={'list'}>
+                {products.map((item) => (
+                    <ProductPreview
+                        key={item.id}
+                        product={item}
+                        className={'item'}
+                    />
+                ))}
+            </ul>
+            {canTrigger && <div className={'trigger'} ref={ref} />}
         </div>
     )
-}
+})

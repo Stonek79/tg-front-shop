@@ -1,51 +1,40 @@
 'use client'
-import styles from './ProductItem.module.css'
+import './ProductItem.css'
 import { Product } from '@/types/product'
-import { Button } from '@/shared/ui/Button/Button'
 import Image from 'next/image'
-import { useAddProductToCart } from '@/shared/lib/hooks/useAddProductToCart'
 import Link from 'next/link'
-import { Suspense } from 'react'
+import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 interface ProductItemProps {
     product: Product
     className?: string
 }
-export const ProductPreview = ({ product, className }: ProductItemProps) => {
-    const { onAdd } = useAddProductToCart()
 
-    const onAddHandler = () => {
-        onAdd(product)
-    }
+export const ProductPreview = ({ product, className }: ProductItemProps) => {
+    const { t } = getTranslation('products.productItem')
 
     return (
-        <div className={styles.product + ' ' + className}>
+        <li className={`productPreview ${className}`}>
             <Link
-                className={styles.productBtn}
+                aria-label={product.title}
+                className="productBtn"
                 href={`/products/${product.id}`}
             >
-                <Suspense fallback={<h1>Загрузка...</h1>}>
-                    <Image
-                        alt={product.title}
-                        src={product.thumbnail || ''}
-                        width={100}
-                        height={100}
-                        className={styles.img}
-                        priority
-                    />
-                    <div className={styles.productInfo}>
-                        <div className={styles.title}>{product.title}</div>
-                        <div className={styles.price}>
-                            <span>
-                                Цена: <b>{product.price}</b>
-                            </span>
-                        </div>
+                <Image
+                    alt={product.title}
+                    src={product.thumbnail || ''}
+                    width={100}
+                    height={100}
+                    className={'img'}
+                    priority
+                />
+                <div className={'productInfo'}>
+                    <div className={'title'}>{product.title}</div>
+                    <div className={'price'}>
+                        {t('price')}: <b>{product.price}</b>
                     </div>
-                </Suspense>
+                </div>
             </Link>
-            <Button className={styles.addBtn} onClick={onAddHandler}>
-                Добавить в корзину
-            </Button>
-        </div>
+        </li>
     )
 }

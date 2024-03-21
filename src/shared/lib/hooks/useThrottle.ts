@@ -1,12 +1,12 @@
 import { useCallback, useRef } from 'react'
 
-type Callback = (...args: any[]) => void
+type Callback = (...args: string[]) => void
 
 export const useThrottle = (callback: Callback, delay: number): Callback => {
     const timeoutRef = useRef(false)
 
     return useCallback(
-        (...args: any[]) => {
+        (...args: string[]) => {
             if (!timeoutRef.current) {
                 callback(...args)
 

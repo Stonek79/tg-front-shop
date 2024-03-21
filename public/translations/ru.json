@@ -1,0 +1,34 @@
+{
+    "rootLayout": {
+        "meta": {
+            "metaTitle": "RUS PLUS - Современная одежда больших размеров от 48 до 80",
+            "metaDescription": "Бренд RUS PLUS основан в 2017 году специально для девушек и женщин в размере плюс, ценящих комфорт и индивидуальность в повседневной жизни."
+        }
+    },
+    "mainPage": {
+        "header": "Главная страница"
+    },
+    "appMenu": {
+        "imgAlt": "Кнопка меню"
+    },
+    "favorites": {
+        "ariaLabelFavorites": "Избранное"
+    },
+    "header": {
+        "toMain": "На главную страницу"
+    },
+    "products": {
+        "productItem": {
+            "backBtn": "НАЗАД",
+            "addToCartBtn": "Добавить в корзину",
+            "removeFromCartBtn": "Удалить из корзины",
+            "title": "Заголовок",
+            "price": "Цена",
+            "description": "Описание",
+            "AddToFavorites": "Добавить в избранное"
+        },
+        "productsList": {
+            "cartBtn": "Корзина"
+        }
+    }
+}

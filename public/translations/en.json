@@ -1,0 +1,34 @@
+{
+    "rootLayout": {
+        "meta": {
+            "metaTitle": "RUS PLUS - Modern clothes for women from 48 to 80",
+            "metaDescription": "RUS PLUS brand was founded in 2017 and is specialized for women in size plus, who value comfort and individuality in daily life."
+        }
+    },
+    "mainPage": {
+        "header": "MAIN PAGE"
+    },
+    "appMenu": {
+        "imgAlt": "Menu button"
+    },
+    "favorites": {
+        "ariaLabelFavorites": "Favorites"
+    },
+    "header": {
+        "toMain": "To main page"
+    },
+    "products": {
+        "productItem": {
+            "backBtn": "BACK",
+            "addToCartBtn": "Add to cart",
+            "removeFromCartBtn": "Remove from cart",
+            "title": "Title",
+            "price": "Price",
+            "description": "Description",
+            "AddToFavorites": "Add to favorites"
+        },
+        "productsList": {
+            "cartBtn": "Cart"
+        }
+    }
+}

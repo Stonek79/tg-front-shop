@@ -1,28 +1,36 @@
-.product {
+.productPreview {
     display: flex;
     flex-direction: column;
-    border-radius: 4px;
-    border: 1px solid var(--tg-theme-button-color);
+    border-radius: 10px;
     padding: 15px;
-    max-width: 170px;
+    max-width: 240px;
+    min-height: 340px;
     width: 100%;
+    background: #fff;
+    position: relative;
 }
+
+.productPreview:hover {
+     transition: all .3s ease;
+     border-color: #000;
+     border-radius: 10px;
+     background:  #fff;
+     box-shadow: 0 5px 20px 0 rgba(0,0,0,.09);
+ }
 
 .productItem {
     display: flex;
     width: 100vw;
     max-width: 500px;
     flex-direction: column;
-    border: 1px solid var(--tg-theme-button-color);
+    border: none;
     padding: 15px;
     gap: 16px;
 }
 
 .itemImg {
-    background: lightgray;
-    background: var(--tg-theme-button-color);
-    max-width: 20rem;
-    max-height: 20rem;
+    max-width: 40rem;
+    max-height: 40rem;
 }
 
 .itemImgThumbs {
@@ -30,17 +38,17 @@
 }
 
 .img {
-    background: lightgray;
     margin: 0 auto;
-    background: var(--tg-theme-button-color);
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .description {
     font-size: 0.8em;
 }
 
-.addBtn {
-    width: 100%;
+.cartBtn {
     cursor: pointer;
 }
 
@@ -56,7 +64,6 @@
 
 .productWrapper {
     display: flex;
-    flex-direction: column;
     gap: 8px;
     padding: 0 8px;
     justify-content: space-evenly;
@@ -65,7 +72,6 @@
 .productDescription {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 8px;
 }
 
@@ -75,4 +81,34 @@
     justify-content: space-evenly;
     gap: 5px;
     padding: 5px;
+}
+
+.imageWrapper {
+    max-width: 500px;
+}
+
+.productButtonBlock {
+    display: flex;
+    white-space: nowrap;
+    gap: 5px
+}
+
+.swiper-wrapper {
+    align-items: center;
+}
+
+.swiper-button-prev {
+    top: 22px;
+    height: 100%
+}
+
+@media (max-width: 768px) {
+    .productPreview {
+        max-width: 360px;
+        flex-basis: calc(50% - 5px);
+    }
+
+    .productWrapper {
+        flex-direction: column;
+    }
 }

@@ -1,9 +1,9 @@
 'use client'
 
-import { useTgApp } from '@/shared/lib/hooks/useTgApp'
+import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 
 export const User = () => {
-    const { tg } = useTgApp()
+    const tg = useWebApp()
 
     if (!tg?.initDataUnsafe?.user) {
         return <h3>No user data</h3>

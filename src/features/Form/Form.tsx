@@ -1,13 +1,13 @@
 'use client'
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react'
 import './Form.module.css'
-import { useTgApp } from '@/shared/lib/hooks/useTgApp'
+import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 
 export const Form = () => {
     const [city, setCity] = useState('')
     const [address, setAddress] = useState('')
     const [subject, setSubject] = useState('physical')
-    const { tg, loaded } = useTgApp()
+    const tg = useWebApp()
 
     const onSendData = useCallback(() => {
         const data = {
@@ -16,28 +16,28 @@ export const Form = () => {
             subject,
         }
         tg.sendData(JSON.stringify(data))
-    }, [city, address, subject])
+    }, [tg, city, address, subject])
 
     useEffect(() => {
-        if (loaded) {
+        if (tg?.platform !== 'unknown') {
             tg.onEvent('mainButtonClicked', onSendData)
 
             return () => {
                 tg.offEvent('mainButtonClicked', onSendData)
             }
         }
-    }, [onSendData, loaded])
+    }, [tg, onSendData])
 
     useEffect(() => {
-        if (loaded) {
+        if (tg?.platform !== 'unknown') {
             tg.MainButton.setParams({
                 text: 'Отправить данные',
             })
         }
-    }, [loaded])
+    }, [tg])
 
     useEffect(() => {
-        if (!loaded) {
+        if (tg?.platform === 'unknown') {
             return
         }
 
@@ -46,7 +46,7 @@ export const Form = () => {
         } else {
             tg.MainButton.show()
         }
-    }, [city, address, loaded])
+    }, [tg, city, address])
 
     const onChangeCity = (e: ChangeEvent<HTMLInputElement>) => {
         setCity(e.target.value)

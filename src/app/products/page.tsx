@@ -1,4 +1,4 @@
-import { ProductsList } from '@/features/ProductsList/ProductsList'
+import { ProductsList } from '@/widgets/ProductsList'
 import { Product } from '@/types/product'
 import { getProducts } from '@/shared/lib/actions/products'
 import { productsUrl } from '@/shared/lib/consts/products'

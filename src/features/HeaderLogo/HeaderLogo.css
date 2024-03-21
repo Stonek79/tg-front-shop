@@ -6,4 +6,12 @@
     display: flex;
     align-items: center;
     letter-spacing: 5px;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .header_logo {
+        font-size: 18px;
+    }
 }

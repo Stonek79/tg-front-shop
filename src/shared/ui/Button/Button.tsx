@@ -6,6 +6,8 @@ interface ButtonProps {
     onClick?: () => void
     children?: ReactNode
 }
+
 export const Button = (props: ButtonProps) => {
-    return <button {...props} className="customButton" />
+    const { className, ...rest } = props
+    return <button {...rest} className={`customButton ${className}`} />
 }

@@ -2,8 +2,6 @@
 
 import './ProductItem.css'
 import { Product } from '@/types/product'
-import { Button } from '@/shared/ui/Button/Button'
-import { useRouter } from 'next/navigation'
 import { memo } from 'react'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { ProductImageBlock } from '@/entities/Product'

@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import './swiper.css'
 import './MainPage.css'
-import { ReactNode } from 'react'
+import { ReactNode, Suspense } from 'react'
 import { Header } from '@/widgets/Header'
 import Script from 'next/script'
 import { Footer } from '@/widgets/Footer'
@@ -35,9 +35,13 @@ export default function RootLayout({
                         strategy="beforeInteractive"
                     />
                     <TgAppProvider>
-                        <Header />
-                        <div className="main-layout-container">{children}</div>
-                        <Footer />
+                        <Suspense fallback={'<div>Loading...</div>'}>
+                            <Header />
+                            <div className="main-layout-container">
+                                {children}
+                            </div>
+                            <Footer />
+                        </Suspense>
                     </TgAppProvider>
                 </main>
             </body>

@@ -1,7 +1,7 @@
 'use client'
 
 import './ProductsList.css'
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, Suspense, useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
 import { productsUrl } from '@/shared/lib/consts/products'
@@ -73,27 +73,29 @@ export const ProductsList = memo((props: ProductsListProps) => {
 
     return (
         <div className={'wrapper'}>
-            <ul className={'list'}>
-                {products?.map((item) => (
-                    <ProductPreview
-                        key={item.id}
-                        product={item}
-                        className={'item'}
-                    />
-                ))}
+            <Suspense fallback={<div>Loading...</div>}>
+                <ul className={'list'}>
+                    {products?.map((item) => (
+                        <ProductPreview
+                            key={item.id}
+                            product={item}
+                            className={'item'}
+                        />
+                    ))}
 
-                {search && !products?.length && (
-                    <div className="nothing-found">
-                        <h3>{t('nothingFound')}</h3>
-                        <h4>{t('changeRequest')}</h4>
+                    {search && !products?.length && !isLoading && (
+                        <div className="nothing-found">
+                            <h3>{t('nothingFound')}</h3>
+                            <h4>{t('changeRequest')}</h4>
+                        </div>
+                    )}
+                </ul>
+                {canTrigger && (
+                    <div className={'trigger'} ref={ref}>
+                        {entry?.isIntersecting}
                     </div>
                 )}
-            </ul>
-            {canTrigger && (
-                <div className={'trigger'} ref={ref}>
-                    {entry?.isIntersecting}
-                </div>
-            )}
+            </Suspense>
         </div>
     )
 })

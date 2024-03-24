@@ -4,7 +4,7 @@ import './SearchContainer.css'
 import Image from 'next/image'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDebounceCallback } from '@/shared/lib/hooks/useDebounceCallback'
-import { useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { SearchInfoContainer } from '../SearchInfoContainer/SearchInfoContainer'
 import { Button } from '@/shared/ui/Button'
@@ -78,7 +78,9 @@ export const SearchContainer = ({
                     </Button>
                 </div>
             </div>
-            <SearchInfoContainer />
+            <Suspense fallback={<div>Loading...</div>}>
+                <SearchInfoContainer />
+            </Suspense>
         </div>
     )
 }

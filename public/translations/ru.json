@@ -38,7 +38,8 @@
             "title": "Заголовок",
             "price": "Цена",
             "description": "Описание",
-            "AddToFavorites": "Добавить в избранное"
+            "AddToFavorites": "Добавить в избранное",
+            "RemoveFromFavorites": "Удалить из избранного"
         },
         "productsList": {
             "cartBtn": "Корзина"

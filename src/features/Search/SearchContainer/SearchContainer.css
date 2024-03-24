@@ -1,10 +1,12 @@
 .search-container {
     position: absolute;
     width: 100%;
-    max-width: var(--header-max-width);
+    height: 100%;
     z-index: 100;
     background: var(--tg-theme-bg-color);
-    padding: 7px;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .relative-flex {

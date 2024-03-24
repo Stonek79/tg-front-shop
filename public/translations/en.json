@@ -38,7 +38,8 @@
             "title": "Title",
             "price": "Price",
             "description": "Description",
-            "AddToFavorites": "Add to favorites"
+            "AddToFavorites": "Add to favorites",
+            "RemoveFromFavorites": "Remove from favorites"
         },
         "productsList": {
             "cartBtn": "Cart"

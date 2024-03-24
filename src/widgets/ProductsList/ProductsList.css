@@ -21,14 +21,3 @@
     align-items: center;
     justify-content: center;
 }
-
-.nothing-found {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    background: var(--tg-theme-hint-color);
-    width: 100%;
-    height: 300px;
-}

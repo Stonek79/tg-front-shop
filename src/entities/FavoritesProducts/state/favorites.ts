@@ -10,6 +10,7 @@ interface FavoritesStore {
     addFavorites: (prod: Product) => void
     removeFavorites: (prod: Product) => void
     isFavorite: (prod: Product) => boolean
+    clearFavorites: () => void
 }
 
 export const useFavoritesStore = createSelectors(
@@ -40,6 +41,7 @@ export const useFavoritesStore = createSelectors(
                     )
                     return !!found
                 },
+                clearFavorites: () => set(() => ({ favorites: [] })),
             }),
             {
                 name: 'favorites',

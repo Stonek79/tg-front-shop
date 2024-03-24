@@ -9,5 +9,23 @@
 }
 
 .alert {
-    background: #ef5b5b;
+    background: var(--tg-theme-destructive-text-color);
+}
+
+.clear {
+    background: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+}
+
+.clear:hover {
+    box-shadow: 0 0 3px 0 var(--tg-theme-text-color);
+}
+
+.standart {
+    background: var(--tg-theme-text-color);
+    color: var(--tg-theme-bg-color);
+}
+
+.standart:hover {
+    box-shadow: 0 0 3px 0 var(--tg-theme-text-color);
 }

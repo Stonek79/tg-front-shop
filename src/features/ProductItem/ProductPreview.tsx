@@ -20,14 +20,16 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
                 className="productBtn"
                 href={`/products/${product.id}`}
             >
-                <Image
-                    alt={product.title}
-                    src={product.thumbnail || ''}
-                    width={100}
-                    height={100}
-                    className={'img'}
-                    priority
-                />
+                <div className="imageContainer">
+                    <Image
+                        alt={product.title}
+                        src={product.thumbnail || ''}
+                        width={200}
+                        height={200}
+                        className={'img'}
+                        priority
+                    />
+                </div>
                 <div className={'productInfo'}>
                     <div className={'title'}>{product.title}</div>
                     <div className={'price'}>

@@ -4,11 +4,12 @@ import './ProductItem.css'
 import { Product } from '@/types/product'
 import { Button } from '@/shared/ui/Button/Button'
 import { useRouter } from 'next/navigation'
-import { memo, useState } from 'react'
+import { memo } from 'react'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
-import { useFavoritesStore } from '@/entities/FavoritesProducts'
-import { useCartStore } from '@/entities/Cart'
 import { ProductImageBlock } from '@/entities/Product'
+import { AddFavoriteButton } from './AddFavoriteButton/AddFavoriteButton'
+import { AddToCartButton } from './AddToCartButton/AddToCartButton'
+import { BackButton } from './BackButton/BackButton'
 
 interface ProductItemProps {
     product: Product
@@ -17,54 +18,19 @@ interface ProductItemProps {
 
 // eslint-disable-next-line react/display-name
 export const ProductItem = memo(({ product, className }: ProductItemProps) => {
-    const router = useRouter()
     const { t } = getTranslation('products.productItem')
-    const addFavorites = useFavoritesStore.use.addFavorites()
-    const isInCart = useCartStore.use.isInCart()
-    const addProductToCart = useCartStore.use.addProductToCart()
-    const removeProductFromCart = useCartStore.use.removeProductFromCart()
-    const [inCart, setInCart] = useState(isInCart(product))
-
-    const handleAddFavorites = () => {
-        addFavorites(product)
-    }
-
-    const onAddHandler = () => {
-        addProductToCart(product)
-        setInCart(true)
-    }
-
-    const onRemoveHandler = () => {
-        removeProductFromCart(product)
-        setInCart(false)
-    }
 
     return (
         <div className={`productItem ${className}`}>
+            <BackButton />
             <div className="productWrapper">
                 <div className="imageWrapper">
                     {product.images && ProductImageBlock(product.images)}
                 </div>
                 <div className="productDescription">
                     <div className="productButtonBlock">
-                        <Button onClick={() => router.back()}>
-                            {t('backBtn')}
-                        </Button>
-                        {inCart ? (
-                            <Button
-                                className="cartBtn alert"
-                                onClick={onRemoveHandler}
-                            >
-                                {t('removeFromCartBtn')}
-                            </Button>
-                        ) : (
-                            <Button className="cartBtn" onClick={onAddHandler}>
-                                {t('addToCartBtn')}
-                            </Button>
-                        )}
-                        <Button onClick={handleAddFavorites}>
-                            {t('AddToFavorites')}
-                        </Button>
+                        <AddToCartButton product={product} />
+                        <AddFavoriteButton product={product} />
                     </div>
                     <div className="productDescription">
                         <div className="title">

@@ -17,6 +17,19 @@
     "header": {
         "toMain": "To main page"
     },
+    "search": {
+        "nothingFound": "Nothing found",
+        "changeRequest": "Please, try to change your request"
+    },
+    "buttons": {
+        "back": "Back",
+        "addToCart": "Add to cart",
+        "removeFromCart": "Remove from cart",
+        "addToFavorites": "Add to favorites",
+        "search": "Search",
+        "close": "Close",
+        "clear": "Clear"
+    },
     "products": {
         "productItem": {
             "backBtn": "BACK",

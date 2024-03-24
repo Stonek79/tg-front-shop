@@ -10,9 +10,10 @@ import { fetcher } from '@/shared/lib/api/fetcher'
 import useSWRInfinite from 'swr/infinite'
 import { useRouter } from 'next/navigation'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
+import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 interface ProductsListProps {
-    products: Product[]
+    products?: Product[]
     search?: string | undefined
     limit?: number
 }
@@ -22,16 +23,18 @@ export const ProductsList = memo((props: ProductsListProps) => {
     const { products: initialProducts, search = '', limit = 10 } = props
     const tg = useWebApp()
     const router = useRouter()
+    const { t } = getTranslation('search')
 
     const [products, setProducts] = useState(initialProducts)
     const [canTrigger, setCanTrigger] = useState(true)
-    const [ref, inView] = useInView()
+    const [ref, inView, entry] = useInView({
+        trackVisibility: true,
+        delay: 100,
+    })
 
     const { data, size, setSize, isLoading } = useSWRInfinite(
         (index) =>
-            `${productsUrl}?search=${search}&limit=${limit}&skip=${
-                index * limit
-            }`,
+            `${productsUrl}/search?q=${search}&limit=${limit}&skip=${index * limit}`,
         fetcher,
         {
             parallel: true,
@@ -48,7 +51,7 @@ export const ProductsList = memo((props: ProductsListProps) => {
                 tg.offEvent('mainButtonClicked', () => router.push('/cart'))
             }
         }
-    }, [tg])
+    }, [])
 
     useEffect(() => {
         if (!isLoading && data) {
@@ -71,15 +74,26 @@ export const ProductsList = memo((props: ProductsListProps) => {
     return (
         <div className={'wrapper'}>
             <ul className={'list'}>
-                {products.map((item) => (
+                {products?.map((item) => (
                     <ProductPreview
                         key={item.id}
                         product={item}
                         className={'item'}
                     />
                 ))}
+
+                {search && !products?.length && (
+                    <div className="nothing-found">
+                        <h3>{t('nothingFound')}</h3>
+                        <h4>{t('changeRequest')}</h4>
+                    </div>
+                )}
             </ul>
-            {canTrigger && <div className={'trigger'} ref={ref} />}
+            {canTrigger && (
+                <div className={'trigger'} ref={ref}>
+                    {entry?.isIntersecting}
+                </div>
+            )}
         </div>
     )
 })

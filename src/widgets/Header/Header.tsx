@@ -3,7 +3,7 @@ import { HeaderLogo } from '@/features/HeaderLogo'
 import { FavoritesBtn } from '@/features/Favorites'
 import { UserMenu } from '@/features/UserMenu'
 import { AppMenu } from '@/features/AppMenu'
-import { Search } from '@/features/Search'
+import { SearchContainer } from '@/features/Search'
 import { HeaderCartIcon } from '@/features/Cart'
 
 export const Header = () => (
@@ -12,7 +12,7 @@ export const Header = () => (
             <div className="header_wrapper">
                 <div className="header_left">
                     <AppMenu />
-                    <Search />
+                    <SearchContainer />
                 </div>
                 <div className="header_center">
                     <HeaderLogo />

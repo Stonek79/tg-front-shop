@@ -1,6 +1,6 @@
 .not-empty {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: -3px;
     width: 14px;
     height: 14px;
@@ -20,7 +20,7 @@
     display: block;
 }
 
-.cart_icon:before {
+.cart_icon::before {
     -webkit-mask: url('/img/cart.svg') no-repeat 50% 50%;
     mask: url('/img/cart.svg') no-repeat 50% 50%;
     background-color: var(--tg-theme-text-color);

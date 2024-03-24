@@ -11,5 +11,5 @@
     padding: 0 8px;
     display: flex;
     background: var(--tg-theme-hint-color);
-    z-index: 100;
+    z-index: 10;
 }

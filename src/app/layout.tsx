@@ -28,7 +28,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.className} light_theme`}>
-                <main className="main_layout">
+                <main id={'root-layout'} className="main-layout">
                     <Script
                         async
                         src="https://telegram.org/js/telegram-web-app.js"
@@ -36,7 +36,7 @@ export default function RootLayout({
                     />
                     <TgAppProvider>
                         <Header />
-                        <div className="main_layout_container">{children}</div>
+                        <div className="main-layout-container">{children}</div>
                         <Footer />
                     </TgAppProvider>
                 </main>

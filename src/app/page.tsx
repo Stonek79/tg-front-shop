@@ -8,7 +8,7 @@ export default function Home() {
     const { t } = getTranslation('mainPage')
 
     return (
-        <div className="main_page_description">
+        <div className="main-page-description">
             <h1>{t('header')}</h1>
             <br />
             <Button>

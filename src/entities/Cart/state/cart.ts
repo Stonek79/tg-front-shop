@@ -48,6 +48,7 @@ export const useCartStore = createSelectors(
             }),
             {
                 name: 'cart-storage',
+                // skipHydration: true,
                 storage: createJSONStorage(() => localStorage),
             },
         ),

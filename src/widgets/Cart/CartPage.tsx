@@ -45,7 +45,10 @@ export const CartPage = () => {
                     />
                     <h3>Цена: {prod.price} рублей</h3>
                     <br />
-                    <Button onClick={() => removeFromCart(prod)}>
+                    <Button
+                        className="alert"
+                        onClick={() => removeFromCart(prod)}
+                    >
                         {t('removeFromCartBtn')}
                     </Button>
                 </div>

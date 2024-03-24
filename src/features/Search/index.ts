@@ -1,1 +1,1 @@
-export { Search } from './Search'
+export { SearchContainer } from './SearchContainer/SearchContainer'

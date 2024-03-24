@@ -1,14 +1,16 @@
 .swiper {
     width: 100%;
     height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: var(--tg-theme-bg-color);
 }
 
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
-
-    /* Center slide text vertically */
+    background: #fff center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,18 +21,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.swiper {
-    width: 100%;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.swiper-slide {
-    background-size: cover;
-    background-position: center;
 }
 
 .mySwiper2 {
@@ -59,8 +49,4 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.swiper-button-prev {
-    height: 100%
 }

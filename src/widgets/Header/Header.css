@@ -1,18 +1,13 @@
 .header_layout {
-    /*padding: 10px;*/
     border-bottom: 1px solid var(--tg-theme-hint-color);
-    /*background: var(--tg-theme-header-bg-color);*/
     color: var(--tg-theme-text-color);
     width: 100%;
     position: sticky;
     top: 0;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    align-items: center;
-    gap: 8px;
     padding: 0 8px;
     box-shadow: 0 0 10px var(--tg-theme-header-bg-color);
-    /*background: var(--tg-theme-hint-color);*/
     z-index: 100;
 }
 
@@ -53,7 +48,7 @@
     margin-left: auto;
 }
 
-@media (max-width: 600px) {
+@media (width <= 600px) {
     .header_main {
         padding: 0;
     }

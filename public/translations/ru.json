@@ -17,6 +17,19 @@
     "header": {
         "toMain": "На главную страницу"
     },
+    "search": {
+        "nothingFound": "Ничего не найдено",
+        "changeRequest": "Попробуйте изменить ваш запрос"
+    },
+    "buttons": {
+        "back": "Назад",
+        "addToCart": "Добавить в корзину",
+        "removeFromCart": "Удалить из корзины",
+        "addToFavorites": "Добавить в избранное",
+        "search": "Поиск",
+        "close": "Закрыть",
+        "clear": "Очистить"
+    },
     "products": {
         "productItem": {
             "backBtn": "НАЗАД",

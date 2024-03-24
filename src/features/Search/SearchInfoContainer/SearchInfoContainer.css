@@ -1,0 +1,6 @@
+.search-info-container {
+    overflow: auto;
+    max-height: 90vh;
+    z-index: 100;
+    position: relative;
+}

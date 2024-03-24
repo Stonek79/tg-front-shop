@@ -1,0 +1,14 @@
+.favoritesImg {
+    display: flex;
+    transition: all .2s ease-in;
+}
+
+.favoritesImg:hover {
+    transform: scale(1.1)
+}
+
+.favoritesBtn {
+    cursor: pointer;
+    border-radius: 50%;
+    border: none;
+}

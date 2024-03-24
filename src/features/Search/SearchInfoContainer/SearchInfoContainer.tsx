@@ -59,29 +59,27 @@ export const SearchInfoContainer = () => {
     return query && !isLoading ? (
         <div className="search-info-container">
             <div className="search-wrapper">
-                <Suspense fallback={<div>Loading...</div>}>
-                    <ul className="search-list">
-                        {products.length > 0 ? (
-                            products?.map((item) => (
-                                <ProductPreview
-                                    key={item.id}
-                                    product={item}
-                                    className="search-item"
-                                />
-                            ))
-                        ) : (
-                            <div className="nothing-found">
-                                <h3>{t('nothingFound')}</h3>
-                                <h4>{t('changeRequest')}</h4>
-                            </div>
-                        )}
-                    </ul>
-                    {canTrigger && (
-                        <div className="search-trigger" ref={ref}>
-                            {entry?.isIntersecting}
+                <ul className="search-list">
+                    {products.length > 0 ? (
+                        products?.map((item) => (
+                            <ProductPreview
+                                key={item.id}
+                                product={item}
+                                className="search-item"
+                            />
+                        ))
+                    ) : (
+                        <div className="nothing-found">
+                            <h3>{t('nothingFound')}</h3>
+                            <h4>{t('changeRequest')}</h4>
                         </div>
                     )}
-                </Suspense>
+                </ul>
+                {canTrigger && (
+                    <div className="search-trigger" ref={ref}>
+                        {entry?.isIntersecting}
+                    </div>
+                )}
             </div>
         </div>
     ) : (

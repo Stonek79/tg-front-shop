@@ -32,7 +32,7 @@ export const ProductsList = memo((props: ProductsListProps) => {
 
     const { data, size, setSize, isLoading } = useSWRInfinite(
         (index) =>
-            `${productsUrl}/search?q=${search}&limit=${limit}&skip=${index * limit}`,
+            `${productsUrl}?q=${search}&limit=${limit}&skip=${index * limit}`,
         fetcher,
         {
             parallel: true,

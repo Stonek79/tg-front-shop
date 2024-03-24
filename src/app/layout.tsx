@@ -35,13 +35,11 @@ export default function RootLayout({
                         strategy="beforeInteractive"
                     />
                     <TgAppProvider>
-                        <Suspense fallback={'<div>Loading...</div>'}>
-                            <Header />
-                            <div className="main-layout-container">
-                                {children}
-                            </div>
-                            <Footer />
-                        </Suspense>
+                        {/*<Suspense fallback={'<div>Loading...</div>'}>*/}
+                        <Header />
+                        <div className="main-layout-container">{children}</div>
+                        <Footer />
+                        {/*</Suspense>*/}
                     </TgAppProvider>
                 </main>
             </body>

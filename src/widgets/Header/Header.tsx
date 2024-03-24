@@ -5,6 +5,7 @@ import { UserMenu } from '@/features/UserMenu'
 import { AppMenu } from '@/features/AppMenu'
 import { SearchContainer } from '@/features/Search'
 import { HeaderCartIcon } from '@/features/Cart'
+import { Suspense } from 'react'
 
 export const Header = () => (
     <header className="header_layout">
@@ -12,7 +13,9 @@ export const Header = () => (
             <div className="header_wrapper">
                 <div className="header_left">
                     <AppMenu />
-                    <SearchContainer />
+                    <Suspense fallback="Loading...">
+                        <SearchContainer />
+                    </Suspense>
                 </div>
                 <div className="header_center">
                     <HeaderLogo />

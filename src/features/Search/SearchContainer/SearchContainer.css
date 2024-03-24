@@ -1,7 +1,7 @@
 .search-container {
     position: absolute;
-    width: 95vw;
-    max-height: var(--header-max-width);
+    width: 100%;
+    max-width: var(--header-max-width);
     z-index: 100;
     background: var(--tg-theme-bg-color);
     padding: 7px;

@@ -4,7 +4,7 @@ import './SearchContainer.css'
 import Image from 'next/image'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDebounceCallback } from '@/shared/lib/hooks/useDebounceCallback'
-import { Suspense, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import { SearchButton } from '../SearchButton/SearchButton'
 import { SearchInfoContainer } from '../SearchInfoContainer/SearchInfoContainer'
 import { Button } from '@/shared/ui/Button'
@@ -38,6 +38,20 @@ export const SearchContainer = ({
             handleSearch('')
         }
     }
+
+    useEffect(() => {
+        if (searchOpened) {
+            document.documentElement.style.setProperty(
+                '--main-overflow',
+                'hidden',
+            )
+        } else {
+            document.documentElement.style.setProperty(
+                '--main-overflow',
+                'auto',
+            )
+        }
+    }, [searchOpened])
 
     return !searchOpened ? (
         <SearchButton setSearchOpened={setSearchOpened} />

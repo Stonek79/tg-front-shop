@@ -56,20 +56,6 @@ export const SearchInfoContainer = () => {
         }
     }, [inView])
 
-    useEffect(() => {
-        if (query) {
-            document.documentElement.style.setProperty(
-                '--main-overflow',
-                'hidden',
-            )
-        } else {
-            document.documentElement.style.setProperty(
-                '--main-overflow',
-                'auto',
-            )
-        }
-    }, [query])
-
     return query && !isLoading ? (
         <div className="search-info-container">
             <div className="search-wrapper">

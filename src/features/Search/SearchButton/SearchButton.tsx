@@ -1,23 +1,28 @@
+'use client'
 import './SearchButton.css'
-import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
+import { useRouter, useSearchParams } from 'next/navigation'
 
-export const SearchButton = ({
-    setSearchOpened,
-}: {
-    setSearchOpened: Dispatch<SetStateAction<boolean>>
-}) => (
-    <div>
-        <button
-            onClick={() => setSearchOpened(true)}
-            className="search_menu_btn"
-        >
-            <Image
-                src="/img/search.svg"
-                alt="Кнопка поиска"
-                width={24}
-                height={24}
-            />
-        </button>
-    </div>
-)
+export const SearchButton = () => {
+    const searchParams = useSearchParams()
+    const router = useRouter()
+
+    const params = new URLSearchParams(searchParams)
+
+    const handleSearch = () => {
+        params.set('q', '')
+        router.push(`/search?${params.toString()}`, { scroll: false })
+    }
+    return (
+        <div>
+            <button onClick={handleSearch} className="search_menu_btn">
+                <Image
+                    src="/img/search.svg"
+                    alt="Кнопка поиска"
+                    width={24}
+                    height={24}
+                />
+            </button>
+        </div>
+    )
+}

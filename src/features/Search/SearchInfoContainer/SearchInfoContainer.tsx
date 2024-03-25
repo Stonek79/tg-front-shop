@@ -1,8 +1,7 @@
 'use client'
 
 import './SearchInfoContainer.css'
-import { useSearchParams } from 'next/navigation'
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { useInView } from 'react-intersection-observer'
@@ -13,9 +12,7 @@ import { Product } from '@/types/product'
 
 const limit = 10
 
-export const SearchInfoContainer = () => {
-    const searchParams = useSearchParams()
-    const query = searchParams.get('search') || ''
+export const SearchInfoContainer = ({ query = '' }: { query?: string }) => {
     const { t } = getTranslation('search')
 
     const [products, setProducts] = useState<Product[]>([])
@@ -56,7 +53,16 @@ export const SearchInfoContainer = () => {
         }
     }, [inView])
 
-    return query && !isLoading ? (
+    // TODO Add skeleton loader
+    if (isLoading) {
+        return <h3>Loading...</h3>
+    }
+
+    if (!query) {
+        return null
+    }
+
+    return (
         <div className="search-info-container">
             <div className="search-wrapper">
                 <ul className="search-list">
@@ -82,7 +88,5 @@ export const SearchInfoContainer = () => {
                 )}
             </div>
         </div>
-    ) : (
-        ''
     )
 }

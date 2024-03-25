@@ -10,6 +10,9 @@ import { fetcher } from '@/shared/lib/api/fetcher'
 import useSWRInfinite from 'swr/infinite'
 import { useRouter } from 'next/navigation'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
+import { useCurrentScrollPosition } from '@/shared/lib/hooks/useCurrentScrollPosition'
+
+const scrollPositionName = 'productsListScrollPosition'
 
 interface ProductsListProps {
     products?: Product[]
@@ -22,13 +25,21 @@ export const ProductsList = memo((props: ProductsListProps) => {
     const { products: initialProducts, search = '', limit = 10 } = props
     const tg = useWebApp()
     const router = useRouter()
-
     const [products, setProducts] = useState(initialProducts)
     const [canTrigger, setCanTrigger] = useState(true)
     const [ref, inView, entry] = useInView({
         trackVisibility: true,
         delay: 100,
     })
+
+    useCurrentScrollPosition(scrollPositionName)
+
+    useEffect(() => {
+        const scrollPosition = localStorage.getItem(scrollPositionName)
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition))
+        }
+    }, [])
 
     const { data, size, setSize, isLoading } = useSWRInfinite(
         (index) =>

@@ -1,5 +1,6 @@
 'use client'
 
+import './FavoritesPage.css'
 import { useRouter } from 'next/navigation'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { Button } from '@/shared/ui/Button'
@@ -26,11 +27,11 @@ export function FavoritesPage() {
                 <Button onClick={() => router.back()}>Назад</Button>
             </div>
             {products.map((prod) => (
-                <div style={{ maxWidth: '97vw' }} key={prod.id}>
+                <div className="product-container" key={prod.id}>
                     <h2>{prod.title}</h2>
-                    <p style={{ padding: '8px' }}>{prod.description}</p>
+                    <p className="product-description">{prod.description}</p>
                     <Image
-                        style={{ maxWidth: '100%' }}
+                        className="product-image"
                         alt={prod.title}
                         src={prod.thumbnail as string}
                         width={300}

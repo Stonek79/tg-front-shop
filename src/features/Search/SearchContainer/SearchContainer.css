@@ -12,6 +12,7 @@
 .relative-flex {
     position: relative;
     display: flex;
+    padding: 12px;
 }
 
 .input-block {
@@ -30,7 +31,7 @@
 
 .magnifying-glass-icon {
     position: absolute;
-    left: 8px;
+    left: 18px;
     top: 50%;
     height: 18px;
     width: 18px;

@@ -4,9 +4,7 @@ import './SearchContainer.css'
 import Image from 'next/image'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDebounceCallback } from '@/shared/lib/hooks/useDebounceCallback'
-import { memo, Suspense, useEffect, useRef, useState } from 'react'
-import { SearchButton } from '../SearchButton/SearchButton'
-import { SearchInfoContainer } from '../SearchInfoContainer/SearchInfoContainer'
+import { memo, useEffect, useRef } from 'react'
 import { Button } from '@/shared/ui/Button'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
@@ -16,16 +14,15 @@ export const SearchContainer = memo(
         const searchParams = useSearchParams()
         const pathname = usePathname()
         const { t } = getTranslation('buttons')
-        const { replace } = useRouter()
-        const [searchOpened, setSearchOpened] = useState(false)
+        const { replace, back } = useRouter()
         const inputRef = useRef<HTMLInputElement>(null)
 
         const handleSearch = useDebounceCallback((term) => {
             const params = new URLSearchParams(searchParams)
             if (term) {
-                params.set('search', term)
+                params.set('q', term)
             } else {
-                params.delete('search')
+                params.delete('q')
             }
             replace(`${pathname}?${params.toString()}`)
         }, 300)
@@ -37,23 +34,17 @@ export const SearchContainer = memo(
             }
         }
 
-        useEffect(() => {
-            if (searchOpened) {
-                document.documentElement.style.setProperty(
-                    '--main-overflow',
-                    'hidden',
-                )
-            } else {
-                document.documentElement.style.setProperty(
-                    '--main-overflow',
-                    'auto',
-                )
-            }
-        }, [searchOpened])
+        const goBack = () => {
+            back()
+        }
 
-        return !searchOpened ? (
-            <SearchButton setSearchOpened={setSearchOpened} />
-        ) : (
+        useEffect(() => {
+            if (inputRef.current) {
+                inputRef.current.focus()
+            }
+        })
+
+        return (
             <div className="search-container">
                 <div className="relative-flex">
                     <Image
@@ -70,7 +61,7 @@ export const SearchContainer = memo(
                         onChange={(e) => {
                             handleSearch(e.target.value.toString())
                         }}
-                        defaultValue={searchParams.get('search')?.toString()}
+                        defaultValue={searchParams.get('q')?.toString()}
                     />
                     <div className="buttons-wrapper">
                         <button onClick={onClearInput} className="clear-input">
@@ -82,17 +73,11 @@ export const SearchContainer = memo(
                             />
                         </button>
                         <Button className="standart">{t('search')}</Button>
-                        <Button
-                            className="clear"
-                            onClick={() => setSearchOpened(false)}
-                        >
+                        <Button className="clear" onClick={goBack}>
                             {t('close')}
                         </Button>
                     </div>
                 </div>
-                {/*<Suspense fallback={<div>Loading...</div>}>*/}
-                <SearchInfoContainer />
-                {/*</Suspense>*/}
             </div>
         )
     },

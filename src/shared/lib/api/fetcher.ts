@@ -9,8 +9,4 @@ export const fetcher = (
         method: string | 'GET'
         body: string
     },
-) =>
-    fetch(url, init).then((res) => {
-        console.log(res, 'RESPONSE')
-        return res.json()
-    })
+) => fetch(url, init).then((res) => res.json())

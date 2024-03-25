@@ -5,8 +5,7 @@
     width: 100%;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    overflow: var(--main-overflow);
+    min-height: 100vh;
 }
 
 .main-layout-container {

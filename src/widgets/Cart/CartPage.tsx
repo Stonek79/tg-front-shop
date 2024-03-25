@@ -1,4 +1,6 @@
 'use client'
+
+import './CartPage.css'
 import { getTotalPrice } from '@/shared/lib/helpers/getTotalPrice'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/shared/ui/Button/Button'
@@ -33,11 +35,11 @@ export const CartPage = () => {
                 <Button onClick={() => router.back()}>Назад</Button>
             </div>
             {products.map((prod) => (
-                <div style={{ maxWidth: '97vw' }} key={prod.id}>
+                <div className="cart-container" key={prod.id}>
                     <h2>{prod.title}</h2>
-                    <p style={{ padding: '8px' }}>{prod.description}</p>
+                    <p className="cart-description">{prod.description}</p>
                     <Image
-                        style={{ maxWidth: '100%' }}
+                        className="cart-image"
                         alt={prod.title}
                         src={prod.thumbnail as string}
                         width={300}

@@ -22,6 +22,12 @@
         "changeRequest": "Please, try to change your request"
     },
     "buttons": {
+        "cart": "Cart",
+        "favorites": "Favorites",
+        "form": "Form",
+        "home": "Home",
+        "catalog": "Catalog",
+        "more": "More",
         "back": "Back",
         "addToCart": "Add to cart",
         "removeFromCart": "Remove from cart",

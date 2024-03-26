@@ -2,7 +2,6 @@
 
 import './FavoritesPage.css'
 import { useRouter } from 'next/navigation'
-import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { Button } from '@/shared/ui/Button'
 import Image from 'next/image'
 import { useFavoritesStore } from '@/entities/FavoritesProducts'
@@ -10,7 +9,6 @@ import { AddToCartButton, AddFavoriteButton } from '@/features/ProductItem'
 
 export function FavoritesPage() {
     const router = useRouter()
-    const { t } = getTranslation('products.productItem')
     const products = useFavoritesStore.use.favorites()
     const clearFavorites = useFavoritesStore.use.clearFavorites()
 

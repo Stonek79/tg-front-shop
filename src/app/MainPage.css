@@ -13,7 +13,6 @@
     padding: 8px;
     display: flex;
     justify-content: center;
-    max-width: 97vw;
     width: 100%;
     background: #f2f2f2;
 }
@@ -27,7 +26,6 @@
     width: 100%;
     z-index: 2;
     font-family: var(--font-mono);
-    padding: 16px;
 }
 
 @keyframes rotate {

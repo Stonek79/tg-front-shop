@@ -22,6 +22,7 @@
         "changeRequest": "Please, try to change your request"
     },
     "buttons": {
+        "all": "All",
         "cart": "Cart",
         "favorites": "Favorites",
         "form": "Form",
@@ -50,5 +51,21 @@
         "productsList": {
             "cartBtn": "Cart"
         }
+    },
+    "category": {
+        "category": "Category",
+        "new": "New",
+        "bestsellers": "Bestsellers",
+        "all": "All",
+        "dresses": "Dresses",
+        "blouses": "Blouses",
+        "skirts": "Skirts",
+        "pants": "Pants",
+        "jackets": "Jackets",
+        "suits": "Suits",
+        "coats": "Coats",
+        "accessories": "Accessories",
+        "shoes": "Shoes",
+        "bags": "Bags"
     }
 }

@@ -22,6 +22,7 @@
         "changeRequest": "Попробуйте изменить ваш запрос"
     },
     "buttons": {
+        "all": "Все",
         "cart": "Корзина",
         "favorites": "Избранное",
         "form": "Форма",
@@ -50,5 +51,21 @@
         "productsList": {
             "cartBtn": "Корзина"
         }
+    },
+    "category": {
+        "category": "Категории",
+        "new": "Новинки",
+        "bestsellers": "Хиты продаж",
+        "all": "Все",
+        "dresses": "Платья",
+        "blouses": "Блузки",
+        "skirts": "Юбки",
+        "pants": "Брюки",
+        "jackets": "Пиджаки",
+        "suits": "Костюмы",
+        "coats": "Польта",
+        "accessories": "Аксессуары",
+        "shoes": "Обувь",
+        "bags": "Сумки"
     }
 }

@@ -4,20 +4,20 @@ import Image from 'next/image'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 export const New = () => {
-    const { dict } = getTranslation()
+    const { t } = getTranslation()
     //TODO сделать общий компонент заголовка и контейнера
 
-    // @ts-ignore
-    const all = dict.buttons.all as string
-    // @ts-ignore
-    const newCategory = dict.category.new as string
+    // // @ts-ignore
+    // const all = dict.buttons.all as string
+    // // @ts-ignore
+    // const newCategory = dict.category.new as string
 
     return (
         <section className="new">
             <div className="new-header">
-                <h2>{newCategory}</h2>
+                <h2>{t('category.new')}</h2>
                 <Link className="new-all" href={'/products/new'}>
-                    {all}
+                    {t('category.all')}
                     <Image
                         src={'./img/all-arrow.svg'}
                         alt={'переход'}

@@ -1,21 +1,9 @@
 {
-    "rootLayout": {
-        "meta": {
+    "meta": {
+        "rootLayout": {
             "metaTitle": "RUS PLUS - Modern clothes for women from 48 to 80",
             "metaDescription": "RUS PLUS brand was founded in 2017 and is specialized for women in size plus, who value comfort and individuality in daily life."
         }
-    },
-    "mainPage": {
-        "header": "MAIN PAGE"
-    },
-    "appMenu": {
-        "imgAlt": "Menu button"
-    },
-    "favorites": {
-        "ariaLabelFavorites": "Favorites"
-    },
-    "header": {
-        "toMain": "To main page"
     },
     "search": {
         "nothingFound": "Nothing found",
@@ -33,24 +21,17 @@
         "addToCart": "Add to cart",
         "removeFromCart": "Remove from cart",
         "addToFavorites": "Add to favorites",
+        "removeFromFavorites": "Remove from favorites",
         "search": "Search",
         "close": "Close",
         "clear": "Clear"
     },
     "products": {
-        "productItem": {
-            "backBtn": "BACK",
-            "addToCartBtn": "Add to cart",
-            "removeFromCartBtn": "Remove from cart",
-            "title": "Title",
-            "price": "Price",
-            "description": "Description",
-            "AddToFavorites": "Add to favorites",
-            "RemoveFromFavorites": "Remove from favorites"
-        },
-        "productsList": {
-            "cartBtn": "Cart"
-        }
+        "title": "Title",
+        "price": "Price",
+        "description": "Description",
+        "bestseller": "Hit",
+        "sale": "Sale"
     },
     "category": {
         "category": "Category",
@@ -63,7 +44,6 @@
         "pants": "Pants",
         "jackets": "Jackets",
         "suits": "Suits",
-        "coats": "Coats",
         "accessories": "Accessories",
         "shoes": "Shoes",
         "bags": "Bags"

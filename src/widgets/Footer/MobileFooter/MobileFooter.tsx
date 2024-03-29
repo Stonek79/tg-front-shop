@@ -8,7 +8,7 @@ import { FavoritesBtn } from '@/features/Favorites'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 export const MobileFooter = () => {
-    const { t } = getTranslation('buttons')
+    const { t } = getTranslation()
 
     return (
         <nav className="mobile-footer">
@@ -19,7 +19,7 @@ export const MobileFooter = () => {
                     width={30}
                     height={30}
                 />
-                <p>{t('home')}</p>
+                <p>{t('buttons.home')}</p>
             </Link>
             <Link className="mobile-navbar-btn" href={'/products'}>
                 <Image
@@ -28,15 +28,15 @@ export const MobileFooter = () => {
                     width={30}
                     height={30}
                 />
-                <p>{t('catalog')}</p>
+                <p>{t('buttons.catalog')}</p>
             </Link>
             <div className="mobile-navbar-btn">
                 <FavoritesBtn />
-                <p>{t('favorites')}</p>
+                <p>{t('buttons.favorites')}</p>
             </div>
             <div className="mobile-navbar-btn">
                 <HeaderCartIcon />
-                <p>{t('cart')}</p>
+                <p>{t('buttons.cart')}</p>
             </div>
             <Link className="mobile-navbar-btn" href={'/form'}>
                 <Image
@@ -45,7 +45,7 @@ export const MobileFooter = () => {
                     width={30}
                     height={30}
                 />
-                <p>{t('form')}</p>
+                <p>{t('buttons.form')}</p>
             </Link>
         </nav>
     )

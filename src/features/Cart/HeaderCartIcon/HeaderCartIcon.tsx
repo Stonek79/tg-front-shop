@@ -1,10 +1,10 @@
 'use client'
 import './HeaderCartIcon.css'
 import Link from 'next/link'
-import { useCartStore } from '@/entities/Cart'
 import { useEffect } from 'react'
 import { getTotalPrice } from '@/shared/lib/helpers/getTotalPrice'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
+import { useCartStore } from '@/shared/state/cart'
 
 export const HeaderCartIcon = () => {
     const productsInCart = useCartStore.use.cart()

@@ -13,7 +13,7 @@ export const SearchContainer = memo(
     ({ placeholder = '' }: { placeholder?: string }) => {
         const searchParams = useSearchParams()
         const pathname = usePathname()
-        const { t } = getTranslation('buttons')
+        const { t } = getTranslation()
         const { replace, back } = useRouter()
         const inputRef = useRef<HTMLInputElement>(null)
 
@@ -72,9 +72,11 @@ export const SearchContainer = memo(
                                 width={18}
                             />
                         </button>
-                        <Button className="standart">{t('search')}</Button>
+                        <Button className="standart">
+                            {t('buttons.search')}
+                        </Button>
                         <Button className="clear" onClick={goBack}>
-                            {t('close')}
+                            {t('buttons.close')}
                         </Button>
                     </div>
                 </div>

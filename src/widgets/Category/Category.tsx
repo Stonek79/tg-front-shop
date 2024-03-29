@@ -4,18 +4,18 @@ import Link from 'next/link'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 export const Category = () => {
-    const { dict } = getTranslation()
-    // @ts-ignore
-    const all = dict.buttons.all as string
-    // @ts-ignore
-    const category = dict.category.category as string
+    const { t } = getTranslation()
+    // // @ts-ignore
+    // const all = dict.buttons.all as string
+    // // @ts-ignore
+    // const category = dict.category.category as string
 
     return (
         <section className="category">
             <div className="category-header">
-                <h2>{category}</h2>
+                <h2>{t('category.category')}</h2>
                 <Link className="category-all" href={'/products/category'}>
-                    {all}
+                    {t('category.all')}
                     <Image
                         src={'./img/all-arrow.svg'}
                         alt={'переход'}

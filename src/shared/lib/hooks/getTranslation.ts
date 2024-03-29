@@ -4,19 +4,6 @@
 import ru from '../../../../public/translations/ru.json'
 import en from '../../../../public/translations/en.json'
 
-/**
- * Retrieve a nested value from a dictionary based on a given key.
- *
- * @param {string} key - The key to search for in the dictionary.
- * @param {TranslationDict} dict - The dictionary to search within.
- * @return {TranslationDict} The nested value found in the dictionary based on the key.
- */
-const getDictValue = (key: string, dict: TranslationDict) =>
-    key?.split('.').reduce((acc, item) => {
-        acc = (acc[item] as TranslationDict) ?? {}
-        return acc
-    }, dict)
-
 interface TranslationDict {
     [key: string]: string | TranslationDict
 }
@@ -26,28 +13,44 @@ const dictionaries: { [key: string]: TranslationDict } = {
     en,
 }
 
-/**
- * Generates a translation function and returns the function along with the language and dictionary.
- *
- * @param {string} path - Optional path for nested translations
- * @return {object} Object containing the translation function, language, and dictionary
- */
-export const getTranslation = (path?: string) => {
-    const lang = 'ru'
-    const dict = dictionaries[lang]
+function getDictionaryValue(
+    key: string,
+    dict: TranslationDict,
+): string | TranslationDict {
+    const keys = key.split('.')
+    let result: string | TranslationDict = dict
 
-    const firstPath: TranslationDict = path ? getDictValue(path, dict) : dict
+    for (const k of keys) {
+        if (typeof result === 'string') {
+            throw new Error(`Cannot access property ${k} of string`)
+        }
+        result = result[k]
+    }
+
+    return result
+}
+
+export const getTranslation = () // lang: string = 'ru',
+: {
+    t: (key: string) => string
+    lang: string
+    dict: TranslationDict
+} => {
+    const lang = 'ru'
+    const dict: TranslationDict = dictionaries[lang]
+
+    if (!dict) {
+        throw new Error(`No dictionary found for language: ${lang}`)
+    }
 
     const t = (key: string): string => {
-        const keysPath = key?.split('.')
-        if (keysPath?.length === 1) {
-            return firstPath[key] as string
-        }
-        const last = keysPath.pop()!
-        const rest = keysPath.slice(0, -1).join('.')
-        const result = getDictValue(rest, firstPath)
+        const result = getDictionaryValue(key, dict)
 
-        return result[last] as string
+        if (typeof result === 'string') {
+            return result
+        } else {
+            return `Expected string but got object for key: ${key}`
+        }
     }
 
     return { t, lang, dict }

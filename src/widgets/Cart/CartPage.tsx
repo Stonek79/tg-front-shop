@@ -5,13 +5,13 @@ import { getTotalPrice } from '@/shared/lib/helpers/getTotalPrice'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/shared/ui/Button/Button'
 import Image from 'next/image'
-import { useCartStore } from '@/entities/Cart'
 import { Product } from '@/types/product'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
+import { useCartStore } from '@/shared/state/cart'
 
 export const CartPage = () => {
     const router = useRouter()
-    const { t } = getTranslation('products.productItem')
+    const { t } = getTranslation()
     const products = useCartStore.use.cart()
     const total = getTotalPrice(products)
     const emptyCart = useCartStore.use.clearCart()
@@ -51,7 +51,7 @@ export const CartPage = () => {
                         className="alert"
                         onClick={() => removeFromCart(prod)}
                     >
-                        {t('removeFromCartBtn')}
+                        {t('buttons.removeFromCart')}
                     </Button>
                 </div>
             ))}

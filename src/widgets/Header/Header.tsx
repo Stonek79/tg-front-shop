@@ -11,20 +11,20 @@ export const Header = () => (
     <header className="header_layout">
         <div className="header_main">
             <div className="header_wrapper">
-                <div className="header_left">
+                <section className="header_left">
                     <AppMenu />
                     <Suspense fallback={<div>Loading SearchButton...</div>}>
                         <SearchButton />
                     </Suspense>
-                </div>
-                <div className="header_center">
+                </section>
+                <section className="header_center">
                     <HeaderLogo />
-                </div>
-                <div className="header_right">
+                </section>
+                <section className="header_right">
                     <FavoritesBtn />
                     <HeaderCartIcon />
                     <UserMenu />
-                </div>
+                </section>
             </div>
         </div>
     </header>

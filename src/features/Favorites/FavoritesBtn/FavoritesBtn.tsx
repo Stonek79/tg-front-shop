@@ -1,11 +1,9 @@
 'use client'
 import './FavoritesBtn.css'
 import Link from 'next/link'
-import { getTranslation } from '@/shared/lib/hooks/getTranslation'
-import { useFavoritesStore } from '@/entities/FavoritesProducts'
+import { useFavoritesStore } from '@/shared/state/favorites'
 
 export const FavoritesBtn = () => {
-    const { t } = getTranslation()
     const amount = useFavoritesStore.use.favorites().length
 
     return (
@@ -13,7 +11,7 @@ export const FavoritesBtn = () => {
             <Link
                 className="favorites"
                 href={'/favorites'}
-                aria-label={t('ariaLabelFavorites')}
+                aria-label="aria-favorites-button"
             >
                 {Boolean(amount) && (
                     <span className={'not-empty'}>{amount}</span>

@@ -16,7 +16,7 @@ interface ProductItemProps {
 
 // eslint-disable-next-line react/display-name
 export const ProductItem = memo(({ product, className }: ProductItemProps) => {
-    const { t } = getTranslation('products.productItem')
+    const { t } = getTranslation()
 
     return (
         <div className={`productItem ${className}`}>
@@ -32,15 +32,15 @@ export const ProductItem = memo(({ product, className }: ProductItemProps) => {
                     </div>
                     <div className="productDescription">
                         <div className="title">
-                            <span>{t('title')}:</span> {product.title}
+                            <span>{t('products.title')}:</span> {product.title}
                         </div>
                         <div className="description">
-                            <span>{t('description')}:</span>{' '}
+                            <span>{t('products.description')}:</span>{' '}
                             {product.description}
                         </div>
                         <div className="price">
                             <span>
-                                {t('price')}: <b>{product.price}</b>
+                                {t('products.price')}: <b>{product.price}</b>
                             </span>
                         </div>
                     </div>

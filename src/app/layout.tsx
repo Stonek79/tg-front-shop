@@ -12,11 +12,11 @@ import { TgAppProvider } from '@/shared/lib/providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export async function generateMetadata() {
-    const { t } = getTranslation('rootLayout.meta')
+    const { t } = getTranslation()
 
     return {
-        title: t('metaTitle') as string,
-        description: t('metaDescription') as string,
+        title: t('meta.rootLayout.metaTitle') as string,
+        description: t('meta.rootLayout.metaDescription') as string,
     }
 }
 

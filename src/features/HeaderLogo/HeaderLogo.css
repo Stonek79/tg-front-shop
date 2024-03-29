@@ -10,7 +10,7 @@
     white-space: nowrap;
 }
 
-@media (width <= 600px) {
+@media (width <= 768px) {
     .header_logo {
         font-size: 18px;
     }

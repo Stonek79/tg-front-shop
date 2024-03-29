@@ -1,21 +1,9 @@
 {
-    "rootLayout": {
-        "meta": {
+    "meta": {
+        "rootLayout": {
             "metaTitle": "RUS PLUS - Современная одежда больших размеров от 48 до 80",
             "metaDescription": "Бренд RUS PLUS основан в 2017 году специально для девушек и женщин в размере плюс, ценящих комфорт и индивидуальность в повседневной жизни."
         }
-    },
-    "mainPage": {
-        "header": "Главная страница"
-    },
-    "appMenu": {
-        "imgAlt": "Кнопка меню"
-    },
-    "favorites": {
-        "ariaLabelFavorites": "Избранное"
-    },
-    "header": {
-        "toMain": "На главную страницу"
     },
     "search": {
         "nothingFound": "Ничего не найдено",
@@ -33,24 +21,17 @@
         "addToCart": "Добавить в корзину",
         "removeFromCart": "Удалить из корзины",
         "addToFavorites": "Добавить в избранное",
+        "removeFromFavorites": "Удалить из избранного",
         "search": "Поиск",
         "close": "Закрыть",
         "clear": "Очистить"
     },
     "products": {
-        "productItem": {
-            "backBtn": "НАЗАД",
-            "addToCartBtn": "Добавить в корзину",
-            "removeFromCartBtn": "Удалить из корзины",
-            "title": "Заголовок",
-            "price": "Цена",
-            "description": "Описание",
-            "AddToFavorites": "Добавить в избранное",
-            "RemoveFromFavorites": "Удалить из избранного"
-        },
-        "productsList": {
-            "cartBtn": "Корзина"
-        }
+        "title": "Заголовок",
+        "price": "Цена",
+        "description": "Описание",
+        "bestseller": "Хит",
+        "sale": "Sale"
     },
     "category": {
         "category": "Категории",
@@ -63,7 +44,6 @@
         "pants": "Брюки",
         "jackets": "Пиджаки",
         "suits": "Костюмы",
-        "coats": "Польта",
         "accessories": "Аксессуары",
         "shoes": "Обувь",
         "bags": "Сумки"

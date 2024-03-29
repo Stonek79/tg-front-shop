@@ -11,7 +11,8 @@ interface ProductItemProps {
 }
 
 export const ProductPreview = ({ product, className }: ProductItemProps) => {
-    const { t } = getTranslation('products.productItem')
+    const { t } = getTranslation()
+    const { rating, discountPercentage } = product
 
     return (
         <li className={`productPreview ${className}`}>
@@ -20,6 +21,12 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
                 className="productBtn"
                 href={`/products/${product.id}`}
             >
+                {rating! >= 4.5 && (
+                    <span className="rating">{t('products.bestseller')}</span>
+                )}
+                {discountPercentage! >= 12 && (
+                    <span className="sale">{t('products.sale')}</span>
+                )}
                 <div className="imageContainer">
                     <Image
                         alt={product.title}
@@ -33,7 +40,7 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
                 <div className={'productInfo'}>
                     <div className={'title'}>{product.title}</div>
                     <div className={'price'}>
-                        {t('price')}: <b>{product.price}</b>
+                        {t('products.price')}: <b>{product.price}</b>
                     </div>
                 </div>
             </Link>

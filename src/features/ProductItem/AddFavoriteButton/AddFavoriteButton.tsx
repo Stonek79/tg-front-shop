@@ -1,9 +1,9 @@
 'use client'
 import './AddFavoriteButton.css'
 import Image from 'next/image'
-import { useFavoritesStore } from '@/entities/FavoritesProducts'
 import { Product } from '@/types/product'
 import { Suspense, useEffect, useState } from 'react'
+import { useFavoritesStore } from '@/shared/state/favorites'
 
 export const AddFavoriteButton = ({ product }: { product: Product }) => {
     const addFavorites = useFavoritesStore.use.addFavorites()

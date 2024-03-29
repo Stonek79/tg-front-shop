@@ -13,7 +13,7 @@ import { Product } from '@/types/product'
 const limit = 10
 
 export const SearchInfoContainer = ({ query = '' }: { query?: string }) => {
-    const { t } = getTranslation('search')
+    const { t } = getTranslation()
 
     const [products, setProducts] = useState<Product[]>([])
     const [canTrigger, setCanTrigger] = useState(true)
@@ -76,8 +76,8 @@ export const SearchInfoContainer = ({ query = '' }: { query?: string }) => {
                         ))
                     ) : (
                         <div className="nothing-found">
-                            <h3>{t('nothingFound')}</h3>
-                            <h4>{t('changeRequest')}</h4>
+                            <h3>{t('search.nothingFound')}</h3>
+                            <h4>{t('search.changeRequest')}</h4>
                         </div>
                     )}
                 </ul>

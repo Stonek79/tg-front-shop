@@ -4,8 +4,8 @@ import './FavoritesPage.css'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/shared/ui/Button'
 import Image from 'next/image'
-import { useFavoritesStore } from '@/entities/FavoritesProducts'
 import { AddToCartButton, AddFavoriteButton } from '@/features/ProductItem'
+import { useFavoritesStore } from '@/shared/state/favorites'
 
 export function FavoritesPage() {
     const router = useRouter()

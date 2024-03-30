@@ -3,6 +3,7 @@
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
     --header-max-width: 1200px;
+    --main-layout-max-width: 1200px;
     --tg-viewport-height: 100vh;
     --tg-viewport-stable-height: 100vh;
 

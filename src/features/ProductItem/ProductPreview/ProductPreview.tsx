@@ -57,7 +57,7 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
                     />
                 </div>
                 <div className={cls.productInfo}>
-                    <div className={cls.title}>{title}</div>
+                    <span className={cls.title}>{title}</span>
                     <div className={cls.stars}>
                         <Image
                             src={'/img/star.webp'}

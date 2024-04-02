@@ -1,4 +1,4 @@
-import './Bestsellers.css'
+import cls from './Bestsellers.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
@@ -6,19 +6,12 @@ import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 export const Bestsellers = () => {
     const { t } = getTranslation()
 
-    // @ts-ignore
-    // const bestsellers = dict.category.bestsellers as string
-    // // @ts-ignore
-    // const all = dict.buttons.all as string
-    //
-    // console.log('dict', t('dict.buttons.all'))
-
     return (
-        <section className="bestsellers">
-            <div className="bestsellers-header">
+        <section className={cls.bestsellers}>
+            <div className={cls.bestsellersHeader}>
                 <h2>{t('category.bestsellers')}</h2>
                 <Link
-                    className="bestsellers-all"
+                    className={cls.bestsellersAll}
                     href={'/products/bestsellers'}
                 >
                     {t('category.all')}

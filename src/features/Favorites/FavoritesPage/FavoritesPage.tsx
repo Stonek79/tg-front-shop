@@ -1,6 +1,6 @@
 'use client'
 
-import './FavoritesPage.css'
+import cls from './FavoritesPage.module.css'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/shared/ui/Button'
 import Image from 'next/image'
@@ -25,11 +25,11 @@ export function FavoritesPage() {
                 <Button onClick={() => router.back()}>Назад</Button>
             </div>
             {products.map((prod) => (
-                <div className="product-container" key={prod.id}>
+                <div className={cls.productContainer} key={prod.id}>
                     <h2>{prod.title}</h2>
-                    <p className="product-description">{prod.description}</p>
+                    <p className={cls.productDescription}>{prod.description}</p>
                     <Image
-                        className="product-image"
+                        className={cls.productImage}
                         alt={prod.title}
                         src={prod.thumbnail as string}
                         width={300}

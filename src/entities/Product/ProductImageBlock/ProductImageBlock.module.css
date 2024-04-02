@@ -1,0 +1,12 @@
+.itemImgThumbs {
+    max-height: 5rem;
+}
+
+.itemImg {
+    max-width: 40rem;
+    max-height: 40rem;
+}
+
+.swiperWrapper {
+    align-items: center;
+}

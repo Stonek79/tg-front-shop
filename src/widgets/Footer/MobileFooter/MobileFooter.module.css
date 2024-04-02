@@ -1,4 +1,4 @@
-.mobile-footer {
+.mobileFooter {
     display: flex;
     width: 100%;
     align-items: center;
@@ -6,7 +6,7 @@
     padding: 10px 15px;
 }
 
-.mobile-navbar-btn {
+.mobileNavbarBtn {
     min-width: max-content;
     height: 52px;
     position: relative;

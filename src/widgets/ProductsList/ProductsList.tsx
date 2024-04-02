@@ -1,6 +1,6 @@
 'use client'
 
-import './ProductsList.css'
+import cls from './ProductsList.module.css'
 import React, { memo, Suspense, useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
@@ -81,19 +81,19 @@ export const ProductsList = memo((props: ProductsListProps) => {
     }, [inView])
 
     return (
-        <div className={'wrapper'}>
+        <div className={cls.wrapper}>
             <Suspense fallback={<div>Loading...</div>}>
-                <ul className={'list'}>
+                <ul className={cls.list}>
                     {products?.map((item) => (
                         <ProductPreview
                             key={item.id}
                             product={item}
-                            className={'item'}
+                            className={cls.item}
                         />
                     ))}
                 </ul>
                 {canTrigger && (
-                    <div className={'trigger'} ref={ref}>
+                    <div className={cls.trigger} ref={ref}>
                         {entry?.isIntersecting}
                     </div>
                 )}

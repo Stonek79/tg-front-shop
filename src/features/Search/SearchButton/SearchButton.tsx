@@ -1,5 +1,5 @@
 'use client'
-import './SearchButton.css'
+import cls from './SearchButton.module.css'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 
@@ -15,7 +15,7 @@ export const SearchButton = () => {
     }
     return (
         <div>
-            <button onClick={handleSearch} className="search_menu_btn">
+            <button onClick={handleSearch} className={cls.searchMenuBtn}>
                 <Image
                     src="/img/search.svg"
                     alt="Кнопка поиска"

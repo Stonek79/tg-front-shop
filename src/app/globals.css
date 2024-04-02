@@ -30,7 +30,7 @@ a {
 html,
 body {
     width: 100vw;
-    height: 100%;
+    height: 100dvh;
 }
 
 .light_theme {
@@ -69,4 +69,63 @@ body {
 body {
     color: var(--tg-theme-text-color);
     background: var(--tg-theme-bg-color);
+}
+
+/*
+clear button styles
+*/
+
+button {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/*
+Cart and favorites icons styles
+*/
+
+.notEmptyCF {
+    position: absolute;
+    top: 0;
+    right: -3px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.iconLinkCF {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.iconCF {
+    /*background-color: var(--tg-theme-bg-color);*/
+    height: 100%;
+    width: 100%;
+    transition: background-color .2s ease-in-out;
+}
+
+.iconBtnCF {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background: none;
+    color: var(--tg-theme-text-color);
+    cursor: pointer;
 }

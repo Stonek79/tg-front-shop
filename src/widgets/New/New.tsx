@@ -1,4 +1,4 @@
-import './New.css'
+import cls from './New.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
@@ -7,16 +7,11 @@ export const New = () => {
     const { t } = getTranslation()
     //TODO сделать общий компонент заголовка и контейнера
 
-    // // @ts-ignore
-    // const all = dict.buttons.all as string
-    // // @ts-ignore
-    // const newCategory = dict.category.new as string
-
     return (
-        <section className="new">
-            <div className="new-header">
+        <section className={cls.new}>
+            <div className={cls.newHeader}>
                 <h2>{t('category.new')}</h2>
-                <Link className="new-all" href={'/products/new'}>
+                <Link className={cls.newAll} href={'/products/new'}>
                     {t('category.all')}
                     <Image
                         src={'./img/all-arrow.svg'}

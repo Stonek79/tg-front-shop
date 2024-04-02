@@ -1,4 +1,4 @@
-.search-info-container {
+.searchInfoContainer {
     overflow: auto;
     max-height: 50vh;
     z-index: 100;
@@ -8,31 +8,31 @@
     background: var(--tg-theme-header-bg-color);
 }
 
-.search-wrapper {
+.searchWrapper {
     display: flex;
     flex-direction: column;
 }
 
-.search-list {
+.searchList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 4px;
 }
 
-.search-item {
+.searchItem {
     justify-content: space-between;
     gap: 4px;
 }
 
-.search-trigger {
+.searchTrigger {
     margin-top: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nothing-found {
+.nothingFound {
     display: flex;
     flex-direction: column;
     gap: 10px;

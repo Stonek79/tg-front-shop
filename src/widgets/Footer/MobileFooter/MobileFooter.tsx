@@ -1,6 +1,6 @@
 'use client'
 
-import './MobileFooter.css'
+import cls from './MobileFooter.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { HeaderCartIcon } from '@/features/Cart'
@@ -11,8 +11,8 @@ export const MobileFooter = () => {
     const { t } = getTranslation()
 
     return (
-        <nav className="mobile-footer">
-            <Link className="mobile-navbar-btn" href={'/'}>
+        <nav className={cls.mobileFooter}>
+            <Link className={cls.mobileNavbarBtn} href={'/'}>
                 <Image
                     src={'/img/home.svg'}
                     alt={'Home page'}
@@ -21,7 +21,7 @@ export const MobileFooter = () => {
                 />
                 <p>{t('buttons.home')}</p>
             </Link>
-            <Link className="mobile-navbar-btn" href={'/products'}>
+            <Link className={cls.mobileNavbarBtn} href={'/products'}>
                 <Image
                     src={'/img/catalog.svg'}
                     alt={'Catalog'}
@@ -30,15 +30,15 @@ export const MobileFooter = () => {
                 />
                 <p>{t('buttons.catalog')}</p>
             </Link>
-            <div className="mobile-navbar-btn">
+            <div className={cls.mobileNavbarBtn}>
                 <FavoritesBtn />
                 <p>{t('buttons.favorites')}</p>
             </div>
-            <div className="mobile-navbar-btn">
+            <div className={cls.mobileNavbarBtn}>
                 <HeaderCartIcon />
                 <p>{t('buttons.cart')}</p>
             </div>
-            <Link className="mobile-navbar-btn" href={'/form'}>
+            <Link className={cls.mobileNavbarBtn} href={'/form'}>
                 <Image
                     src={'/img/more.svg'}
                     alt={'User page'}

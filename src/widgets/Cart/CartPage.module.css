@@ -1,11 +1,11 @@
-.cart-container {
+.cartContainer {
     max-width: 97vw;
 }
 
-.cart-description {
+.cartDescription {
     padding: 8px;
 }
 
-.cart-image {
+.cartImage {
     max-width: 100%;
 }

@@ -1,4 +1,4 @@
-.search-container {
+.searchContainer {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -9,13 +9,13 @@
     right: 0;
 }
 
-.relative-flex {
+.relativeFlex {
     position: relative;
     display: flex;
     padding: 12px;
 }
 
-.input-block {
+.inputBlock {
     display: block;
     width: 100%;
     border-radius: 2px;
@@ -25,11 +25,11 @@
     outline-offset: 2px;
 }
 
-.input-block:focus {
+.inputBlock:focus {
     border: 1px solid #000;
 }
 
-.magnifying-glass-icon {
+.magnifyingGlassIcon {
     position: absolute;
     left: 18px;
     top: 50%;
@@ -39,14 +39,14 @@
     opacity: 0.5;
 }
 
-.clear-input {
+.clearInput {
     border-radius: 50%;
     border: none;
     display: flex;
     padding: 4px;
 }
 
-.buttons-wrapper {
+.buttonsWrapper {
     display: flex;
     gap: 10px;
     align-items: center;

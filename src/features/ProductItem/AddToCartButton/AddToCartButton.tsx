@@ -32,11 +32,11 @@ export const AddToCartButton = ({ product }: { product: Product }) => {
         <div>
             <Suspense fallback={<h4>LOADING...</h4>}>
                 {inCart ? (
-                    <Button className="cartBtn alert" onClick={onRemoveHandler}>
+                    <Button variant="alert" onClick={onRemoveHandler}>
                         {t('buttons.removeFromCart')}
                     </Button>
                 ) : (
-                    <Button className="cartBtn" onClick={onAddHandler}>
+                    <Button onClick={onAddHandler}>
                         {t('buttons.addToCart')}
                     </Button>
                 )}

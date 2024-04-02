@@ -1,4 +1,4 @@
-import { ProductItem } from '@/features/ProductItem/ProductItem'
+import { ProductItem } from '@/features/ProductItem/ProductItem/ProductItem'
 import { Product } from '@/types/product'
 import { getProduct, getProducts } from '@/shared/lib/actions/products'
 import { productsUrl } from '@/shared/lib/consts/products'

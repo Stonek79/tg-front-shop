@@ -1,20 +1,27 @@
 'use client'
-import './FavoritesBtn.css'
 import Link from 'next/link'
 import { useFavoritesStore } from '@/shared/state/favorites'
+import Image from 'next/image'
 
 export const FavoritesBtn = () => {
     const amount = useFavoritesStore.use.favorites().length
 
     return (
-        <div className="favorites_btn">
+        <div className="iconBtnCF">
             <Link
-                className="favorites"
+                className="iconLinkCF"
                 href={'/favorites'}
                 aria-label="aria-favorites-button"
             >
+                <Image
+                    src={'/img/favorites.svg'}
+                    alt={'Корзина'}
+                    className="iconCF"
+                    width={24}
+                    height={24}
+                />
                 {Boolean(amount) && (
-                    <span className={'not-empty'}>{amount}</span>
+                    <span className="notEmptyCF">{amount}</span>
                 )}
             </Link>
         </div>

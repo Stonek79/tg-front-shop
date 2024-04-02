@@ -1,4 +1,4 @@
-import './Header.css'
+import cls from './Header.module.css'
 import { HeaderLogo } from '@/features/HeaderLogo'
 import { FavoritesBtn } from '@/features/Favorites'
 import { UserMenu } from '@/features/UserMenu'
@@ -8,19 +8,19 @@ import { SearchButton } from '@/features/Search'
 import { Suspense } from 'react'
 
 export const Header = () => (
-    <header className="header_layout">
-        <div className="header_main">
-            <div className="header_wrapper">
-                <section className="header_left">
+    <header className={cls.headerLayout}>
+        <div className={cls.headerMain}>
+            <div className={cls.headerWrapper}>
+                <section className={cls.headerLeft}>
                     <AppMenu />
                     <Suspense fallback={<div>Loading SearchButton...</div>}>
                         <SearchButton />
                     </Suspense>
                 </section>
-                <section className="header_center">
+                <section className={cls.headerCenter}>
                     <HeaderLogo />
                 </section>
-                <section className="header_right">
+                <section className={cls.headerRight}>
                     <FavoritesBtn />
                     <HeaderCartIcon />
                     <UserMenu />

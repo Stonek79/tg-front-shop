@@ -1,6 +1,6 @@
 'use client'
 import React, { ChangeEvent, useCallback, useEffect, useState } from 'react'
-import './Form.module.css'
+import cls from './Form.module.css'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 
 export const Form = () => {
@@ -61,17 +61,17 @@ export const Form = () => {
     }
 
     return (
-        <div className={'form'}>
+        <div className={cls.form}>
             <h3>Введите ваши данные</h3>
             <input
-                className={'input'}
+                className={cls.input}
                 type="text"
                 placeholder={'Город'}
                 value={city}
                 onChange={onChangeCity}
             />
             <input
-                className={'input'}
+                className={cls.input}
                 type="text"
                 placeholder={'Адрес доставки'}
                 value={address}
@@ -80,7 +80,7 @@ export const Form = () => {
             <select
                 value={subject}
                 onChange={onChangeSubject}
-                className={'select'}
+                className={cls.select}
             >
                 <option value={'physical'}>Физ. лицо</option>
                 <option value={'legal'}>Юр. лицо</option>

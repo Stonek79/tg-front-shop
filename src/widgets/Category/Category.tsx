@@ -1,20 +1,16 @@
-import './Category.css'
+import cls from './Category.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 export const Category = () => {
     const { t } = getTranslation()
-    // // @ts-ignore
-    // const all = dict.buttons.all as string
-    // // @ts-ignore
-    // const category = dict.category.category as string
 
     return (
-        <section className="category">
-            <div className="category-header">
+        <section className={cls.category}>
+            <div className={cls.categoryHeader}>
                 <h2>{t('category.category')}</h2>
-                <Link className="category-all" href={'/products/category'}>
+                <Link className={cls.categoryAll} href={'/products/category'}>
                     {t('category.all')}
                     <Image
                         src={'./img/all-arrow.svg'}

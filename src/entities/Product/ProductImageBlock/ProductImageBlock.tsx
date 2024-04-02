@@ -1,6 +1,6 @@
 'use client'
 
-import './ProductImageBlock.css'
+import cls from './ProductImageBlock.module.css'
 import SwiperCore from 'swiper/core'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Thumbs, FreeMode, Zoom } from 'swiper/modules'
@@ -31,18 +31,16 @@ export const ProductImageBlock = (images: string[] = []) => {
                 pagination={{
                     clickable: true,
                 }}
-                className={`itemImg mySwiper2`}
+                className={`${cls.itemImg} mySwiper2`}
             >
                 {images?.map((image, index) => (
-                    <SwiperSlide className="swiper-wrapper" key={index}>
-                        <div className="swiper-zoom-container">
-                            <Image
-                                alt={'Product image' + image}
-                                src={image}
-                                width={850}
-                                height={850}
-                            />
-                        </div>
+                    <SwiperSlide className={cls.swiperWrapper} key={index}>
+                        <Image
+                            alt={'Product image' + image}
+                            src={image}
+                            width={850}
+                            height={850}
+                        />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -56,7 +54,7 @@ export const ProductImageBlock = (images: string[] = []) => {
                     freeMode={true}
                     watchSlidesProgress={true}
                     modules={[FreeMode, Navigation, Thumbs]}
-                    className={'itemImgThumbs mySwiper'}
+                    className={`${cls.itemImgThumbs} mySwiper`}
                 >
                     {images?.map((image, index) => (
                         <SwiperSlide key={index}>

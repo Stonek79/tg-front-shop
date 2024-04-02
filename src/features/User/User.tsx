@@ -1,5 +1,6 @@
 'use client'
 
+import cls from './User.module.css'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 
 export const User = () => {
@@ -19,7 +20,7 @@ export const User = () => {
     } = tg?.initDataUnsafe?.user
 
     return (
-        <div>
+        <div className={cls.user}>
             <div>Username: {username}</div>
             <div>First name: {first_name}</div>
             <div>Last name: {last_name}</div>

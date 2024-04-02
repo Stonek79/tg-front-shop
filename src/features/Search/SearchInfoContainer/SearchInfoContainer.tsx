@@ -1,6 +1,6 @@
 'use client'
 
-import './SearchInfoContainer.css'
+import cls from './SearchInfoContainer.module.css'
 import React, { useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
@@ -63,26 +63,26 @@ export const SearchInfoContainer = ({ query = '' }: { query?: string }) => {
     }
 
     return (
-        <div className="search-info-container">
-            <div className="search-wrapper">
-                <ul className="search-list">
+        <div className={cls.searchInfoContainer}>
+            <div className={cls.searchWrapper}>
+                <ul className={cls.searchList}>
                     {products.length > 0 ? (
                         products?.map((item) => (
                             <ProductPreview
                                 key={item.id}
                                 product={item}
-                                className="search-item"
+                                className={cls.searchItem}
                             />
                         ))
                     ) : (
-                        <div className="nothing-found">
+                        <div className={cls.nothingFound}>
                             <h3>{t('search.nothingFound')}</h3>
                             <h4>{t('search.changeRequest')}</h4>
                         </div>
                     )}
                 </ul>
                 {canTrigger && (
-                    <div className="search-trigger" ref={ref}>
+                    <div className={cls.searchTrigger} ref={ref}>
                         {entry?.isIntersecting}
                     </div>
                 )}

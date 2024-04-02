@@ -1,10 +1,11 @@
 'use client'
-import './HeaderCartIcon.css'
+
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { getTotalPrice } from '@/shared/lib/helpers/getTotalPrice'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 import { useCartStore } from '@/shared/state/cart'
+import Image from 'next/image'
 
 export const HeaderCartIcon = () => {
     const productsInCart = useCartStore.use.cart()
@@ -32,14 +33,21 @@ export const HeaderCartIcon = () => {
     }, [productsInCart, tg])
 
     return (
-        <div className="cart_btn">
+        <div className="iconBtnCF">
             <Link
-                className="cart_icon"
+                className="iconLinkCF"
                 href={'/cart'}
                 aria-label={'headerCartIcon'}
             >
+                <Image
+                    src={'/img/cart.svg'}
+                    alt={'Корзина'}
+                    className="iconCF"
+                    width={24}
+                    height={24}
+                />
                 {Boolean(amount) && (
-                    <span className={'not-empty'}>{amount}</span>
+                    <span className="notEmptyCF">{amount}</span>
                 )}
             </Link>
         </div>

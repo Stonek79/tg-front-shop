@@ -1,11 +1,11 @@
-.product-container {
+.productContainer {
     max-width: 97vw;
 }
 
-.product-description {
+.productDescription {
     padding: 8px;
 }
 
-.product-image {
+.productImage {
     max-width: 100%;
 }

@@ -1,5 +1,5 @@
 'use client'
-import './AddFavoriteButton.css'
+import cls from './AddFavoriteButton.module.css'
 import Image from 'next/image'
 import { Product } from '@/types/product'
 import { Suspense, useEffect, useState } from 'react'
@@ -33,10 +33,10 @@ export const AddFavoriteButton = ({ product }: { product: Product }) => {
                 {favorite ? (
                     <button
                         onClick={handleRemoveFavorites}
-                        className="favoritesBtn"
+                        className={cls.favoritesBtn}
                     >
                         <Image
-                            className="favoritesImg"
+                            className={cls.favoritesImg}
                             src={'/img/checked-favorites.svg'}
                             alt="favorites"
                             width={24}
@@ -46,10 +46,10 @@ export const AddFavoriteButton = ({ product }: { product: Product }) => {
                 ) : (
                     <button
                         onClick={handleAddFavorites}
-                        className="favoritesBtn"
+                        className={cls.favoritesBtn}
                     >
                         <Image
-                            className="favoritesImg"
+                            className={cls.favoritesImg}
                             src={'/img/favorites.svg'}
                             alt="favorites"
                             width={24}

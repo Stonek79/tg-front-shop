@@ -1,6 +1,6 @@
 'use client'
 
-import './SearchContainer.css'
+import cls from './SearchContainer.module.css'
 import Image from 'next/image'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useDebounceCallback } from '@/shared/lib/hooks/useDebounceCallback'
@@ -45,10 +45,10 @@ export const SearchContainer = memo(
         })
 
         return (
-            <div className="search-container">
-                <div className="relative-flex">
+            <div className={cls.searchContainer}>
+                <div className={cls.relativeFlex}>
                     <Image
-                        className="magnifying-glass-icon"
+                        className={cls.magnifyingGlassIcon}
                         src={'/img/search.svg'}
                         alt={'search'}
                         width={24}
@@ -56,15 +56,18 @@ export const SearchContainer = memo(
                     />
                     <input
                         ref={inputRef}
-                        className="input-block"
+                        className={cls.inputBlock}
                         placeholder={placeholder}
                         onChange={(e) => {
                             handleSearch(e.target.value.toString())
                         }}
                         defaultValue={searchParams.get('q')?.toString()}
                     />
-                    <div className="buttons-wrapper">
-                        <button onClick={onClearInput} className="clear-input">
+                    <div className={cls.buttonsWrapper}>
+                        <button
+                            onClick={onClearInput}
+                            className={cls.clearInput}
+                        >
                             <Image
                                 src={'/img/close-small.svg'}
                                 alt={'clear input'}
@@ -72,10 +75,10 @@ export const SearchContainer = memo(
                                 width={18}
                             />
                         </button>
-                        <Button className="standart">
+                        <Button variant="standart">
                             {t('buttons.search')}
                         </Button>
-                        <Button className="clear" onClick={goBack}>
+                        <Button variant="clear" onClick={goBack}>
                             {t('buttons.close')}
                         </Button>
                     </div>

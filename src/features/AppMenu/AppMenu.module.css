@@ -1,13 +1,8 @@
-.searchMenuBtn {
+.appMenu {
     width: var(--icon-size);
     height: var(--icon-size);
     display: flex;
     align-items: center;
     justify-content: center;
-    outline: none;
-    box-shadow: none;
-    border: none;
-    background: none;
     color: var(--tg-theme-text-color);
-    cursor: pointer;
 }

@@ -75,7 +75,7 @@ export const SearchContainer = memo(
                                 width={18}
                             />
                         </button>
-                        <Button variant="standart">
+                        <Button variant="standard">
                             {t('buttons.search')}
                         </Button>
                         <Button variant="clear" onClick={goBack}>

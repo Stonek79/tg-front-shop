@@ -17,15 +17,20 @@
     color: var(--tg-theme-text-color);
 }
 
+.transparent {
+    background: none;
+    color: var(--tg-theme-text-color);
+}
+
 .clear:hover {
     box-shadow: 0 0 3px 0 var(--tg-theme-text-color);
 }
 
-.standart {
+.standard {
     background: var(--tg-theme-text-color);
     color: var(--tg-theme-bg-color);
 }
 
-.standart:hover {
+.standard:hover {
     box-shadow: 0 0 3px 0 var(--tg-theme-text-color);
 }

@@ -11,6 +11,16 @@
     Main overflow
     */
     --main-overflow: auto;
+
+    /*
+    icon sizes
+    */
+    --icon-size: 50px;
+
+    /*
+    header height
+    */
+    --header-height: 60px;
 }
 
 * {
@@ -117,8 +127,8 @@ Cart and favorites icons styles
 }
 
 .iconBtnCF {
-    width: 50px;
-    height: 50px;
+    width: var(--icon-size);
+    height: var(--icon-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -128,4 +138,11 @@ Cart and favorites icons styles
     background: none;
     color: var(--tg-theme-text-color);
     cursor: pointer;
+}
+
+@media (width <= 768px) {
+    :root {
+        --icon-size: 40px;
+        --header-height: 50px;
+    }
 }

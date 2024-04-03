@@ -16,6 +16,7 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
     const {
         id,
         title,
+        description,
         rating,
         price,
         currency = '₽',
@@ -38,54 +39,63 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
                 className={cls.productBtn}
                 href={`/products/${id}`}
             >
-                {rating! >= 4.5 && (
-                    <span className={cls.rating}>
-                        {t('products.bestseller')}
-                    </span>
-                )}
-                {discountPercentage! >= 12 && (
-                    <span className={cls.sale}>{t('products.sale')}</span>
-                )}
-                <div className={cls.imageContainer}>
-                    <Image
-                        alt={title}
-                        src={thumbnail || ''}
-                        width={200}
-                        height={200}
-                        className={cls.img}
-                        priority
-                    />
-                </div>
-                <div className={cls.productInfo}>
-                    <span className={cls.title}>{title}</span>
-                    <div className={cls.stars}>
-                        <Image
-                            src={'/img/star.webp'}
-                            alt={'star rating'}
-                            width={16}
-                            height={16}
-                        />
-                        {rating}
-                    </div>
-                    <div className={cls.price}>
-                        {discountPrice && (
-                            <div className={cls.discountPrice}>
-                                <span>
-                                    {discountPrice}
-                                    {currency}
-                                </span>
-                                <span>-{salePercent}%</span>
-                            </div>
-                        )}
-                        <span>
-                            {t('products.price')}:{' '}
-                            <b>
-                                {price}
-                                {currency}
-                            </b>
+                <section className={cls.imageSection}>
+                    {rating! >= 4.5 && (
+                        <span className={cls.bestseller}>
+                            {t('products.bestseller')}
                         </span>
+                    )}
+                    {discountPercentage! >= 12 && (
+                        <span className={cls.sale}>{t('products.sale')}</span>
+                    )}
+                    <div className={cls.imageContainer}>
+                        <Image
+                            alt={title}
+                            src={thumbnail || ''}
+                            width={200}
+                            height={200}
+                            className={cls.img}
+                            priority
+                        />
                     </div>
-                </div>
+                </section>
+                <section>
+                    <div className={cls.productInfo}>
+                        <div className={cls.title}>
+                            <span>{title}</span>
+                            <span className={cls.viewDescription}>
+                                {description}
+                            </span>
+                        </div>
+                        <div className={cls.stars}>
+                            <Image
+                                src={'/img/star.webp'}
+                                alt={'star rating'}
+                                width={16}
+                                height={16}
+                            />
+                            {rating}
+                        </div>
+                        <div className={cls.price}>
+                            {discountPrice && (
+                                <div className={cls.discountPrice}>
+                                    <span>
+                                        {discountPrice}
+                                        {currency}
+                                    </span>
+                                    <span>-{salePercent}%</span>
+                                </div>
+                            )}
+                            <span>
+                                {t('products.price')}:{' '}
+                                <b>
+                                    {price}
+                                    {currency}
+                                </b>
+                            </span>
+                        </div>
+                    </div>
+                </section>
             </Link>
         </li>
     )

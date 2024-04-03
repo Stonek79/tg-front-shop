@@ -21,7 +21,7 @@ export const Header = () => (
                     <HeaderLogo />
                 </section>
                 <section className={cls.headerRight}>
-                    <FavoritesBtn />
+                    <FavoritesBtn checkMobile />
                     <HeaderCartIcon />
                     <UserMenu />
                 </section>

@@ -2,10 +2,11 @@ import cls from './Category.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
+import { categoriesList } from '@/shared/lib/consts/categories'
+import { CategoriesSlider } from '@/features/Categories'
 
-export const Category = () => {
+export const Category = async () => {
     const { t } = getTranslation()
-
     return (
         <section className={cls.category}>
             <div className={cls.categoryHeader}>
@@ -21,7 +22,8 @@ export const Category = () => {
                 </Link>
             </div>
             <hr />
-            <h3>Здесь будет слайдер с категориями</h3>
+            {/*<h3>Здесь будет слайдер с категориями</h3>*/}
+            <CategoriesSlider categories={categoriesList} />
         </section>
     )
 }

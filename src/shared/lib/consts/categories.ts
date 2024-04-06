@@ -20,3 +20,4 @@ export const categoriesList = [
     'motorcycle',
     'lighting',
 ]
+// TODO add real categories with images

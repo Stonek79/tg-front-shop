@@ -12,7 +12,7 @@ export const Category = async () => {
             <div className={cls.categoryHeader}>
                 <h2>{t('category.category')}</h2>
                 <Link className={cls.categoryAll} href={'/products/category'}>
-                    {t('category.all')}
+                    <h3>{t('category.all')}</h3>
                     <Image
                         src={'./img/all-arrow.svg'}
                         alt={'переход'}
@@ -22,7 +22,6 @@ export const Category = async () => {
                 </Link>
             </div>
             <hr />
-            {/*<h3>Здесь будет слайдер с категориями</h3>*/}
             <CategoriesSlider categories={categoriesList} />
         </section>
     )

@@ -14,7 +14,7 @@ export const Bestsellers = () => {
                     className={cls.bestsellersAll}
                     href={'/products/bestsellers'}
                 >
-                    {t('category.all')}
+                    <h3>{t('category.all')}</h3>
                     <Image
                         src={'./img/all-arrow.svg'}
                         alt={'переход'}

@@ -12,7 +12,7 @@ export const New = () => {
             <div className={cls.newHeader}>
                 <h2>{t('category.new')}</h2>
                 <Link className={cls.newAll} href={'/products/new'}>
-                    {t('category.all')}
+                    <h3>{t('category.all')}</h3>
                     <Image
                         src={'./img/all-arrow.svg'}
                         alt={'переход'}

@@ -35,7 +35,6 @@ export const CategoriesSlider = memo(() => {
                         </figure>
                     </Link>
                 ))}
-                )
             </div>
             <div className={cls.horizontalScrollingItems}>
                 {categoryNames.map((category, index) => (

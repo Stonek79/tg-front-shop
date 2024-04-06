@@ -1,0 +1,11 @@
+.newCategoriesSection {
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+}

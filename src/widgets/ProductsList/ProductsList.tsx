@@ -4,7 +4,7 @@ import cls from './ProductsList.module.css'
 import React, { memo, Suspense, useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
-import { productsUrl } from '@/shared/lib/consts/products'
+import { productsUrl } from '@/shared/consts/products'
 import { useInView } from 'react-intersection-observer'
 import { fetcher } from '@/shared/lib/api/fetcher'
 import useSWRInfinite from 'swr/infinite'
@@ -80,17 +80,19 @@ export const ProductsList = memo((props: ProductsListProps) => {
         }
     }, [inView])
 
+    type Labels = 'new' | 'sale' | 'bestseller'
+
     return (
         <div className={cls.wrapper}>
             <Suspense fallback={<div>Loading...</div>}>
                 <ul className={cls.list}>
-                    {products?.map((item) => (
-                        <ProductPreview
-                            key={item.id}
-                            product={item}
-                            className={cls.item}
+                    {products?.map((item) => {
+                        return <ProductPreview
+                            key={ item.id }
+                            product={ item }
+                            className={ cls.item }
                         />
-                    ))}
+                    })}
                 </ul>
                 {canTrigger && (
                     <div className={cls.trigger} ref={ref}>

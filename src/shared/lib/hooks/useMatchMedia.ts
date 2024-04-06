@@ -13,6 +13,11 @@ interface MatchMediaState {
     isDesktop: boolean
 }
 
+/**
+ * Custom hook to handle match media queries and return the state of different screen sizes.
+ *
+ * @return {MatchMediaState} The state of different screen sizes
+ */
 export const useMatchMedia = (): MatchMediaState => {
     const initialQueryList = queries.map((query) => !!query)
     const [values, setValues] = useState(initialQueryList)
@@ -20,9 +25,16 @@ export const useMatchMedia = (): MatchMediaState => {
     useLayoutEffect(() => {
         const mediaQueryLists = queries.map((query) => matchMedia(query))
 
-        const getValues = () => mediaQueryLists.map((list) => list.matches)
+        /**
+         * Retrieves the values from the media query lists.
+         *
+         * @return {Array<boolean>} an array containing the matches of the media query lists
+         */
+        const getValues = (): Array<boolean> => mediaQueryLists.map((list) => list.matches)
 
         const handler = () => setValues(getValues)
+
+        setValues(getValues)
 
         mediaQueryLists.forEach((list) =>
             list.addEventListener('change', handler),

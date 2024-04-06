@@ -31,19 +31,27 @@
         "price": "Price",
         "description": "Description",
         "bestseller": "Hit",
-        "sale": "Sale"
+        "sale": "Sale",
+        "new": "New"
     },
     "category": {
         "category": "Category",
         "new": "New",
         "bestsellers": "Bestsellers",
         "all": "All",
+        "inStock": "In stock",
+        "top": "Top",
+        "bottom": "Bottom",
+        "outwears": "Outwears",
+        "jeans": "Jeans",
+        "suits": "Suits",
         "dresses": "Dresses",
-        "blouses": "Blouses",
+        "oversize": "Oversize",
         "skirts": "Skirts",
+
+        "blouses": "Blouses",
         "pants": "Pants",
         "jackets": "Jackets",
-        "suits": "Suits",
         "accessories": "Accessories",
         "shoes": "Shoes",
         "bags": "Bags"

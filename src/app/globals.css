@@ -21,6 +21,16 @@
     header height
     */
     --header-height: 60px;
+
+    /*
+    categories slider
+    */
+    --categories-slider-height: 200px;
+    --categories-slider-width: 200px;
+    --categories-slider-font-size: 22px;
+    --categories-slider-border-radius: 18px 0 18px 0;
+    --horizontal-scrollling-gap: 8px;
+    --categories-item-count: 10;
 }
 
 * {
@@ -39,7 +49,7 @@ a {
 
 html,
 body {
-    width: 100vw;
+    /*width: 100vw;*/
     height: 100dvh;
 }
 
@@ -144,5 +154,10 @@ Cart and favorites icons styles
     :root {
         --icon-size: 40px;
         --header-height: 50px;
+
+        --categories-slider-height: 100px;
+        --categories-slider-width: 100px;
+        --categories-slider-font-size: 12px;
+        --categories-slider-border-radius: 8px 0 8px 0;
     }
 }

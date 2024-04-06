@@ -6,7 +6,7 @@ import { ProductPreview } from '@/features/ProductItem'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { useInView } from 'react-intersection-observer'
 import useSWRInfinite from 'swr/infinite'
-import { productsUrl } from '@/shared/lib/consts/products'
+import { productsUrl } from '@/shared/consts/products'
 import { fetcher } from '@/shared/lib/api/fetcher'
 import { Product } from '@/types/product'
 

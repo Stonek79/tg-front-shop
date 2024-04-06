@@ -9,9 +9,10 @@ import { classNames } from '@/shared/lib/helpers/classNames'
 interface ProductItemProps {
     product: Product
     className?: string
+    isNew?: boolean
 }
 
-export const ProductPreview = ({ product, className }: ProductItemProps) => {
+export const ProductPreview = ({ product, className, isNew = false }: ProductItemProps) => {
     const { t } = getTranslation()
     const {
         id,
@@ -40,12 +41,17 @@ export const ProductPreview = ({ product, className }: ProductItemProps) => {
                 href={`/products/${id}`}
             >
                 <section className={cls.imageSection}>
-                    {rating! >= 4.5 && (
+                    {!isNew && rating! >= 4.5 && (
                         <span className={cls.bestseller}>
                             {t('products.bestseller')}
                         </span>
                     )}
-                    {discountPercentage! >= 12 && (
+                    {isNew && (
+                        <span className={cls.bestseller}>
+                            {t('products.new')}
+                        </span>
+                    )}
+                    {!isNew && discountPercentage! >= 12 && (
                         <span className={cls.sale}>{t('products.sale')}</span>
                     )}
                     <div className={cls.imageContainer}>

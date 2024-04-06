@@ -31,19 +31,27 @@
         "price": "Цена",
         "description": "Описание",
         "bestseller": "Хит",
-        "sale": "Sale"
+        "sale": "Sale",
+        "new": "Новинка"
     },
     "category": {
         "category": "Категории",
         "new": "Новинки",
         "bestsellers": "Хиты продаж",
         "all": "Все",
+        "inStock": "В наличии",
+        "top": "Верх",
+        "bottom": "Низ",
+        "outwears": "На улицу",
+        "jeans": "Джинсы",
         "dresses": "Платья",
-        "blouses": "Блузки",
         "skirts": "Юбки",
+        "oversize": "Оверсайз",
+        "suits": "Костюмы",
+
+        "blouses": "Блузки",
         "pants": "Брюки",
         "jackets": "Пиджаки",
-        "suits": "Костюмы",
         "accessories": "Аксессуары",
         "shoes": "Обувь",
         "bags": "Сумки"

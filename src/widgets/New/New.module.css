@@ -5,33 +5,10 @@
     border: none;
     height: 100%;
     width: 100%;
-    max-height: 500px;
-}
-
-.newHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 15px;
-    margin-bottom: 15px;
-    text-decoration: none;
-}
-
-.newAll {
-    display: flex;
-    gap: 10px;
-    color: var(--tg-theme-text-color);
-    text-decoration: none;
-    padding-right: 25px;
-    transition: color .2s ease-in-out;
 }
 
 @media (width <= 768px) {
     .new {
         padding: 8px 0;
-    }
-    .newHeader {
-        font-size: 11px;
-        margin-bottom: 8px;
     }
 }

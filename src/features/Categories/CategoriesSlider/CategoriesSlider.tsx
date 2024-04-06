@@ -56,7 +56,6 @@ export const CategoriesSlider = memo(() => {
                         </figure>
                     </Link>
                 ))}
-                )
             </div>
         </div>
     )

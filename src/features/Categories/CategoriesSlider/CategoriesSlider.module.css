@@ -12,9 +12,9 @@
     display: flex;
     width: 100%;
     padding: 8px;
-    overflow-x: hidden;
     overflow: hidden;
     white-space: nowrap;
+    gap: var(--horizontal-scrollling-gap);
 }
 
 .horizontalScrollingItems {
@@ -26,7 +26,6 @@
     animation-timing-function: linear;
     height: var(--categories-slider-height);
     gap: var(--horizontal-scrollling-gap);
-    padding-left: var(--horizontal-scrollling-gap);
 }
 
 .horizontalScrollingItem {

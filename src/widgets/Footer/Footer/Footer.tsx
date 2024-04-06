@@ -13,11 +13,11 @@ export const Footer = () => {
     // TODO: research possibility to use middleware for checking the screen size
     useEffect(() => {
         setLoaded(true)
-    },[])
+    }, [])
 
     return (
         <div className={cls.footerLayout}>
-            {loaded ?  (isMobile ? <MobileFooter /> : <MainFooter />) : null}
+            {loaded ? isMobile ? <MobileFooter /> : <MainFooter /> : null}
         </div>
     )
 }

@@ -50,7 +50,7 @@
 
 .horizontalScrollingImage:hover {
     cursor: pointer;
-    box-shadow: 0 0 5px var(--tg-theme-text-color);
+    box-shadow: 0 0 8px var(--tg-theme-text-color);
 }
 
 .figcaption {

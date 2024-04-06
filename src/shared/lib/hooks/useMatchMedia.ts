@@ -30,7 +30,8 @@ export const useMatchMedia = (): MatchMediaState => {
          *
          * @return {Array<boolean>} an array containing the matches of the media query lists
          */
-        const getValues = (): Array<boolean> => mediaQueryLists.map((list) => list.matches)
+        const getValues = (): Array<boolean> =>
+            mediaQueryLists.map((list) => list.matches)
 
         const handler = () => setValues(getValues)
 

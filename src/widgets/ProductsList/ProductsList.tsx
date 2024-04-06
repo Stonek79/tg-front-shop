@@ -86,13 +86,13 @@ export const ProductsList = memo((props: ProductsListProps) => {
         <div className={cls.wrapper}>
             <Suspense fallback={<div>Loading...</div>}>
                 <ul className={cls.list}>
-                    {products?.map((item) => {
-                        return <ProductPreview
-                            key={ item.id }
-                            product={ item }
-                            className={ cls.item }
+                    {products?.map((item) => (
+                        <ProductPreview
+                            key={item.id}
+                            product={item}
+                            className={cls.item}
                         />
-                    })}
+                    ))}
                 </ul>
                 {canTrigger && (
                     <div className={cls.trigger} ref={ref}>

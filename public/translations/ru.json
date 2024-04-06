@@ -30,9 +30,9 @@
         "title": "Заголовок",
         "price": "Цена",
         "description": "Описание",
-        "bestseller": "Хит",
-        "sale": "Sale",
-        "new": "Новинка"
+        "bestseller": "Хит!",
+        "sale": "Sale!",
+        "new": "New!"
     },
     "category": {
         "category": "Категории",

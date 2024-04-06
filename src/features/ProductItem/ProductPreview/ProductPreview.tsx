@@ -12,7 +12,11 @@ interface ProductItemProps {
     isNew?: boolean
 }
 
-export const ProductPreview = ({ product, className, isNew = false }: ProductItemProps) => {
+export const ProductPreview = ({
+    product,
+    className,
+    isNew = false,
+}: ProductItemProps) => {
     const { t } = getTranslation()
     const {
         id,

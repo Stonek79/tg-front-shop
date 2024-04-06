@@ -30,9 +30,9 @@
         "title": "Title",
         "price": "Price",
         "description": "Description",
-        "bestseller": "Hit",
-        "sale": "Sale",
-        "new": "New"
+        "bestseller": "Hit!",
+        "sale": "Sale!",
+        "new": "New!"
     },
     "category": {
         "category": "Category",

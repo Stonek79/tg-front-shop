@@ -1,5 +1,8 @@
 import cls from './New.module.css'
-import { CategoriesHeader, NewCategoriesSection } from '@/features/Categories'
+import {
+    CategoriesContentLayout,
+    CategoriesHeader,
+} from '@/features/Categories'
 import { getProducts } from '@/shared/lib/actions/products'
 import { productsUrl } from '@/shared/consts/products'
 
@@ -9,8 +12,7 @@ export const New = async () => {
     return (
         <section className={cls.new}>
             <CategoriesHeader name={'new'} />
-            <hr />
-            <NewCategoriesSection newProducts={newProducts} />
+            <CategoriesContentLayout products={newProducts} isNew />
         </section>
     )
 }

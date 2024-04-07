@@ -1,10 +1,18 @@
 import cls from './Bestsellers.module.css'
-import { CategoriesHeader } from '@/features/Categories'
+import {
+    CategoriesContentLayout,
+    CategoriesHeader,
+} from '@/features/Categories'
+import { productsUrl } from '@/shared/consts/products'
+import { getProducts } from '@/shared/lib/actions/products'
 
-export const Bestsellers = async () => (
-    <section className={cls.bestsellers}>
-        <CategoriesHeader name={'bestsellers'} />
-        <hr />
-        <h3>Здесь будет контейнер с бecтселлерами</h3>
-    </section>
-)
+export const Bestsellers = async () => {
+    const bestsellers = await getProducts(productsUrl, { limit: 8, page: 3 })
+
+    return (
+        <section className={cls.bestsellers}>
+            <CategoriesHeader name={'bestsellers'} />
+            <CategoriesContentLayout products={bestsellers} isHit />
+        </section>
+    )
+}

@@ -24,15 +24,16 @@
         "removeFromFavorites": "Remove from favorites",
         "search": "Search",
         "close": "Close",
-        "clear": "Clear"
+        "clear": "Clear",
+        "products": "All Products"
     },
     "products": {
         "title": "Title",
         "price": "Price",
         "description": "Description",
-        "bestseller": "Hit!",
-        "sale": "Sale!",
-        "new": "New!"
+        "bestseller": "HIT",
+        "sale": "SALE",
+        "new": "NEW"
     },
     "category": {
         "category": "Category",

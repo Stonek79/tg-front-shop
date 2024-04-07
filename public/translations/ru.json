@@ -24,15 +24,16 @@
         "removeFromFavorites": "Удалить из избранного",
         "search": "Поиск",
         "close": "Закрыть",
-        "clear": "Очистить"
+        "clear": "Очистить",
+        "products": "Вся продукция"
     },
     "products": {
         "title": "Заголовок",
         "price": "Цена",
         "description": "Описание",
-        "bestseller": "Хит!",
-        "sale": "Sale!",
-        "new": "New!"
+        "bestseller": "ХИТ",
+        "sale": "SALE",
+        "new": "NEW"
     },
     "category": {
         "category": "Категории",

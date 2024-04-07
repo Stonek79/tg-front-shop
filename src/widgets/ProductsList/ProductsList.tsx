@@ -1,7 +1,7 @@
 'use client'
 
 import cls from './ProductsList.module.css'
-import React, { memo, Suspense, useEffect, useState } from 'react'
+import React, { memo, Suspense, useCallback, useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
 import { productsUrl } from '@/shared/consts/products'
@@ -11,6 +11,7 @@ import useSWRInfinite from 'swr/infinite'
 import { useRouter } from 'next/navigation'
 import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 import { useCurrentScrollPosition } from '@/shared/lib/hooks/useCurrentScrollPosition'
+import { Breadcrumbs } from '@/shared/ui/Breadcrumbs'
 
 const scrollPositionName = 'productsListScrollPosition'
 
@@ -80,19 +81,26 @@ export const ProductsList = memo((props: ProductsListProps) => {
         }
     }, [inView])
 
-    type Labels = 'new' | 'sale' | 'bestseller'
-
     return (
         <div className={cls.wrapper}>
+            <Breadcrumbs />
             <Suspense fallback={<div>Loading...</div>}>
                 <ul className={cls.list}>
-                    {products?.map((item) => (
-                        <ProductPreview
-                            key={item.id}
-                            product={item}
-                            className={cls.item}
-                        />
-                    ))}
+                    {products?.map((item) => {
+                        const isNew = Number(item.id) <= 8
+                        const isSale = !isNew && item.discountPercentage! >= 15
+                        const isHit = !isNew && item.rating! >= 4.5
+                        return (
+                            <ProductPreview
+                                key={item.id}
+                                product={item}
+                                className={cls.item}
+                                isNew={isNew}
+                                isHit={isHit}
+                                isSale={isSale}
+                            />
+                        )
+                    })}
                 </ul>
                 {canTrigger && (
                     <div className={cls.trigger} ref={ref}>

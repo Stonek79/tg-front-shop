@@ -10,12 +10,16 @@ interface ProductItemProps {
     product: Product
     className?: string
     isNew?: boolean
+    isHit?: boolean
+    isSale?: boolean
 }
 
 export const ProductPreview = ({
     product,
     className,
     isNew = false,
+    isHit = false,
+    isSale = false,
 }: ProductItemProps) => {
     const { t } = getTranslation()
     const {
@@ -45,17 +49,15 @@ export const ProductPreview = ({
                 href={`/products/${id}`}
             >
                 <section className={cls.imageSection}>
-                    {!isNew && rating! >= 4.5 && (
+                    {isHit && (
                         <span className={cls.bestseller}>
                             {t('products.bestseller')}
                         </span>
                     )}
-                    {isNew && (
-                        <span className={cls.bestseller}>
-                            {t('products.new')}
-                        </span>
+                    {isNew && (!isSale || !isHit) && (
+                        <span className={cls.new}>{t('products.new')}</span>
                     )}
-                    {!isNew && discountPercentage! >= 12 && (
+                    {isSale && (
                         <span className={cls.sale}>{t('products.sale')}</span>
                     )}
                     <div className={cls.imageContainer}>
@@ -87,7 +89,7 @@ export const ProductPreview = ({
                             {rating}
                         </div>
                         <div className={cls.price}>
-                            {discountPrice && (
+                            {!isNew && discountPrice && (
                                 <div className={cls.discountPrice}>
                                     <span>
                                         {discountPrice}

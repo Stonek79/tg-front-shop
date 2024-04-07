@@ -1,4 +1,4 @@
-.newCategoriesSection {
+.categoriesContentLayout {
     display: flex;
     flex-direction: column;
 }

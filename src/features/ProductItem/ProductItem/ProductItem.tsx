@@ -9,6 +9,7 @@ import { AddFavoriteButton } from '../AddFavoriteButton/AddFavoriteButton'
 import { AddToCartButton } from '../AddToCartButton/AddToCartButton'
 import { BackButton } from '../BackButton/BackButton'
 import { classNames } from '@/shared/lib/helpers/classNames'
+import { Breadcrumbs } from '@/shared/ui/Breadcrumbs'
 
 interface ProductItemProps {
     product: Product
@@ -22,7 +23,7 @@ export const ProductItem = memo(({ product, className }: ProductItemProps) => {
     const cn = classNames(cls.productItem, {}, [className])
     return (
         <div className={cn}>
-            <BackButton />
+            <Breadcrumbs />
             <div className={cls.productWrapper}>
                 <div className={cls.imageWrapper}>
                     {product.images && ProductImageBlock(product.images)}

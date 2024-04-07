@@ -5,6 +5,7 @@
     border: none;
     height: 100%;
     width: 100%;
+    border-top: 2px solid grey;
 }
 
 @media (width <= 768px) {

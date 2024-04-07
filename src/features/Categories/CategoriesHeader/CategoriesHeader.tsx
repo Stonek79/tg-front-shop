@@ -7,7 +7,8 @@ export const CategoriesHeader = ({ name }: { name: string }) => {
     const { t } = getTranslation()
     return (
         <div className={cls.categoriesHeader}>
-            <h2>{t(`category.${name}`)}</h2>
+            <div className={cls.flexCenter} />
+            <h2 className={cls.flexCenter}>{t(`category.${name}`)}</h2>
             <Link
                 className={cls.categoriesHeaderAll}
                 href={`/products/${name}`}

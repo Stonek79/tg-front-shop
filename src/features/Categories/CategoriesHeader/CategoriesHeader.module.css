@@ -14,6 +14,14 @@
     text-decoration: none;
     padding-right: 25px;
     transition: color .2s ease-in-out;
+    flex: 1 1 33.33%;
+    justify-content: end;
+}
+
+.flexCenter {
+    flex: 1 1 33.33%;
+    justify-content: center;
+    display: flex;
 }
 
 @media (width <= 768px) {

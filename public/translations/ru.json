@@ -9,6 +9,18 @@
         "nothingFound": "Ничего не найдено",
         "changeRequest": "Попробуйте изменить ваш запрос"
     },
+    "adminPanelLinks": {
+        "goods": "Товары",
+        "orders": "Заказы",
+        "users": "Клиенты",
+        "comments": "Комментарии"
+    },
+    "adminPanelTitles": {
+        "goods": "товары",
+        "orders": "заказы",
+        "users": "клиенты",
+        "comments": "комментарии"
+    },
     "buttons": {
         "all": "Все",
         "cart": "Корзина",

@@ -19,7 +19,15 @@
 
 .horizontalScrollingItems {
     display: flex;
-    width: calc(((var(--categories-slider-width) * var(--categories-item-count)) + (var(--horizontal-scrollling-gap) * var(--categories-item-count))) * 2 + 200px);
+    width: calc(
+        (
+                (var(--categories-slider-width) * var(--categories-item-count)) +
+                    (
+                        var(--horizontal-scrollling-gap) *
+                            var(--categories-item-count)
+                    )
+            ) * 2 + 200px
+    );
     animation-name: infiniteScroll;
     animation-duration: 25s;
     animation-iteration-count: infinite;
@@ -64,7 +72,8 @@
     font-size: var(--categories-slider-font-size);
     letter-spacing: 2px;
     background-color: #565c66;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2), 0 0 8px 0 rgba(0,0,0,.1);
-    transition: opacity .2s ease-in-out;
+    box-shadow:
+        0 2px 4px 0 rgba(0, 0, 0, 0.2),
+        0 0 8px 0 rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease-in-out;
 }
-

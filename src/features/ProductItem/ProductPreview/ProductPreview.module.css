@@ -13,12 +13,12 @@
 }
 
 .productPreview:hover {
-     transition: all .3s ease;
-     border-color: #000;
-     border-radius: 10px;
-     background:  #fff;
-     box-shadow: 0 5px 20px 0 rgb(0 0 0 / 9%);
- }
+    transition: all 0.3s ease;
+    border-color: #000;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 5px 20px 0 rgb(0 0 0 / 9%);
+}
 
 .img {
     padding: 4px;
@@ -135,7 +135,7 @@
 .stars {
     display: flex;
     align-items: center;
-    gap: 4px
+    gap: 4px;
 }
 
 @media (width <= 768px) {

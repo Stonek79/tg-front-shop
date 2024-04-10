@@ -77,7 +77,7 @@
 .productButtonBlock {
     display: flex;
     white-space: nowrap;
-    gap: 5px
+    gap: 5px;
 }
 
 @media (width <= 768px) {

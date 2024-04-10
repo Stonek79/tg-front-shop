@@ -9,6 +9,18 @@
         "nothingFound": "Nothing found",
         "changeRequest": "Please, try to change your request"
     },
+    "adminPanelLinks": {
+        "goods": "Goods",
+        "orders": "Orders",
+        "users": "Users",
+        "comments": "Comments"
+    },
+    "adminPanelTitles": {
+        "goods": "goods",
+        "orders": "orders",
+        "users": "users",
+        "comments": "comments"
+    },
     "buttons": {
         "all": "All",
         "cart": "Cart",

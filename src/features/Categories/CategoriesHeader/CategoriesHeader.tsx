@@ -9,10 +9,7 @@ export const CategoriesHeader = ({ name }: { name: string }) => {
         <div className={cls.categoriesHeader}>
             <div className={cls.flexCenter} />
             <h2 className={cls.flexCenter}>{t(`category.${name}`)}</h2>
-            <Link
-                className={cls.categoriesHeaderAll}
-                href={`/products/${name}`}
-            >
+            <Link className={cls.categoriesHeaderAll} href={`/${name}`}>
                 <h3>{t('category.all')}</h3>
                 <Image
                     src={'./img/all-arrow.svg'}

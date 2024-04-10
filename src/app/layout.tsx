@@ -36,13 +36,7 @@ export default function RootLayout({
                         src="https://telegram.org/js/telegram-web-app.js"
                         strategy="beforeInteractive"
                     />
-                    <TgAppProvider>
-                        <Header />
-                        <div className={cls.mainLayoutContainer}>
-                            {children}
-                        </div>
-                        <Footer />
-                    </TgAppProvider>
+                    {children}
                 </main>
             </body>
         </html>

@@ -18,7 +18,7 @@ export const CategoriesSlider = memo(() => {
             <div className={cls.horizontalScrollingItems}>
                 {categoryNames.map((category, index) => (
                     <Link
-                        href={`/products/category/${categories[category].url}`}
+                        href={`/category/${categories[category].url}`}
                         key={index}
                     >
                         <figure className={cls.horizontalScrollingItem}>

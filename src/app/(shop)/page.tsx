@@ -1,4 +1,4 @@
-import cls from './MainPage.module.css'
+import cls from '../MainPage.module.css'
 import { Banner } from '@/widgets/Banner'
 import { CategoriesSection } from '@/widgets/CategoriesSection'
 import { Bestsellers } from '@/widgets/Bestsellers'

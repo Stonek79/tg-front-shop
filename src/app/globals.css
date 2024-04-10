@@ -1,7 +1,7 @@
 :root {
-    --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+        'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+        'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
     --header-max-width: 1200px;
     --main-layout-max-width: 1200px;
     --tg-viewport-height: 100vh;
@@ -133,7 +133,7 @@ Cart and favorites icons styles
     /*background-color: var(--tg-theme-bg-color);*/
     height: 100%;
     width: 100%;
-    transition: background-color .2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .iconBtnCF {

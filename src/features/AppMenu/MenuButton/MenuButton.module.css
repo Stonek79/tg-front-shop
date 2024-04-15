@@ -20,7 +20,7 @@
 }
 
 .span::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 24px;
     height: 2px;
@@ -29,7 +29,7 @@
 }
 
 .span::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 24px;
     height: 2px;

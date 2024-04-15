@@ -4,7 +4,7 @@
 }
 
 .summary {
-    padding: 0.5em 0 0 ;
+    padding: 0.5em 0 0;
     list-style: none;
 }
 
@@ -21,13 +21,13 @@
 }
 
 .summary h3::after {
-    content: "+";
+    content: '+';
     float: right;
     width: 20px;
 }
 
 details[open] summary h3::after {
-    content: "-";
+    content: '-';
 }
 
 .categoryLink {

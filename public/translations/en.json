@@ -37,7 +37,10 @@
         "search": "Search",
         "close": "Close",
         "clear": "Clear",
-        "products": "All Products"
+        "products": "All Products",
+        "category": "Category",
+        "new": "New",
+        "bestsellers": "Bestsellers"
     },
     "products": {
         "title": "Title",
@@ -45,7 +48,8 @@
         "description": "Description",
         "bestseller": "HIT",
         "sale": "SALE",
-        "new": "NEW"
+        "new": "NEW",
+        "noRating": "No rating"
     },
     "category": {
         "category": "Category",
@@ -57,16 +61,29 @@
         "bottom": "Bottom",
         "outwears": "Outwears",
         "jeans": "Jeans",
-        "suits": "Suits",
+        "suits": "Suits/Bundles",
         "dresses": "Dresses",
         "oversize": "Oversize",
         "skirts": "Skirts",
-
+        "tShirts": "T-Shorts/Undershirts",
+        "shorts": "Shorts",
+        "bombers": "Bombers",
+        "midSeasonJackets": "Mid-season jackets",
+        "winterJackets": "Winter jacket",
+        "coats": "Coats/Trenchers",
+        "vests": "Vests",
         "blouses": "Blouses",
         "pants": "Pants",
         "jackets": "Jackets",
-        "accessories": "Accessories",
-        "shoes": "Shoes",
-        "bags": "Bags"
+        "trousers": "Trousers",
+        "hoodies": "Hoodies",
+        "cardigans": "Cardigans",
+        "sweatshirts": "Sweatshirts",
+        "zippedSweaters": "Zipped sweater",
+        "turtlenecks": "Turtlenecks",
+        "bridges": "Bridges/Capry",
+        "longsleeves": "Лонгсливы",
+        "leggings": "Leggings",
+        "breeches": "Breeches"
     }
 }

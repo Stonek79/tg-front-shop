@@ -1,8 +1,0 @@
-.appMenu {
-    width: var(--icon-size);
-    height: var(--icon-size);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--tg-theme-text-color);
-}

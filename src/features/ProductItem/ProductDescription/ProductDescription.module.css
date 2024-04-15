@@ -1,0 +1,11 @@
+.productDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.description {
+    font-size: 0.8em;
+}
+

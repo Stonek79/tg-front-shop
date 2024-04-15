@@ -1,7 +1,7 @@
 'use client'
 
 import cls from './ProductsList.module.css'
-import React, { memo, Suspense, useCallback, useEffect, useState } from 'react'
+import React, { memo, Suspense, useEffect, useState } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
 import { productsUrl } from '@/shared/consts/products'

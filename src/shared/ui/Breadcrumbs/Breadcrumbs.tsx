@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useSelectedLayoutSegment } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import cls from './Breadcrumbs.module.scss'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
@@ -10,7 +10,8 @@ export function Breadcrumbs({
 }: {
     startSegment?: string
 }) {
-    const segment = useSelectedLayoutSegment()
+    const pathname = usePathname()
+    const segments = pathname.replace('/', '').split('/').slice(1)
     const { t } = getTranslation()
 
     return (
@@ -21,17 +22,23 @@ export function Breadcrumbs({
                 </li>
                 <li
                     className={cls.breadcrumbsItem}
-                    aria-current={segment ? undefined : 'page'}
+                    aria-current={segments.length ? undefined : 'page'}
                 >
                     <Link href={`/${startSegment}`}>
                         {t(`buttons.${startSegment}`)}
                     </Link>
                 </li>
-                {segment ? (
-                    <li className={cls.breadcrumbsItem} aria-current="page">
-                        {segment}
-                    </li>
-                ) : null}
+                {segments.length <= 0
+                    ? null
+                    : segments.map((segment) => (
+                          <li
+                              key={segment}
+                              className={cls.breadcrumbsItem}
+                              aria-current="page"
+                          >
+                              {t(`buttons.${segment}`) ?? segment}
+                          </li>
+                      ))}
             </ul>
         </nav>
     )

@@ -1,12 +1,17 @@
+'use client'
+
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import cls from './CategoriesPage.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import { categoriesList } from '@/shared/consts/categories'
+import { Breadcrumbs } from '@/shared/ui/Breadcrumbs'
 
-export const CategoriesPage = () => {
+export const CategoriesPage = ({
+    categories = {},
+}: {
+    categories: NamedCategory
+}) => {
     const { t } = getTranslation()
-    const categories = categoriesList
     const categoryNames = Object.keys(categories)
 
     return (
@@ -21,6 +26,11 @@ export const CategoriesPage = () => {
                             <div className={cls.categoriesPageItemImageWrapper}>
                                 <Image
                                     src={`/img/categories/${categories[category].icon}`}
+                                    onError={(event) => {
+                                        // @ts-ignore
+                                        event.target.srcset =
+                                            '/img/categories/all.webp'
+                                    }}
                                     alt={categories[category].name}
                                     width={200}
                                     height={200}

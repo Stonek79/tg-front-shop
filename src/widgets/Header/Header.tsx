@@ -2,7 +2,7 @@ import cls from './Header.module.css'
 import { HeaderLogo } from '@/features/HeaderLogo'
 import { FavoritesBtn } from '@/features/Favorites'
 import { UserMenu } from '@/features/UserMenu'
-import { AppMenu } from '@/features/AppMenu'
+import { MenuButton } from '@/features/AppMenu'
 import { HeaderCartIcon } from '@/features/Cart'
 import { SearchButton } from '@/features/Search'
 import { Suspense } from 'react'
@@ -12,7 +12,7 @@ export const Header = () => (
         <div className={cls.headerMain}>
             <div className={cls.headerWrapper}>
                 <section className={cls.headerLeft}>
-                    <AppMenu />
+                    <MenuButton />
                     <Suspense fallback={<div>Loading SearchButton...</div>}>
                         <SearchButton />
                     </Suspense>

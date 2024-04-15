@@ -13,6 +13,29 @@ const dictionaries: { [key: string]: TranslationDict } = {
     en,
 }
 
+function findValueByKey(
+    obj: TranslationDict,
+    searchKey: string,
+): string | null {
+    const stack = Object.entries(obj)
+
+    while (stack.length > 0) {
+        const [key, value] = stack.pop() as [string, string | TranslationDict]
+
+        if (key === searchKey && typeof value === 'string') {
+            return value
+        }
+
+        if (typeof value === 'object' && value !== null) {
+            for (const [nestedKey, nestedValue] of Object.entries(value)) {
+                stack.push([nestedKey, nestedValue])
+            }
+        }
+    }
+
+    return null
+}
+
 function getDictionaryValue(
     key: string,
     dict: TranslationDict,
@@ -32,7 +55,7 @@ function getDictionaryValue(
 
 export const getTranslation = () // lang: string = 'ru',
 : {
-    t: (key: string) => string
+    t: (key: string) => string | null
     lang: string
     dict: TranslationDict
 } => {
@@ -43,13 +66,13 @@ export const getTranslation = () // lang: string = 'ru',
         throw new Error(`No dictionary found for language: ${lang}`)
     }
 
-    const t = (key: string): string => {
+    const t = (key: string): string | null => {
         const result = getDictionaryValue(key, dict)
 
         if (typeof result === 'string') {
             return result
         } else {
-            return `Expected string but got object for key: ${key}`
+            return findValueByKey(dict, key)
         }
     }
 

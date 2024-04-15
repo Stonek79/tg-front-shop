@@ -10,7 +10,7 @@
 
 .mainLayoutContainer {
     flex: 1;
-    padding: 8px;
+    padding: var(--main-layout-container-padding);
     display: flex;
     justify-content: center;
     width: 100%;

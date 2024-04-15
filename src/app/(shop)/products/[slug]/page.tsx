@@ -1,7 +1,7 @@
-import { ProductItem } from '@/features/ProductItem/ProductItem/ProductItem'
 import { Product } from '@/types/product'
 import { getProduct, getProducts } from '@/shared/lib/actions/products'
 import { productsUrl } from '@/shared/consts/products'
+import { ProductPage } from '@/widgets/ProductPage'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,5 +20,5 @@ export default async function Product({
 }) {
     const product = await getProduct(productsUrl, slug)
 
-    return <ProductItem product={product} />
+    return <ProductPage product={product} />
 }

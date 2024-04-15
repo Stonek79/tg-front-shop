@@ -37,7 +37,10 @@
         "search": "Поиск",
         "close": "Закрыть",
         "clear": "Очистить",
-        "products": "Вся продукция"
+        "products": "Вся продукция",
+        "category": "Категории",
+        "new": "Новинки",
+        "bestsellers": "Хиты продаж"
     },
     "products": {
         "title": "Заголовок",
@@ -45,7 +48,8 @@
         "description": "Описание",
         "bestseller": "ХИТ",
         "sale": "SALE",
-        "new": "NEW"
+        "new": "NEW",
+        "noRating": "Нет оценок"
     },
     "category": {
         "category": "Категории",
@@ -60,13 +64,27 @@
         "dresses": "Платья",
         "skirts": "Юбки",
         "oversize": "Оверсайз",
-        "suits": "Костюмы",
-
-        "blouses": "Блузки",
+        "suits": "Костюмы/Комплекты",
+        "tShirts": "Футболки/Майки",
+        "shorts": "Шорты",
+        "bombers": "Ветровки/Бомберы",
+        "midSeasonJackets": "Куртки демисезонные",
+        "winterJackets": "Зимние куртки",
+        "coats": "Пальто/Тренчи",
+        "vests": "Жилеты",
+        "sweaters": "Свитера/Вязаные кофты",
+        "blouses": "Рубашки/Блузки",
         "pants": "Брюки",
         "jackets": "Пиджаки",
-        "accessories": "Аксессуары",
-        "shoes": "Обувь",
-        "bags": "Сумки"
+        "trousers": "Брюки",
+        "hoodies": "Кофты с капюшоном",
+        "cardigans": "Кардиганы",
+        "sweatshirts": "Свитшоты",
+        "zippedSweaters": "Кофты на замке",
+        "turtlenecks": "Водолазки",
+        "bridges": "Бриджи/Капри",
+        "longsleeves": "Лонгсливы",
+        "leggings": "Леггинсы",
+        "breeches": "Бриджи"
     }
 }

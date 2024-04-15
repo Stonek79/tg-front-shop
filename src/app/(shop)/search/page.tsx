@@ -1,5 +1,4 @@
-import { SearchContainer, SearchInfoContainer } from '@/features/Search'
-import { Suspense } from 'react'
+import { Search } from '@/widgets/Search'
 
 export const dynamic = 'force-dynamic'
 
@@ -10,12 +9,5 @@ export default function SearchPage({
 }) {
     const query = searchParams.q
 
-    return (
-        <div>
-            <SearchContainer />
-            <Suspense fallback={<div>Loading SearchInfoContainer...</div>}>
-                <SearchInfoContainer query={query} />
-            </Suspense>
-        </div>
-    )
+    return <Search query={query} />
 }

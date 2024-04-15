@@ -1,0 +1,16 @@
+.menuContainer {
+    max-width: 100vw;
+    max-height: 70dvh;
+    background: var(--tg-theme-bg-color);
+    position: absolute;
+    top:  var(--header-height);
+    left: 0;
+    overflow: auto;
+}
+
+.relativeFlex {
+    position: relative;
+    display: flex;
+    padding: 15px;
+}
+

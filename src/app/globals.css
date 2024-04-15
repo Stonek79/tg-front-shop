@@ -3,7 +3,9 @@
         'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
         'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
     --header-max-width: 1200px;
+    --header-padding: 10px;
     --main-layout-max-width: 1200px;
+    --main-layout-container-padding: 8px;
     --tg-viewport-height: 100vh;
     --tg-viewport-stable-height: 100vh;
 
@@ -49,7 +51,6 @@ a {
 
 html,
 body {
-    /*width: 100vw;*/
     height: 100dvh;
 }
 
@@ -130,7 +131,6 @@ Cart and favorites icons styles
 }
 
 .iconCF {
-    /*background-color: var(--tg-theme-bg-color);*/
     height: 100%;
     width: 100%;
     transition: background-color 0.2s ease-in-out;
@@ -154,6 +154,7 @@ Cart and favorites icons styles
     :root {
         --icon-size: 40px;
         --header-height: 50px;
+        --header-padding: 0;
 
         --categories-slider-height: 100px;
         --categories-slider-width: 100px;

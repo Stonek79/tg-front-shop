@@ -1,0 +1,41 @@
+.details {
+    border-radius: 4px;
+    color: black;
+}
+
+.summary {
+    padding: 0.5em 0 0 ;
+    list-style: none;
+}
+
+.details[open] {
+    width: 100%;
+}
+
+.details[open] .summary {
+    list-style: none;
+}
+
+.details > .summary::-webkit-details-marker {
+    display: none;
+}
+
+.summary h3::after {
+    content: "+";
+    float: right;
+    width: 20px;
+}
+
+details[open] summary h3::after {
+    content: "-";
+}
+
+.categoryLink {
+    color: black;
+    padding-top: 0.5em;
+}
+
+.subCategoryLink {
+    padding: 0.5em;
+    font-weight: 400;
+}

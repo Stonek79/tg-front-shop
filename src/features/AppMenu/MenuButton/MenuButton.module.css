@@ -1,0 +1,39 @@
+.openButton {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tg-theme-text-color);
+}
+
+.closeButton {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.span {
+    display: flex;
+}
+
+.span::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.span::before {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 10;
+}

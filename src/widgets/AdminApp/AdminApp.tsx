@@ -16,13 +16,13 @@ export function AdminApp() {
         <Admin layout={AdminLayout} dataProvider={DataProviders}>
             <Resource
                 name="products"
-                options={{ label: t('adminPanelLinks.goods') }}
+                options={{ label: t('adminPanelLinks.goods') as string }}
                 list={ProductsList}
                 show={ProductItem}
             />
             <Resource
                 name="users"
-                options={{ label: t('adminPanelLinks.users') }}
+                options={{ label: t('adminPanelLinks.users') as string }}
                 list={ClientsList}
             />
         </Admin>

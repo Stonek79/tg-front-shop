@@ -14,6 +14,12 @@ export function Breadcrumbs({
     const segments = pathname.replace('/', '').split('/').slice(1)
     const { t } = getTranslation()
 
+    const mapSegments = (segment: string) => (
+        <li key={segment} className={cls.breadcrumbsItem} aria-current="page">
+            {t(`buttons.${segment}`) ?? segment}
+        </li>
+    )
+
     return (
         <nav className={cls.breadcrumbsContainer} aria-label="Breadcrumb">
             <ul className={cls.breadcrumbsList}>
@@ -28,17 +34,7 @@ export function Breadcrumbs({
                         {t(`buttons.${startSegment}`)}
                     </Link>
                 </li>
-                {segments.length <= 0
-                    ? null
-                    : segments.map((segment) => (
-                          <li
-                              key={segment}
-                              className={cls.breadcrumbsItem}
-                              aria-current="page"
-                          >
-                              {t(`buttons.${segment}`) ?? segment}
-                          </li>
-                      ))}
+                {segments.length <= 0 ? null : segments.map(mapSegments)}
             </ul>
         </nav>
     )

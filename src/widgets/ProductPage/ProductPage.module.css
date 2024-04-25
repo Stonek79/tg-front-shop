@@ -10,8 +10,9 @@
 .imageContainer {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    flex: 2;
+    /*overflow: hidden;*/
+    flex: 3;
+    aspect-ratio: 1/1;
 }
 
 .productWrapper {
@@ -34,10 +35,6 @@
     flex-direction: column;
     gap: 5px;
     align-items: start;
-}
-
-.imageWrapper {
-    max-width: 500px;
 }
 
 .productCartBlock {

@@ -4,11 +4,11 @@ import { Product } from '@/types/product'
 
 export const ProductDescription = ({ product }: { product: Product }) => {
     const { t } = getTranslation()
+
+    console.log(product)
     return (
         <div className={cls.productDescription}>
-            <div className={cls.title}>
-                <span>{t('products.title')}:</span> {product.title}
-            </div>
+            <div className={cls.title}>{product.title}</div>
             <div className={cls.description}>
                 <span>{t('products.description')}:</span> {product.description}
             </div>

@@ -1,0 +1,27 @@
+.arrowButton {
+    width: 3.6rem;
+    height: 3.6rem;
+    z-index: 1;
+    border: 2px solid;
+    border-radius: 50%;
+    color: var(--tg-theme-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+    mix-blend-mode: difference;
+    opacity: .5;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &:disabled {
+        opacity: .2;
+    }
+
+    @media (max-width: 576px) {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+}

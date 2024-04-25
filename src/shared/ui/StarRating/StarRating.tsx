@@ -18,9 +18,12 @@ const getPercentage = (rating: number) => {
     }
 
     const percentPart = rating.toString().split('.')
+
     const fillPart = percentPart[1]
+    const zeroPercent = !fillPart && '00'
+
     const fillPartTransformed =
-        fillPart.length === 1 ? fillPart + '0' : fillPart
+        !zeroPercent && fillPart.length !== 1 ? fillPart : fillPart + '0'
 
     const decimalPercent = fillPart === '0' ? '0' : fillPartTransformed
     return {

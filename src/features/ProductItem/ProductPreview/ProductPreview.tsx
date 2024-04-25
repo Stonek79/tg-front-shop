@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { classNames } from '@/shared/lib/helpers/classNames'
+import { CarouselComponent } from '@/features/Carousel'
 
 interface ProductItemProps {
     product: Product
@@ -29,8 +30,8 @@ export const ProductPreview = ({
         rating,
         price,
         currency = '₽',
-        thumbnail,
         discountPercentage,
+        images = [],
     } = product
 
     const salePercent = discountPercentage
@@ -61,13 +62,14 @@ export const ProductPreview = ({
                         <span className={cls.sale}>{t('products.sale')}</span>
                     )}
                     <div className={cls.imageContainer}>
-                        <Image
-                            alt={title}
-                            src={thumbnail || ''}
-                            width={200}
-                            height={200}
+                        <CarouselComponent
+                            slides={images}
+                            viewportSize={200}
+                            hasThumbs={false}
+                            hasButtons={false}
+                            borderRadius={8}
+                            dotButtonSize={8}
                             className={cls.img}
-                            priority
                         />
                     </div>
                 </section>

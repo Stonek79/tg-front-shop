@@ -1,0 +1,46 @@
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    border-radius: 0.5rem;
+
+    &::backdrop {
+        background-color: rgb(0 0 0 / 0.6);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+.dialogWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonContainer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+}
+
+.closeBtn {
+    padding: 5px;
+    margin: 5px;
+    right: 0;
+    border: 1px solid var(--tg-theme-text-color);
+    border-radius: 50%;
+    background: var(--tg-theme-bg-color);
+
+    &:first-child {
+        display: flex;
+    }
+}
+
+.contentWrapper {
+    display: flex;
+    overflow: auto;
+}
+
+

@@ -16,7 +16,7 @@ export function Breadcrumbs({
 
     const mapSegments = (segment: string) => (
         <li key={segment} className={cls.breadcrumbsItem} aria-current="page">
-            {t(`buttons.${segment}`) ?? segment}
+            {t(`${startSegment}.${segment}`) ?? segment}
         </li>
     )
 

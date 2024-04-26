@@ -64,7 +64,6 @@ export const ProductPreview = ({
                     <div className={cls.imageContainer}>
                         <CarouselComponent
                             slides={images}
-                            viewportSize={200}
                             hasThumbs={false}
                             hasButtons={false}
                             borderRadius={8}

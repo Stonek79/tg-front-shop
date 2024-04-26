@@ -98,10 +98,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
 .slideImage {
     object-fit: cover;
+    height: 100%;
+}
+
+.dialogImage {
+    object-fit: cover;
+    width: 100vw;
+    max-width: 900px;
 }
 
 .carouselControls {
@@ -164,14 +172,21 @@
     mix-blend-mode: difference;
 }
 
-.dotsContainer {
+.dotsWrapper {
+    width: 80%;
     position: absolute;
     bottom: 0;
     display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
+    justify-content: space-evenly;
     left: 50%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+
+.dotsContainer {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
 }
 
 .dotButton {
@@ -179,12 +194,13 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    mix-blend-mode: difference;
 
     &.selected:after {
-        border: 3px solid var(--text-body);
+        border: 2px solid var(--text-body);
 
         @media (max-width: 576px) {
-            border: 1px solid var(--text-body);
+            border: 1px solid var(--tg-theme-bg-color);
             background: var(--text-body);
         }
     }
@@ -207,7 +223,7 @@
     &:after {
         width: 100%;
         height: 100%;
-        border: 3px solid var(--detail-medium-contrast);
+        border: 2px solid var(--tg-theme-bg-color);
         border-radius: 50%;
         box-sizing: border-box;
         display: flex;
@@ -216,7 +232,7 @@
 
         @media (max-width: 576px) {
             border: 1px solid var(--detail-medium-contrast);
-            background: var(--detail-medium-contrast);
+            background: var(--tg-theme-bg-color);
         }
     }
 }

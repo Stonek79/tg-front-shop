@@ -103,7 +103,7 @@ export const CarouselComponent = (props: PropType) => {
                         alt={slides[selectedIndex]}
                         width={viewportSize}
                         height={viewportSize}
-                        className={cls.slideImage}
+                        className={cls.dialogImage}
                     />
                 </Dialog>
             )}
@@ -122,11 +122,9 @@ export const CarouselComponent = (props: PropType) => {
                                 onClick={() => setIsOpenDialog((prev) => !prev)}
                             >
                                 <div className={cls.slideItem}>
-                                    <Image
+                                    <img
                                         src={slide}
                                         alt={slide}
-                                        width={viewportSize}
-                                        height={viewportSize}
                                         className={cls.slideImage}
                                     />
                                 </div>
@@ -148,14 +146,16 @@ export const CarouselComponent = (props: PropType) => {
                         />
                     )}
                     {hasDots && (
-                        <div className={cls.dotsContainer}>
-                            {scrollSnaps.map((_, index) => (
-                                <DotButton
-                                    key={index}
-                                    onClick={() => onDotButtonClick(index)}
-                                    className={`${cls.dotButton} ${cls[`dbs${dotButtonSize}`]} ${index === selectedIndex ? cls.selected : ''}`}
-                                />
-                            ))}
+                        <div className={cls.dotsWrapper}>
+                            <div className={cls.dotsContainer}>
+                                {scrollSnaps.map((_, index) => (
+                                    <DotButton
+                                        key={index}
+                                        onClick={() => onDotButtonClick(index)}
+                                        className={`${cls.dotButton} ${cls[`dbs${dotButtonSize}`]} ${index === selectedIndex ? cls.selected : ''}`}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     )}
                 </div>

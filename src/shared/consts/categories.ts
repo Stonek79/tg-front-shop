@@ -7,7 +7,7 @@ export const categoriesList: NamedCategory = {
 
     inStock: {
         name: 'In stock',
-        url: 'in-stock',
+        url: 'inStock',
         icon: 'inStock.webp',
     },
 
@@ -98,12 +98,12 @@ export const categoriesList: NamedCategory = {
 export const allCategories: NamedCategory = {
     inStock: {
         name: 'In stock',
-        url: 'in-stock',
+        url: 'inStock',
         icon: 'inStock.webp',
     },
     tShirts: {
         name: 'T-Shirts',
-        url: 't-shirts',
+        url: 'tShirts',
         icon: 't-shirts.webp',
     },
     blouses: {
@@ -138,12 +138,12 @@ export const allCategories: NamedCategory = {
     },
     suitJackets: {
         name: 'Suit Jackets',
-        url: 'suit-jackets',
+        url: 'suitJackets',
         icon: 'suit-jackets.webp',
     },
     zippedSweaters: {
         name: 'Zipped Sweaters',
-        url: 'zipped-sweaters',
+        url: 'zippedSweaters',
         icon: 'zippedSweaters.webp',
     },
     hoodies: {
@@ -203,7 +203,7 @@ export const allCategories: NamedCategory = {
     },
     midSeasonJackets: {
         name: 'Mid season jackets',
-        url: 'mid-season-jackets',
+        url: 'midSeasonJackets',
         icon: 'mid-season-jackets.webp',
     },
     bombers: {
@@ -213,7 +213,7 @@ export const allCategories: NamedCategory = {
     },
     winterJackets: {
         name: 'Winter jackets',
-        url: 'winter-jackets',
+        url: 'winterJackets',
         icon: 'winter-jackets.webp',
     },
     coats: {

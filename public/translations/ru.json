@@ -13,13 +13,28 @@
         "goods": "Товары",
         "orders": "Заказы",
         "users": "Клиенты",
-        "comments": "Комментарии"
+        "comments": "Комментарии",
+        "categories": "Категории",
+        "categoryBlockTitle": "Категории товаров"
     },
     "adminPanelTitles": {
         "goods": "товары",
         "orders": "заказы",
         "users": "клиенты",
         "comments": "комментарии"
+    },
+    "adminCategories": {
+        "currentCategories": "Текущие категории",
+        "newSubCategory": "Новая подкатегория",
+        "selectedCategory": "Выбранная категория",
+        "parentCategory": "Родительская категория",
+        "categoryName": "Название категории",
+        "categoryId": "ID категории",
+        "changeSubCategory": "Изменить подкатегорию",
+        "addSubCategory": "Добавить подкатегорию",
+        "addCategory": "Добавить категорию",
+        "confirmDeleteTitle": "Вы уверены, что хотите удалить категорию ",
+        "confirmDeleteContent": "Вы не сможете восстановить эту категорию"
     },
     "buttons": {
         "all": "Все",
@@ -40,7 +55,17 @@
         "products": "Все товары",
         "category": "Категории",
         "new": "Новинки",
-        "bestsellers": "Хиты продаж"
+        "bestsellers": "Хиты продаж",
+        "edit": "Изменить",
+        "delete": "Удалить",
+        "save": "Сохранить",
+        "cancel": "Отменить",
+        "ra": {
+            "action": {
+                "cancel": "Отменить",
+                "confirm": "Подтвердить"
+            }
+        }
     },
     "products": {
         "title": "Заголовок",
@@ -49,7 +74,51 @@
         "bestseller": "ХИТ",
         "sale": "SALE",
         "new": "NEW",
-        "noRating": "Нет оценок"
+        "noRating": "Нет оценок",
+        "quantity": "Количество",
+        "grand": "шт."
+    },
+    "product": {
+        "title": "Заголовок",
+        "price": "Цена",
+        "description": "Описание",
+        "color": "Цвет",
+        "size": "Размер",
+        "currency": "Валюта",
+        "discountPercent": "Скидка",
+        "rating": "Рейтинг",
+        "reviews": "Отзывы",
+        "quantity": "Количество",
+        "stock": "Остаток",
+        "brand": "Брэнд",
+        "category": "Категория",
+        "inStock": "В наличии",
+        "onSale": "Распродажа",
+        "onTop": "Хит",
+        "characteristics": "Характеристики",
+        "orders": "Заказы",
+        "images": "Изображения",
+        "thumbnail": "Обложка",
+        "mainInfo": "Основная информация",
+        "status": "Статус",
+        "addImage": "Вставь ссылку на картинку или кликни для выбора"
+    },
+    "characteristics": {
+        "brandName": "Название брэнда",
+        "origin": "Страна происхождения",
+        "material": "Материал",
+        "gender": "Пол",
+        "style": "Стиль",
+        "fabricTexture": "Текстура ткани",
+        "productType": "Тип продукта",
+        "decorativeElements": "Декоративные элементы",
+        "fit": "Полнота",
+        "length": "Длина",
+        "fabricDensity": "Плотность ткани",
+        "zipperType": "Тип застежки",
+        "fitType": "Тип посадки",
+        "unitOfMeasurement": "Единица измерения",
+        "quantity": "Количество"
     },
     "category": {
         "category": "Категории",
@@ -75,7 +144,7 @@
         "vests": "Жилеты",
         "sweaters": "Свитера/Вязаные кофты",
         "blouses": "Рубашки/Блузки",
-        "pants": "Брюки",
+        "pants": "Штаны",
         "jackets": "Пиджаки",
         "trousers": "Брюки",
         "hoodies": "Кофты с капюшоном",
@@ -87,5 +156,37 @@
         "longsleeves": "Лонгсливы",
         "leggings": "Леггинсы",
         "breeches": "Бриджи"
+    },
+    "genders": {
+        "male": "Мужской",
+        "female": "Женский",
+        "unisex": "Унисекс"
+    },
+    "colors": {
+        "black": "черный",
+        "white": "белый",
+        "red": "красный",
+        "green": "зеленый",
+        "blue": "синий",
+        "yellow": "желтый",
+        "pink": "розовый",
+        "purple": "фиолетовый",
+        "orange": "оранжевый",
+        "gray": "серый",
+        "brown": "коричневый",
+        "cyan": "голубой",
+        "lime": "лайм",
+        "magenta": "пурпурный",
+        "skyblue": "небесно-голубой",
+        "olive": "оливковый",
+        "lavender": "лавандовый",
+        "navy": "темно-синий",
+        "darkgreen": "темно-зеленый",
+        "darkred": "темно-красный",
+        "darkgray": "темно-серый",
+        "lightgray": "светло-серый",
+        "lightyellow": "светло-желтый",
+        "lightgreen": "светло-зеленый",
+        "lightblue": "светло-синий"
     }
 }

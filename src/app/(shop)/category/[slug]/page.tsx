@@ -11,7 +11,6 @@ export default async function Category({
 }) {
     const { t } = getTranslation()
 
-    console.log(slug)
     if (slug === 'all') {
         return (
             <div>

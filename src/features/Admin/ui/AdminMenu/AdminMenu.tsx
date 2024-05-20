@@ -4,6 +4,7 @@ import ShoppingBag from '@mui/icons-material/ShoppingBag'
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble'
 import PeopleIcon from '@mui/icons-material/People'
 import ShoppingCart from '@mui/icons-material/ShoppingCart'
+import CategoryIcon from '@mui/icons-material/Category'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
 export const AdminMenu = () => {
@@ -11,9 +12,14 @@ export const AdminMenu = () => {
     return (
         <Menu sx={{ width: 200 }}>
             <Menu.Item
-                to="/products"
+                to="/product"
                 primaryText={t('adminPanelLinks.goods')}
                 leftIcon={<ShoppingBag />}
+            />
+            <Menu.Item
+                to="/category"
+                primaryText={t('adminPanelLinks.categories')}
+                leftIcon={<CategoryIcon />}
             />
             <Menu.Item
                 to="/comments"

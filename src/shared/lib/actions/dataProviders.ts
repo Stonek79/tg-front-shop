@@ -1,7 +1,7 @@
 import { DataProvider, fetchUtils } from 'react-admin'
 import { stringify } from 'query-string'
 
-const apiUrl = 'https://dummyjson.com'
+const apiUrl = 'http://localhost:4200'
 const httpClient = fetchUtils.fetchJson
 
 export const DataProviders: DataProvider = {
@@ -13,6 +13,7 @@ export const DataProviders: DataProvider = {
             range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
             filter: JSON.stringify(params.filter),
         }
+
         const url = `${apiUrl}/${resource}?skip=${(page - 1) * perPage}&limit=${perPage}&search=${query.filter}`
 
         const res = await fetch(url, {
@@ -25,13 +26,11 @@ export const DataProviders: DataProvider = {
 
         const list = await res.json()
 
-        console.log('products: ', list)
         return { data: list[`${resource}`], total: list.total }
     },
 
     getOne: async (resource, params) => {
         const url = `${apiUrl}/${resource}/${params.id}`
-        console.log(url, 'URL')
         const res = await fetch(url, {
             method: 'GET',
             headers: {
@@ -41,7 +40,6 @@ export const DataProviders: DataProvider = {
         })
 
         const data = await res.json()
-        console.log('ITEM: ', data)
         return { data }
     },
 
@@ -50,6 +48,7 @@ export const DataProviders: DataProvider = {
             filter: JSON.stringify({ ids: params.ids }),
         }
         const url = `${apiUrl}/${resource}?${stringify(query)}`
+
         const { json } = await httpClient(url)
         return { data: json }
     },
@@ -77,6 +76,7 @@ export const DataProviders: DataProvider = {
     },
 
     create: async (resource, params) => {
+        console.log(params, 'params')
         const { json } = await httpClient(`${apiUrl}/${resource}`, {
             method: 'POST',
             body: JSON.stringify(params.data),

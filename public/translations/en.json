@@ -13,13 +13,28 @@
         "goods": "Goods",
         "orders": "Orders",
         "users": "Users",
-        "comments": "Comments"
+        "comments": "Comments",
+        "categories": "Categories",
+        "categoryBlockTitle": "Goods categories"
     },
     "adminPanelTitles": {
         "goods": "goods",
         "orders": "orders",
         "users": "users",
         "comments": "comments"
+    },
+    "adminCategories": {
+        "currentCategories": "Current categories",
+        "newSubCategory": "New subcategory",
+        "selectedCategory": "Selected category",
+        "parentCategory": "Parent category",
+        "categoryName": "Category name",
+        "categoryId": "Category ID",
+        "changeSubCategory": "Change subcategory",
+        "addSubCategory": "Add subcategory",
+        "addCategory": "Add category",
+        "confirmDeleteTitle": "Are you sure you want to delete category ",
+        "confirmDeleteContent": "You will not be able to recover this category"
     },
     "buttons": {
         "all": "All",
@@ -40,7 +55,17 @@
         "products": "All Products",
         "category": "Category",
         "new": "New",
-        "bestsellers": "Bestsellers"
+        "bestsellers": "Bestsellers",
+        "edit": "Edit",
+        "delete": "Delete",
+        "save": "Save",
+        "cancel": "Cancel",
+        "ra": {
+            "action": {
+                "cancel": "Cancel",
+                "confirm": "Confirm"
+            }
+        }
     },
     "products": {
         "title": "Title",
@@ -49,7 +74,51 @@
         "bestseller": "HIT",
         "sale": "SALE",
         "new": "NEW",
-        "noRating": "No rating"
+        "noRating": "No rating",
+        "quantity": "Quantity",
+        "grand": "grand"
+    },
+    "product": {
+        "title": "Title",
+        "price": "Price",
+        "description": "Description",
+        "color": "Color",
+        "size": "Size",
+        "currency": "Currency",
+        "discountPercent": "Discount percent",
+        "rating": "Rating",
+        "reviews": "Reviews",
+        "quantity": "Quantity",
+        "stock": "Stock",
+        "brand": "Brand",
+        "category": "Category",
+        "inStock": "In stock",
+        "onSale": "On sale",
+        "onTop": "On top",
+        "characteristics": "Characteristics",
+        "orders": "Orders",
+        "images": "Images",
+        "thumbnail": "Thumbnail",
+        "mainInfo": "Main info",
+        "status": "Status",
+        "addImage": "Drop some pictures to upload, or click to select one."
+    },
+    "characteristics": {
+        "brandName": "Brand name",
+        "origin": "Origin",
+        "material": "Material",
+        "gender": "Gender",
+        "style": "Style",
+        "fabricTexture": "Fabric texture",
+        "productType": "Product type",
+        "decorativeElements": "Decorative elements",
+        "fit": "Fit",
+        "length": "Length",
+        "fabricDensity": "Fabric density",
+        "zipperType": "Zipper type",
+        "fitType": "Fit type",
+        "unitOfMeasurement": "Unit of measurement",
+        "quantity": "Quantity"
     },
     "category": {
         "category": "Category",
@@ -86,5 +155,37 @@
         "longsleeves": "Лонгсливы",
         "leggings": "Leggings",
         "breeches": "Breeches"
+    },
+    "genders": {
+        "male": "Male",
+        "female": "Female",
+        "unisex": "Unisex"
+    },
+    "colors": {
+        "black": "black",
+        "white": "white",
+        "red": "red",
+        "green": "green",
+        "blue": "blue",
+        "yellow": "yellow",
+        "pink": "pink",
+        "purple": "purple",
+        "orange": "orange",
+        "gray": "gray",
+        "brown": "brown",
+        "cyan": "cyan",
+        "lime": "lime",
+        "magenta": "magenta",
+        "skyblue": "sky blue",
+        "olive": "olive",
+        "lavender": "lavender",
+        "navy": "navy",
+        "darkgreen": "dark green",
+        "darkred": "dark red",
+        "darkgray": "dark gray",
+        "lightgray": "light gray",
+        "lightyellow": "light yellow",
+        "lightgreen": "light green",
+        "lightblue": "light blue"
     }
 }

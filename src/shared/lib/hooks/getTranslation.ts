@@ -13,10 +13,7 @@ const dictionaries: { [key: string]: TranslationDict } = {
     en,
 }
 
-function findValueByKey(
-    obj: TranslationDict,
-    searchKey: string,
-): string | null {
+function findValueByKey(obj: TranslationDict, searchKey: string): string {
     const stack = Object.entries(obj)
 
     while (stack.length > 0) {
@@ -33,7 +30,7 @@ function findValueByKey(
         }
     }
 
-    return null
+    return searchKey
 }
 
 function getDictionaryValue(
@@ -45,7 +42,9 @@ function getDictionaryValue(
 
     for (const k of keys) {
         if (typeof result === 'string') {
-            throw new Error(`Cannot access property ${k} of string`)
+            // throw new Error(`Cannot access property ${k} of string`)
+            console.log(`Cannot access property ${k} of string`)
+            return k
         }
         result = result[k]
     }
@@ -55,24 +54,26 @@ function getDictionaryValue(
 
 export const getTranslation = () // lang: string = 'ru',
 : {
-    t: (key: string) => string | null
+    t: (key: string) => string
     lang: string
     dict: TranslationDict
 } => {
     const lang = 'ru'
     const dict: TranslationDict = dictionaries[lang]
 
-    if (!dict) {
-        throw new Error(`No dictionary found for language: ${lang}`)
-    }
+    // if (!dict) {
+    //     // throw new Error(`No dictionary found for language: ${lang}`)
+    //     console.log(`No dictionary found for language: ${lang}`)
+    //     return ['']
+    // }
 
-    const t = (key: string): string | null => {
+    const t = (key: string): string => {
         const result = getDictionaryValue(key, dict)
 
         if (typeof result === 'string') {
             return result
         } else {
-            return findValueByKey(dict, key)
+            return findValueByKey(dict, key) || key
         }
     }
 

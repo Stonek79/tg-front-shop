@@ -1,3 +1,14 @@
+type Category = {
+    name: string
+    url: string
+    icon: string
+    subcategories?: string[]
+}
+
+type NamedCategory = {
+    [key: string]: Category
+}
+
 export const categoriesList: NamedCategory = {
     all: {
         name: 'All categories',

@@ -1,10 +1,8 @@
-type Category = {
+export type Category = {
+    id: number
     name: string
-    url: string
-    icon: string
-    subcategories?: string[]
-}
-
-type NamedCategory = {
-    [key: string]: Category
+    parentId: number | null
+    children?: Category[]
+    parent?: Category
+    image?: string
 }

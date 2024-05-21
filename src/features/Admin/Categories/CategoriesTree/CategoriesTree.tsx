@@ -19,7 +19,7 @@ interface TreeViewProps<R> {
     getItemLabel?: (item: R) => string
     treeItems: R[]
 }
-export const TreeView = <R extends {}>(props: TreeViewProps<R>) => {
+export const CategoriesTreeView = <R extends {}>(props: TreeViewProps<R>) => {
     const {
         onItemSelectionToggle,
         onItemFocus,

@@ -34,7 +34,8 @@
         "addSubCategory": "Добавить подкатегорию",
         "addCategory": "Добавить категорию",
         "confirmDeleteTitle": "Вы уверены, что хотите удалить категорию ",
-        "confirmDeleteContent": "Вы не сможете восстановить эту категорию"
+        "confirmDeleteContent": "Вы не сможете восстановить эту категорию",
+        "validateName": "Название должно быть уникальным"
     },
     "buttons": {
         "all": "Все",

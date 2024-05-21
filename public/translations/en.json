@@ -34,7 +34,8 @@
         "addSubCategory": "Add subcategory",
         "addCategory": "Add category",
         "confirmDeleteTitle": "Are you sure you want to delete category ",
-        "confirmDeleteContent": "You will not be able to recover this category"
+        "confirmDeleteContent": "You will not be able to recover this category",
+        "validateName": "Name is must be unique"
     },
     "buttons": {
         "all": "All",

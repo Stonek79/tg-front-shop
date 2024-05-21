@@ -17,7 +17,7 @@ import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { sizes } from '@/shared/consts/sizes'
 import { Characteristics } from '../Characteristics/Characteristics'
 import * as React from 'react'
-import { TreeView } from '@/features/Admin/Categories/CategoriesTree/CategoriesTree'
+import { CategoriesTreeView } from '@/features/Admin/Categories/CategoriesTree/CategoriesTree'
 import { Category } from '@/types/categories'
 import { buildCategoriesTree } from '@/shared/lib/helpers/categoriesTreeBuilder'
 
@@ -86,7 +86,7 @@ export const CreateProduct = () => {
                 <TabbedForm.Tab
                     label={`${t('product.category')}/${t('product.color')}/${t('product.size')}`}
                 >
-                    <TreeView
+                    <CategoriesTreeView
                         treeItems={categories as Category[]}
                         getItemId={(item: Category) => item.id.toString()}
                         getItemLabel={(item: Category) => item.name}

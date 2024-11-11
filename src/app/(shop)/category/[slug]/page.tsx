@@ -14,8 +14,7 @@ export default async function Category({
     if (slug === 'all') {
         return (
             <div>
-                <Breadcrumbs startSegment={'category'} />
-
+                <Breadcrumbs />
                 <h2 className={cls.categoryTitle}>{t('category.all')}</h2>
                 <br />
                 <CategoriesPage categories={allCategories} />
@@ -24,7 +23,7 @@ export default async function Category({
     }
     return (
         <div>
-            <Breadcrumbs startSegment={'category'} />
+            <Breadcrumbs />
             <br />
             Здесь будут все товары категории {slug}
         </div>

@@ -1,1 +1,0 @@
-export { AdminDialog } from './Dialog'

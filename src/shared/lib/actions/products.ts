@@ -1,44 +1,49 @@
-import { Product } from '@/types/product'
+import { apiUrl } from '@/shared/lib/actions/dataProviders'
 
 export const getProducts = async (
-    url: string,
-    options?: {
+    resource: string,
+    params?: {
         page?: number
         limit?: number
+        sort?: { field: string; order: string }
         search?: string | undefined
-        store?: RequestCache
+        filter?: Record<string, string>
     },
 ) => {
-    const {
-        page = 0,
-        limit = 10,
-        search = '',
-        store = 'default',
-    } = options || {}
-
-    const res = await fetch(
-        `${url}?skip=${page * limit}&limit=${limit}&search=${search}`,
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            cache: store,
-        },
-    )
-
-    const products: { products: Product[] } = await res.json()
-
-    return products.products
-}
-
-export const getProduct = async (url: string, id: string) => {
-    const res = await fetch(`${url}/${id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
+    const query = new URLSearchParams({
+        filter: params?.filter ? JSON.stringify(params.filter) : '', // параметры фильтрации
+        _sort: params?.sort?.field || '', // поле сортировки
+        _order: params?.sort?.order || '', // порядок сортировки
+        _start: params?.page
+            ? ((params.page - 1) * (params.limit || 10)).toString()
+            : '', // начальный элемент для пагинации
+        _end: params?.page
+            ? (params.page * (params.limit || 10)).toString()
+            : '', // конечный элемент для пагинации
     })
 
-    return await res.json()
+    const url = `${apiUrl}/${resource}?${query.toString()}`
+
+    console.log(url)
+    const res = await fetch(url)
+
+    const data = await res.json()
+
+    const { headers, body } = res
+
+    console.log(data, 'BODY')
+    const count = headers.get('X-Total-Count') || '0'
+    const total = parseInt(count, 10)
+    return { data, total }
+}
+
+export const getProduct = async (source: string, id: string) => {
+    const url = `${apiUrl}/${source}/${id}`
+
+    try {
+        const res = await fetch(url)
+        return await res.json()
+    } catch (e) {
+        console.log('GET PRODUCT ERROR:', e)
+    }
 }

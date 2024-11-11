@@ -3,6 +3,8 @@ import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { allCategories, categoriesList } from '@/shared/consts/categories'
 import Link from 'next/link'
 
+//TODO fix this component
+
 export const MenuContent = () => {
     const { t } = getTranslation()
     const categories = Object.keys(categoriesList)

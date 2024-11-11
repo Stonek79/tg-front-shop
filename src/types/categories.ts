@@ -1,8 +1,12 @@
+import { Product } from '@/types/product'
+
 export type Category = {
     id: number
     name: string
-    parentId: number | null
+    childrenIds: number[]
     children?: Category[]
-    parent?: Category
+    parentIds: number[]
+    parents?: Category[]
     image?: string
+    products: Product[]
 }

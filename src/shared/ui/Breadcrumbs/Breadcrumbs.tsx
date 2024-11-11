@@ -2,40 +2,54 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import cls from './Breadcrumbs.module.scss'
+import cls from './Breadcrumbs.module.css'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 
-export function Breadcrumbs({
-    startSegment = 'products',
-}: {
-    startSegment?: string
-}) {
+type BreadcrumbsProps = {
+    lastItemLabel?: string
+}
+
+export function Breadcrumbs({ lastItemLabel }: BreadcrumbsProps) {
     const pathname = usePathname()
-    const segments = pathname.replace('/', '').split('/').slice(1)
     const { t } = getTranslation()
 
-    const mapSegments = (segment: string) => (
-        <li key={segment} className={cls.breadcrumbsItem} aria-current="page">
-            {t(`${startSegment}.${segment}`) ?? segment}
-        </li>
-    )
+    console.log(pathname, 'pathname')
+    // Разбиваем путь на части и создаем массив объектов
+    const paths = pathname
+        .split('/')
+        .filter(Boolean)
+        .map((part, index, array) => {
+            const href = '/' + array.slice(0, index + 1).join('/')
+            return { label: part, href }
+        })
+
+    // Если путей больше двух, скрываем начальные, оставляя последние два
+    const visiblePaths = paths.length > 2 ? paths.slice(-2) : paths
 
     return (
-        <nav className={cls.breadcrumbsContainer} aria-label="Breadcrumb">
-            <ul className={cls.breadcrumbsList}>
-                <li className={cls.breadcrumbsItem}>
-                    <Link href={`/`}>{t('buttons.home')}</Link>
-                </li>
-                <li
-                    className={cls.breadcrumbsItem}
-                    aria-current={segments.length ? undefined : 'page'}
-                >
-                    <Link href={`/${startSegment}`}>
-                        {t(`buttons.${startSegment}`)}
-                    </Link>
-                </li>
-                {segments.length <= 0 ? null : segments.map(mapSegments)}
-            </ul>
+        <nav aria-label="breadcrumb" className={cls.breadcrumbs}>
+            <ol className={cls.breadcrumbList}>
+                {paths.length > 2 && (
+                    <li className={cls.breadcrumbEllipsis}>...</li>
+                )}
+                {visiblePaths.map((path, index) => (
+                    <li key={index} className={cls.breadcrumbItem}>
+                        {index > 0 && <span className={cls.separator}>•</span>}
+                        {index < visiblePaths.length - 1 ? (
+                            <Link
+                                className={cls.breadcrumbLink}
+                                href={path.href}
+                            >
+                                {t(path.label)}
+                            </Link>
+                        ) : (
+                            <span className={cls.breadcrumbCurrent}>
+                                {t(lastItemLabel || path.label)}
+                            </span>
+                        )}
+                    </li>
+                ))}
+            </ol>
         </nav>
     )
 }

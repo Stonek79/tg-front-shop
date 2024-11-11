@@ -1,127 +1,89 @@
-import { DataProvider, fetchUtils } from 'react-admin'
-import { stringify } from 'query-string'
+import { fetchUtils } from 'react-admin'
+import simpleRestProvider from 'ra-data-simple-rest'
 
-const apiUrl = 'http://localhost:4200'
-const httpClient = fetchUtils.fetchJson
+export const apiUrl = 'http://localhost:4200' // TODO: move to .env
 
-export const DataProviders: DataProvider = {
-    getList: async (resource, params) => {
-        const { page, perPage } = params.pagination
-        const { field, order } = params.sort
-        const query = {
-            sort: JSON.stringify([field, order]),
-            range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-            filter: JSON.stringify(params.filter),
-        }
+export const dataProvider = simpleRestProvider(apiUrl)
 
-        const url = `${apiUrl}/${resource}?skip=${(page - 1) * perPage}&limit=${perPage}&search=${query.filter}`
+dataProvider.getOne = async (resource, params) => {
+    const url = `${apiUrl}/${resource}/${params.id}`
 
-        const res = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            cache: 'default',
-        })
+    const res = await fetchUtils.fetchJson(url, {
+        method: 'GET',
+    })
 
-        const list = await res.json()
+    const contentType = res.headers.get('Content-Type')
 
-        return { data: list[`${resource}`], total: list.total }
-    },
+    if (contentType && contentType.includes('image/jpeg')) {
+        const name = res.headers.get('X-Additional-Data') || ''
 
-    getOne: async (resource, params) => {
-        const url = `${apiUrl}/${resource}/${params.id}`
-        const res = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            cache: 'default',
-        })
+        return { data: JSON.parse(name) }
+    }
 
-        const data = await res.json()
-        return { data }
-    },
+    return { data: res.json }
+}
 
-    getMany: async (resource, params) => {
-        const query = {
-            filter: JSON.stringify({ ids: params.ids }),
-        }
-        const url = `${apiUrl}/${resource}?${stringify(query)}`
+dataProvider.getList = async (resource, params = {}) => {
+    const query = new URLSearchParams({
+        ...params.filter, // параметры фильтрации
+        _sort: params.sort?.field || '', // поле сортировки
+        _order: params.sort?.order || '', // порядок сортировки
+        _start:
+            ((params?.pagination?.page || 1) - 1) *
+            (params?.pagination?.perPage || 100), // начальный элемент для пагинации
+        _end:
+            (params?.pagination?.page || 1) *
+            (params?.pagination?.perPage || 100), // конечный элемент для пагинации
+    } as Record<string, string>) // Преобразуем все значения в строки
 
-        const { json } = await httpClient(url)
-        return { data: json }
-    },
+    const url = `${apiUrl}/${resource}?${query.toString()}`
 
-    getManyReference: async (resource, params) => {
-        const { page, perPage } = params.pagination
-        const { field, order } = params.sort
-        const query = {
-            sort: JSON.stringify([field, order]),
-            range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
-            filter: JSON.stringify({
-                ...params.filter,
-                [params.target]: params.id,
-            }),
-        }
-        const url = `${apiUrl}/${resource}?${stringify(query)}`
-        const { json, headers } = await httpClient(url)
-        return {
-            data: json,
-            total: parseInt(
-                headers!.get('content-range')!.split('/').pop()!,
-                10,
-            ),
-        }
-    },
+    const res = await fetchUtils.fetchJson(url, {
+        method: 'GET',
+    })
 
-    create: async (resource, params) => {
-        console.log(params, 'params')
-        const { json } = await httpClient(`${apiUrl}/${resource}`, {
-            method: 'POST',
-            body: JSON.stringify(params.data),
-        })
-        return { data: json }
-    },
+    const { json, headers, body } = res
 
-    update: async (resource, params) => {
-        const url = `${apiUrl}/${resource}/${params.id}`
-        const { json } = await httpClient(url, {
-            method: 'PUT',
-            body: JSON.stringify(params.data),
-        })
-        return { data: json }
-    },
+    const count = headers.get('X-Total-Count') || '0'
+    const total = parseInt(count, 10)
+    const data = JSON.parse(body)
 
-    updateMany: async (resource, params) => {
-        const query = {
-            filter: JSON.stringify({ id: params.ids }),
-        }
-        const url = `${apiUrl}/${resource}?${stringify(query)}`
-        const { json } = await httpClient(url, {
-            method: 'PUT',
-            body: JSON.stringify(params.data),
-        })
-        return { data: json }
-    },
+    console.log(json, total, 'JSON')
+    console.log(JSON.parse(body), 'BODY')
+    return { data, total }
+}
 
-    delete: async (resource, params) => {
-        const url = `${apiUrl}/${resource}/${params.id}`
-        const { json } = await httpClient(url, {
-            method: 'DELETE',
-        })
-        return { data: json }
-    },
+dataProvider.update = async (resource, params) => {
+    let newdata
 
-    deleteMany: async (resource, params) => {
-        const query = {
-            filter: JSON.stringify({ id: params.ids }),
-        }
-        const url = `${apiUrl}/${resource}?${stringify(query)}`
-        const { json } = await httpClient(url, {
-            method: 'DELETE',
-            body: JSON.stringify(params),
-        })
-        return { data: json }
-    },
+    if (params.data instanceof FormData) {
+        newdata = params.data
+    } else {
+        newdata = JSON.stringify(params.data)
+    }
+
+    const url = `${apiUrl}/${resource}/${params.id}`
+    const { json } = await fetchUtils.fetchJson(url, {
+        method: 'PATCH',
+        body: newdata,
+    })
+    return { data: json }
+}
+
+dataProvider.create = async (resource, params) => {
+    let newdata
+
+    if (params.data instanceof FormData) {
+        newdata = params.data
+    } else {
+        newdata = JSON.stringify(params.data)
+    }
+    const url = `${apiUrl}/${resource}`
+
+    const { json } = await fetchUtils.fetchJson(url, {
+        method: 'POST',
+        body: newdata,
+    })
+
+    return { data: json }
 }

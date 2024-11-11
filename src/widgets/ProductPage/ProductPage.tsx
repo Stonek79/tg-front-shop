@@ -14,25 +14,22 @@ import {
 import { EmblaOptionsType } from 'embla-carousel'
 import { CarouselComponent } from '@/features/Carousel'
 
-interface ProductItemProps {
-    product: Product
-    className?: string
-}
-
 const OPTIONS: EmblaOptionsType = { loop: true }
 
 // eslint-disable-next-line react/display-name
-export const ProductPage = memo(({ product, className }: ProductItemProps) => {
-    const cn = classNames(cls.productItem, {}, [className])
+export const ProductPage = memo(({ product }: { product: Product }) => {
+    const cn = classNames(cls.productItem, {}, [])
+    if (!product) return null
+
     return (
         <div className={cn}>
-            <Breadcrumbs />
+            <Breadcrumbs lastItemLabel={product.title} />
             <div className={cls.productWrapper}>
                 <section className={cls.imageContainer}>
                     <div>
-                        {product.images && (
+                        {product?.images && (
                             <CarouselComponent
-                                slides={product.images}
+                                slides={product.images as string[]}
                                 options={OPTIONS}
                                 direction="left"
                                 hasImageDialog

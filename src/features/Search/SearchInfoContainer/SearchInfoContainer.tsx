@@ -1,61 +1,39 @@
 'use client'
 
 import cls from './SearchInfoContainer.module.css'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { getTranslation } from '@/shared/lib/hooks/getTranslation'
 import { useInView } from 'react-intersection-observer'
-import useSWRInfinite from 'swr/infinite'
-import { productsUrl } from '@/shared/consts/products'
-import { fetcher } from '@/shared/lib/api/fetcher'
-import { Product } from '@/types/product'
-
-const limit = 10
+import { useGetProducts } from '@/shared/lib/hooks/useGetProducts'
 
 export const SearchInfoContainer = ({ query = '' }: { query?: string }) => {
     const { t } = getTranslation()
 
-    const [products, setProducts] = useState<Product[]>([])
-    const [canTrigger, setCanTrigger] = useState(true)
-    const { ref, inView, entry } = useInView({
+    const { ref, inView } = useInView({
         trackVisibility: true,
         delay: 100,
-        fallbackInView: true,
     })
 
-    const { data, size, setSize, isLoading } = useSWRInfinite(
-        (index) =>
-            `${productsUrl}/search?q=${query}&limit=${limit}&skip=${index * limit}`,
-        fetcher,
-        {
-            parallel: true,
-            revalidateOnFocus: false,
-            revalidateAll: false,
-            revalidateOnMount: false,
-        },
+    const { products, setSize, isLoading, total } = useGetProducts(
+        { products: [], total: 10 },
+        4,
+        { title: query, description: query },
     )
 
     useEffect(() => {
-        if (!isLoading && data) {
-            const newProducts = data.flatMap(
-                ({ products }: { products: Product[] }) => products,
-            )
-            if (data[0].total === newProducts.length) {
-                setCanTrigger(false)
-            }
-            setProducts(newProducts)
-        }
-    }, [data, isLoading])
+        if (!isLoading && inView && products.length < total) {
+            const timeout = setTimeout(async () => {
+                await setSize((prevSize) => prevSize + 1)
+            }, 200)
 
-    useEffect(() => {
-        if (inView) {
-            setSize(size + 1)
+            return () => clearTimeout(timeout)
         }
-    }, [inView])
+    }, [inView, products.length, total, setSize, isLoading])
 
-    // TODO Add skeleton loader
+    // TODO: add good loader
     if (isLoading) {
-        return <h3>Loading...</h3>
+        return <p>Loading...</p>
     }
 
     if (!query) {
@@ -81,9 +59,9 @@ export const SearchInfoContainer = ({ query = '' }: { query?: string }) => {
                         </div>
                     )}
                 </ul>
-                {canTrigger && (
-                    <div className={cls.searchTrigger} ref={ref}>
-                        {entry?.isIntersecting}
+                {products.length < total && (
+                    <div className={cls.trigger} ref={ref}>
+                        {isLoading && <p>Loading more...</p>}
                     </div>
                 )}
             </div>

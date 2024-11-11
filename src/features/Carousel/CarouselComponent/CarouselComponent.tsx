@@ -15,6 +15,7 @@ import Image from 'next/image'
 import cls from './CarouselComponent.module.css'
 import { Dialog } from '@/shared/ui/Dialog'
 import { Button } from '@/shared/ui/Button'
+import { imagesUrl } from '@/shared/consts/urls'
 
 type ViewportSize = 100 | 200 | 300 | 400 | 500 | 600 | 700
 type Direction = 'left' | 'right' | 'top' | 'bottom'
@@ -49,6 +50,7 @@ export const CarouselComponent = (props: PropType) => {
         dotButtonSize = 16,
         options,
     } = props
+
     const [isOpenDialog, setIsOpenDialog] = useState(false)
     const [selectedThumbIndex, setSelectedThumbIndex] = useState(0)
     const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
@@ -99,11 +101,12 @@ export const CarouselComponent = (props: PropType) => {
                     isModal
                 >
                     <Image
-                        src={slides[selectedIndex]}
+                        src={`${imagesUrl}${slides[selectedIndex]}`}
                         alt={slides[selectedIndex]}
                         width={viewportSize}
                         height={viewportSize}
                         className={cls.dialogImage}
+                        priority
                     />
                 </Dialog>
             )}
@@ -121,13 +124,14 @@ export const CarouselComponent = (props: PropType) => {
                                 variant="clear"
                                 onClick={() => setIsOpenDialog((prev) => !prev)}
                             >
-                                <div className={cls.slideItem}>
-                                    <img
-                                        src={slide}
-                                        alt={slide}
-                                        className={cls.slideImage}
-                                    />
-                                </div>
+                                <Image
+                                    src={`${imagesUrl}${slide}`}
+                                    alt={slide}
+                                    width={viewportSize}
+                                    height={viewportSize}
+                                    className={cls.slideImage}
+                                    priority
+                                />
                             </Button>
                         ))}
                     </div>
@@ -171,7 +175,7 @@ export const CarouselComponent = (props: PropType) => {
                             >
                                 {slides.map((slide, index) => (
                                     <ThumbButtons
-                                        slide={slide}
+                                        slide={`${imagesUrl}${slide}`}
                                         key={index}
                                         onClick={() => onThumbClick(index)}
                                         selected={index === selectedThumbIndex}

@@ -1,34 +1,50 @@
 'use client'
 
 import cls from './ProductsList.module.css'
-import React, { memo, Suspense, useEffect, useState } from 'react'
+import React, { memo, Suspense, useEffect } from 'react'
 import { ProductPreview } from '@/features/ProductItem'
 import { Product } from '@/types/product'
-import { productsUrl } from '@/shared/consts/products'
 import { useInView } from 'react-intersection-observer'
-import { fetcher } from '@/shared/lib/api/fetcher'
-import useSWRInfinite from 'swr/infinite'
-import { useRouter } from 'next/navigation'
-import { useWebApp } from '@vkruglikov/react-telegram-web-app'
 import { useCurrentScrollPosition } from '@/shared/lib/hooks/useCurrentScrollPosition'
 import { Breadcrumbs } from '@/shared/ui/Breadcrumbs'
+import { useGetProducts } from '@/shared/lib/hooks/useGetProducts'
 
 const scrollPositionName = 'productsListScrollPosition'
 
+const isDaysPassed = (dateString = '', days = 15) => {
+    const date = new Date(dateString)
+    const now = new Date()
+    const diff = now.getTime() - date.getTime()
+    const passedDays = Math.floor(diff / (1000 * 60 * 60 * 24))
+    return passedDays >= days
+}
+
 interface ProductsListProps {
-    products?: Product[]
-    search?: string | undefined
+    products: Product[]
     limit?: number
+    sort?: { field: string; order: string }
+    filter?: Record<string, string>
+    total: number
 }
 
 // eslint-disable-next-line react/display-name
 export const ProductsList = memo((props: ProductsListProps) => {
-    const { products: initialProducts, search = '', limit = 10 } = props
-    const tg = useWebApp()
-    const router = useRouter()
-    const [products, setProducts] = useState(initialProducts)
-    const [canTrigger, setCanTrigger] = useState(true)
-    const [ref, inView, entry] = useInView({
+    const {
+        products: initialProducts,
+        sort,
+        filter = {},
+        limit = 10,
+        total: totalProducts,
+    } = props
+
+    const { products, setSize, isLoading, total } = useGetProducts(
+        { products: initialProducts, total: totalProducts },
+        limit,
+        filter,
+        sort,
+    )
+
+    const { ref, inView } = useInView({
         trackVisibility: true,
         delay: 100,
     })
@@ -42,44 +58,20 @@ export const ProductsList = memo((props: ProductsListProps) => {
         }
     }, [])
 
-    const { data, size, setSize, isLoading } = useSWRInfinite(
-        (index) =>
-            `${productsUrl}?q=${search}&limit=${limit}&skip=${index * limit}`,
-        fetcher,
-        {
-            parallel: true,
-            revalidateOnFocus: false,
-            revalidateAll: false,
-            revalidateOnMount: false,
-        },
-    )
-
     useEffect(() => {
-        if (tg?.platform !== 'unknown') {
-            tg.onEvent('mainButtonClicked', () => router.push('/cart'))
-            return () => {
-                tg.offEvent('mainButtonClicked', () => router.push('/cart'))
-            }
-        }
-    }, [])
+        if (!isLoading && inView && products.length < total) {
+            const timeout = setTimeout(async () => {
+                await setSize((prevSize) => prevSize + 1)
+            }, 200)
 
-    useEffect(() => {
-        if (!isLoading && data) {
-            const newProducts = data.flatMap(
-                ({ products }: { products: Product[] }) => products,
-            )
-            if (data[0].total === newProducts.length) {
-                setCanTrigger(false)
-            }
-            setProducts(newProducts)
+            return () => clearTimeout(timeout)
         }
-    }, [data, isLoading])
+    }, [inView, products.length, total, setSize, isLoading])
 
-    useEffect(() => {
-        if (inView) {
-            setSize(size + 1)
-        }
-    }, [inView])
+    // TODO: add good loader
+    if (isLoading) {
+        return <p>Loading...</p>
+    }
 
     return (
         <div className={cls.wrapper}>
@@ -87,24 +79,25 @@ export const ProductsList = memo((props: ProductsListProps) => {
             <Suspense fallback={<div>Loading...</div>}>
                 <ul className={cls.list}>
                     {products?.map((item) => {
-                        const isNew = Number(item.id) <= 8
-                        const isSale = !isNew && item.discountPercentage! >= 15
-                        const isHit = !isNew && item.rating! >= 4.5
+                        const isNew = isDaysPassed(item?.createdAt, 10)
+                        const isSale = !!item?.onSale
+                        const isHit =
+                            !isNew && item?.rating && item.rating >= 4.5
                         return (
                             <ProductPreview
                                 key={item.id}
                                 product={item}
                                 className={cls.item}
                                 isNew={isNew}
-                                isHit={isHit}
+                                isHit={!!isHit}
                                 isSale={isSale}
                             />
                         )
                     })}
                 </ul>
-                {canTrigger && (
+                {products.length < total && (
                     <div className={cls.trigger} ref={ref}>
-                        {entry?.isIntersecting}
+                        {isLoading && <p>Loading more...</p>}
                     </div>
                 )}
             </Suspense>

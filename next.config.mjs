@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    transpilePackages: ['mui-color-input'],
     images: {
         remotePatterns: [
             {
@@ -7,6 +8,12 @@ const nextConfig = {
                 hostname: 'cdn.dummyjson.com',
                 port: '',
                 pathname: '/**/**',
+            },
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '4200',
+                pathname: '/images/**/**',
             },
         ],
     },

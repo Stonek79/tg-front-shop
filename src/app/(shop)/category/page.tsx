@@ -9,8 +9,7 @@ export default async function Categories() {
 
     return (
         <div>
-            <Breadcrumbs startSegment={'category'} />
-
+            <Breadcrumbs />
             <h2 className={cls.categoryTitle}>{t('category.category')}</h2>
             <br />
             <CategoriesPage categories={categoriesList} />

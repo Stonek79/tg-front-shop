@@ -15,7 +15,9 @@
         "users": "Клиенты",
         "comments": "Комментарии",
         "categories": "Категории",
-        "categoryBlockTitle": "Категории товаров"
+        "categoryBlockTitle": "Категории товаров",
+        "images": "Изображения",
+        "banner": "Баннер"
     },
     "adminPanelTitles": {
         "goods": "товары",
@@ -25,17 +27,39 @@
     },
     "adminCategories": {
         "currentCategories": "Текущие категории",
+        "newCategory": "Новая категория",
         "newSubCategory": "Новая подкатегория",
         "selectedCategory": "Выбранная категория",
-        "parentCategory": "Родительская категория",
+        "parentCategory": "Родительские категории",
+        "childrenCategories": "Дочерние категории",
+        "noParent": "Нет родительской категории",
         "categoryName": "Название категории",
+        "subCategories": "Подкатегории",
+        "noSubCategories": "Нет подкатегорий",
         "categoryId": "ID категории",
+        "categoryProducts": "Товары категории",
+        "totalProducts": "Всего товаров этой категории",
+        "noProducts": "Нет товаров в этой категории",
         "changeSubCategory": "Изменить подкатегорию",
         "addSubCategory": "Добавить подкатегорию",
         "addCategory": "Добавить категорию",
+        "editCategory": "Редактировать категорию",
         "confirmDeleteTitle": "Вы уверены, что хотите удалить категорию ",
         "confirmDeleteContent": "Вы не сможете восстановить эту категорию",
-        "validateName": "Название должно быть уникальным"
+        "validateName": "Название должно быть уникальным",
+        "noCategories": "Нет выбранных категорий",
+        "addImage": "Кликни для выбора изображения",
+        "images": "Изображения",
+        "errors": {
+            "hasProducts": "Вы не можете удалить эту категорию, так как она используется в товаре с id: ",
+            "hasSubCategories": "Вы не можете удалить эту категорию, так как она содержит подкатегории: ",
+            "parentRequired": "Выберите родительскую категорию"
+        }
+    },
+    "adminColorsAndSizes": {
+        "deleteColor": "Удалить цвет",
+        "deleteSize": "Удалить размер",
+        "confirmDeleteTitle": "Вы уверены, что хотите удалить "
     },
     "buttons": {
         "all": "Все",
@@ -46,10 +70,15 @@
         "catalog": "Каталог",
         "more": "Еще",
         "back": "Назад",
+        "addThumbnail": "Добавить обложку",
+        "addImages": "Добавить изображения",
+        "addImage": "Добавить изображение",
         "addToCart": "Добавить в корзину",
         "removeFromCart": "Удалить из корзины",
         "addToFavorites": "Добавить в избранное",
         "removeFromFavorites": "Удалить из избранного",
+        "addColor": "Добавить цвет",
+        "addSize": "Добавить размер",
         "search": "Поиск",
         "close": "Закрыть",
         "clear": "Очистить",
@@ -61,12 +90,39 @@
         "delete": "Удалить",
         "save": "Сохранить",
         "cancel": "Отменить",
+        "yes": "Да",
+        "no": "Нет",
         "ra": {
             "action": {
                 "cancel": "Отменить",
                 "confirm": "Подтвердить"
             }
         }
+    },
+    "banner": {
+        "onBanner": "Включить баннер",
+        "bannerText": "Текст баннера",
+        "bannerImage": "Изображение баннера",
+        "bannerHeight": "Высота баннера",
+        "bannerLinkOn": "Включить ссылку баннера",
+        "bannerColor": "Цвет баннера",
+        "bannerLink": "Ссылка баннера",
+        "letterSpacing": "Расстояние между буквами",
+        "fontName": "Шрифт",
+        "bannerTextPositionHorizontal": "Позиция текста баннера по горизонтали",
+        "bannerTextPositionVertical": "Позиция текста баннера по вертикали",
+        "preview": "Предварительный просмотр",
+        "createSuccess": "Баннер успешно создан",
+        "createError": "Произошла ошибка при создании баннера",
+        "editSuccess": "Баннер успешно отредактирован",
+        "editError": "Произошла ошибка при редактировании баннера",
+        "bannersList": "Список баннеров",
+        "bannerCreate": "Создать баннер",
+        "bannerEdit": "Редактировать баннер",
+        "bannerDelete": "Удалить баннер",
+        "bannerDeleteConfirm": "Вы уверены, что хотите удалить баннер?",
+        "bannerDeleteSuccess": "Баннер успешно удален",
+        "bannerDeleteError": "Произошла ошибка при удалении баннера"
     },
     "products": {
         "title": "Заголовок",
@@ -80,18 +136,22 @@
         "grand": "шт."
     },
     "product": {
+        "productName": "Название товара",
         "title": "Заголовок",
+        "name": "Название",
         "price": "Цена",
         "description": "Описание",
         "color": "Цвет",
         "size": "Размер",
         "currency": "Валюта",
-        "discountPercent": "Скидка",
+        "discountPercentage": "Скидка",
+        "weight": "Вес",
+        "priceWithDiscount": "Цена со скидкой",
+        "colorAndSizeStock": "Цвет и размер",
         "rating": "Рейтинг",
         "reviews": "Отзывы",
         "quantity": "Количество",
         "stock": "Остаток",
-        "brand": "Брэнд",
         "category": "Категория",
         "inStock": "В наличии",
         "onSale": "Распродажа",
@@ -102,7 +162,8 @@
         "thumbnail": "Обложка",
         "mainInfo": "Основная информация",
         "status": "Статус",
-        "addImage": "Вставь ссылку на картинку или кликни для выбора"
+        "addImage": "Кликни для выбора изображения",
+        "noReviews": "Нет отзывов"
     },
     "characteristics": {
         "brandName": "Название брэнда",
@@ -189,5 +250,26 @@
         "lightyellow": "светло-желтый",
         "lightgreen": "светло-зеленый",
         "lightblue": "светло-синий"
+    },
+    "errors": {
+        "colorAndSizeRequired": "Цвет и размер обязательны",
+        "categoryRequired": "Категория обязательна",
+        "imageRequired": "Минимум одно изображение обязательно",
+        "imageTitleExists": "Изображение с таким названием уже существует",
+        "colorRequired": "Цвет обязателен",
+        "sizeRequired": "Размер обязателен",
+        "imageColorRequired": "Изображение обязательно",
+        "imageTitleMinLength": "Название должно содержать не менее 5 символов",
+        "imageTitleMaxLength": "Название должно содержать не более 25 символов",
+        "categoryNameRequired": "Название категории обязательно",
+        "categoryExists": "Категория с таким названием уже существует",
+        "categoryNamesError": "Ошибка при получении категорий с сервера",
+        "addProductName": "Нужно добавить название продукта",
+        "titleExists": "Такое название уже существует",
+        "tabsDisabled": "Без корректного названия продукта вкладки неактивны",
+        "required": "Поле обязательно"
+    },
+    "warnings": {
+        "copied": "Имя файла скопировано в буфер обмена"
     }
 }

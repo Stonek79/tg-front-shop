@@ -13,6 +13,9 @@ export const HeaderCartIcon = () => {
     const tg = useWebApp()
 
     useEffect(() => {
+        if (!tg) {
+            return
+        }
         if (tg?.platform === 'unknown') {
             return
         }

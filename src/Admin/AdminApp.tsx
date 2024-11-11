@@ -33,6 +33,7 @@ export default function AdminApp() {
     const { fetchCategories } = useCategoriesStore()
 
     // TODO think about rehydrate update in useNamesStore and useCategoriesStore and what about rerenders
+
     useEffect(() => {
         fetchNames(`${imagesUrl}names`)
         fetchNames(`${apiUrl}/categories/names`)
